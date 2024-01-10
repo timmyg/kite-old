@@ -1,5 +1,5 @@
 import Image from "next/image";
-import TestimonialsAvatars from "./TestimonialsAvatars";
+// import TestimonialsAvatars from "./TestimonialsAvatars";
 import config from "@/config";
 
 const Hero = () => {
@@ -10,8 +10,8 @@ const Hero = () => {
           Newsletters in your podcast feed
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          {config.appName} converts any email newsletter into a podcast feed
-          just for you
+          {config.appName} puts any email newsletter into your podcast feed,
+          automatically
         </p>
         <button className="btn btn-primary btn-wide">
           Get {config.appName}
@@ -21,7 +21,8 @@ const Hero = () => {
       </div>
       <div className="lg:w-full">
         <Image
-          src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
+          // src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
+          src="/landing/working-listening.png"
           alt="Product Demo"
           className="w-full"
           priority={true}
