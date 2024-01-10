@@ -18,10 +18,10 @@ dependencies:
     specifier: ^13.4.19
     version: 13.5.6(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
   '@supabase/auth-helpers-nextjs':
-    specifier: ^0.8.1
+    specifier: ^0.8.7
     version: 0.8.7(@supabase/supabase-js@2.39.2)
   '@supabase/supabase-js':
-    specifier: ^2.38.3
+    specifier: ^2.39.2
     version: 2.39.2
   axios:
     specifier: ^1.4.0
