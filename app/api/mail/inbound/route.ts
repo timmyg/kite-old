@@ -6,12 +6,9 @@ import {
 
 export async function POST(req: NextRequest) {
   try {
-    console.log(req.headers);
-    console.log(req.body);
-    const {
-      // email: { attachments, envelope, headers, message, references, ...mail },
-      email,
-    } = await parseEmail(req);
+    const headers = Object.fromEntries(req.headers.entries());
+    const rawReq = { ...req, headers };
+    const { email } = await parseEmail(rawReq);
     console.log({ email });
     return NextResponse.json({ message: "excellent!" });
   } catch (error) {
