@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  console.info("Received an inbound email!", req.body);
+  const body = await new Response(req.body).text();
+  console.info("Received an inbound email!", body);
   return NextResponse.json({ message: "excellent!" });
 }
