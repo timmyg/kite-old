@@ -1,18 +1,23 @@
-import { NextRequest, NextResponse } from "next/server";
-import {
-  parseEmail,
-  storeAttachment,
-} from "@feryardiant/sendgrid-inbound-parser";
+import { NextResponse } from "next/server";
+import formidable from "formidable";
+import { NextApiRequest, NextApiResponse } from "next";
+// import {
+//   parseEmail,
+//   storeAttachment,
+// } from "@feryardiant/sendgrid-inbound-parser";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextApiRequest) {
   try {
-    // const headers = Object.fromEntries(req.headers.entries());
-    // const rawReq = { ...req, headers };
-    // const { email } = await parseEmail(rawReq);
-    const body = await req.text();
-    const headers = Object.fromEntries(req.headers.entries());
-    console.log({ body, headers });
-    return NextResponse.json({ message: "excellent!" });
+    const form = new formidable.IncomingForm();
+    form.parse(req, (err: any, fields: any, files: any) => {
+      if (err) {
+        console.error(err);
+        return NextResponse.json({ message: "failde!" });
+      }
+      console.log({ fields, files });
+      return NextResponse.json({ message: "excellent!" });
+    });
+    // return NextResponse.json({ message: "excellent!" });
   } catch (error) {
     console.error({ error });
     return NextResponse.json({ message: "failed" });
