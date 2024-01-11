@@ -21,7 +21,8 @@ export async function POST(req: Request) {
     let formData = await req.formData();
     let requestBody = Object.fromEntries(formData);
     let keys = Object.keys(formData);
-    console.log({ keys, requestBody });
+    console.log({ keys });
+    console.log({ requestBody });
     // const supabase = createRouteHandlerClient({ cookies });
     // await supabase.from("leads").insert({ email: body.email });
     // form.parse(req, (err: any, fields: any, files: any) => {
