@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import mailparser from "mailparser";
+
+const simpleParser = mailparser.simpleParser;
 
 export async function POST(req: Request) {
   try {
@@ -26,6 +29,9 @@ export async function POST(req: Request) {
       subject,
       envelope,
     });
+
+    let parsed = await simpleParser(email.toString());
+    console.log({ parsed });
 
     // console.log({ requestBody });
     return NextResponse.json({ message: "excellent!" });

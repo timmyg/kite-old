@@ -44,6 +44,9 @@ dependencies:
   mailgun.js:
     specifier: ^9.2.1
     version: 9.4.1
+  mailparser:
+    specifier: ^3.6.6
+    version: 3.6.6
   next:
     specifier: ^14.0.0
     version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
@@ -85,6 +88,9 @@ devDependencies:
   '@types/jest':
     specifier: ^29.5.4
     version: 29.5.11
+  '@types/mailparser':
+    specifier: ^3.4.4
+    version: 3.4.4
   '@types/mdx':
     specifier: ^2.0.7
     version: 2.0.10
@@ -716,7 +722,6 @@ packages:
     dependencies:
       '@types/node': 20.10.8
       iconv-lite: 0.6.3
-    dev: false
 
   /@types/mdast@3.0.15:
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
@@ -2481,7 +2486,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       safer-buffer: 2.1.2
-    dev: false
 
   /ignore@5.3.0:
     resolution: {integrity: sha512-g7dmpshy+gD7mh88OC9NwSGTKoc3kyLAZQRU1mt53Aw/vnvfXnbC+F/7F7QoYVKbV+KNvJx8wArewKy1vXMtlg==}
@@ -4250,7 +4254,6 @@ packages:
 
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
-    dev: false
 
   /scheduler@0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
