@@ -34,7 +34,9 @@ export async function POST(req: Request) {
     let parsed1 = await simpleParser(email.toString());
     console.log({ parsed1 });
 
-    const parsed2 = new EmailReplyParser().read(email.toString());
+    const parsed2 = new EmailReplyParser()
+      .read(email.toString())
+      .getVisibleText();
     console.log({ parsed2 });
 
     // console.log({ requestBody });
