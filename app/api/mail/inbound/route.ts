@@ -1,5 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
-import formidable from "formidable";
+import { NextResponse } from "next/server";
+// import formidable from "formidable";
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 // export const config = {
 //   api: {
@@ -19,7 +21,9 @@ export async function POST(req: Request) {
     let formData = await req.formData();
     let requestBody = Object.fromEntries(formData);
     let keys = Object.keys(formData);
-    console.log({ requestBody, keys });
+    console.log({ keys, requestBody });
+    // const supabase = createRouteHandlerClient({ cookies });
+    // await supabase.from("leads").insert({ email: body.email });
     // form.parse(req, (err: any, fields: any, files: any) => {
     //   if (err) {
     //     console.error(err);
