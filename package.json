@@ -22,7 +22,6 @@
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "form-data": "^4.0.0",
-    "formidable": "^3.5.1",
     "mailgun.js": "^9.2.1",
     "next": "^14.0.0",
     "next-plausible": "^3.11.3",
@@ -38,7 +37,6 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
-    "@types/formidable": "^3.4.5",
     "@types/jest": "^29.5.4",
     "@types/mdx": "^2.0.7",
     "@types/mongoose": "^5.11.97",
