@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import formidable from "formidable";
 import { NextApiRequest, NextApiResponse } from "next";
 // import {
@@ -6,7 +6,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 //   storeAttachment,
 // } from "@feryardiant/sendgrid-inbound-parser";
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: NextRequest) {
   try {
     const form = new formidable.IncomingForm();
     form.parse(req, (err: any, fields: any, files: any) => {
