@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     // const data = await req.formData();
     let formData = await req.formData();
     let requestBody = Object.fromEntries(formData);
-    let keys = Object.keys(formData);
+    let keys = Object.keys(requestBody);
     console.log({ keys });
     console.log({ requestBody });
     // const supabase = createRouteHandlerClient({ cookies });
