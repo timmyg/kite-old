@@ -12,13 +12,14 @@ import formidable from "formidable";
 //   storeAttachment,
 // } from "@feryardiant/sendgrid-inbound-parser";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
     // const form = new formidable.IncomingForm();
     // const data = await req.formData();
     let formData = await req.formData();
-    let body = Object.fromEntries(formData);
-    console.log({ body });
+    let requestBody = Object.fromEntries(formData);
+    let keys = Object.keys(formData);
+    console.log({ requestBody, keys });
     // form.parse(req, (err: any, fields: any, files: any) => {
     //   if (err) {
     //     console.error(err);
