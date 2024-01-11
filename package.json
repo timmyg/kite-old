@@ -19,6 +19,7 @@
     "@supabase/supabase-js": "^2.39.2",
     "axios": "^1.4.0",
     "crisp-sdk-web": "^1.0.21",
+    "email-reply-parser": "^1.5.4",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "form-data": "^4.0.0",
@@ -38,6 +39,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@types/email-reply-parser": "^1.4.2",
     "@types/jest": "^29.5.4",
     "@types/mailparser": "^3.4.4",
     "@types/mdx": "^2.0.7",
