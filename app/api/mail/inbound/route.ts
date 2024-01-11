@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import formidable from "formidable";
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
 // import { NextApiRequest, NextApiResponse } from "next";
 // import {
 //   parseEmail,
@@ -14,7 +14,7 @@ export const config = {
 
 export async function POST(req: NextRequest) {
   try {
-    const form = new formidable.IncomingForm();
+    // const form = new formidable.IncomingForm();
     // const data = await req.formData();
     let formData = await req.formData();
     let body = Object.fromEntries(formData);
