@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     // const headers = Object.fromEntries(req.headers.entries());
     // const rawReq = { ...req, headers };
     // const { email } = await parseEmail(rawReq);
-    const body = req.text();
+    const body = await req.text();
     const headers = Object.fromEntries(req.headers.entries());
     console.log({ body, headers });
     return NextResponse.json({ message: "excellent!" });
