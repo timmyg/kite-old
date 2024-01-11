@@ -5,10 +5,15 @@ import {
 } from "@feryardiant/sendgrid-inbound-parser";
 
 export async function POST(req: NextRequest) {
-  const {
-    // email: { attachments, envelope, headers, message, references, ...mail },
-    email,
-  } = await parseEmail(req);
-  console.log({ email });
-  return NextResponse.json({ message: "excellent!" });
+  try {
+    const {
+      // email: { attachments, envelope, headers, message, references, ...mail },
+      email,
+    } = await parseEmail(req);
+    console.log({ email });
+    return NextResponse.json({ message: "excellent!" });
+  } catch (error) {
+    console.error({ error });
+    return NextResponse.json({ message: "failed" });
+  }
 }
