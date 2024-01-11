@@ -6,6 +6,8 @@ import {
 
 export async function POST(req: NextRequest) {
   try {
+    console.log(req.headers);
+    console.log(req.body);
     const {
       // email: { attachments, envelope, headers, message, references, ...mail },
       email,
