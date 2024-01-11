@@ -38,6 +38,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@types/formidable": "^3.4.5",
     "@types/jest": "^29.5.4",
     "@types/mdx": "^2.0.7",
     "@types/mongoose": "^5.11.97",
