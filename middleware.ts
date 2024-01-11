@@ -1,3 +1,7 @@
+// export const config = {
+//   runtime: 'nodejs',
+// };
+
 import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
 import { NextResponse } from "next/server";
 
@@ -23,6 +27,7 @@ export async function middleware(req: NextRequest) {
 
 // Ensure the middleware is only called for relevant paths.
 export const config = {
+  runtime: "nodejs",
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
