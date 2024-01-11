@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import sendgridParser from "@sendgrid/inbound-mail-parser";
+import {
+  parseEmail,
+  storeAttachment,
+} from "@feryardiant/sendgrid-inbound-parser";
 
 export async function POST(req: NextRequest) {
-  const body = await new Response(req.body).text();
-  console.info({ body });
-  const parsedEmail = new sendgridParser(
-    { keys: ["from", "to", "subject", "text"] },
-    { body }
-  ).keyValues();
-  //   parsedEmail
-  console.info("Received an inbound email!", { parsedEmail });
+  const {
+    // email: { attachments, envelope, headers, message, references, ...mail },
+    email,
+  } = await parseEmail(req);
+  console.log({ email });
   return NextResponse.json({ message: "excellent!" });
 }
