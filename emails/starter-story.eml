@@ -1,0 +1,1906 @@
+Delivered-To: timmyg13@gmail.com
+Received: by 2002:a05:6022:5206:b0:4b:eb:35ff with SMTP id w6csp1137570law;
+        Wed, 10 Jan 2024 10:03:44 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHGabgnxIrZCpD7v3FFvcyV70tXBC1xm0NAejv25OZuYt7CxaXmQIFeySx8JUuloSXSrNS7
+X-Received: by 2002:a05:6808:2f1a:b0:3bd:4d26:2f65 with SMTP id gu26-20020a0568082f1a00b003bd4d262f65mr10774oib.39.1704909823915;
+        Wed, 10 Jan 2024 10:03:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1704909823; cv=none;
+        d=google.com; s=arc-20160816;
+        b=LPHPZP2P3IJOq3tq51Ik7EQuB3ba7L9xvfpfOSq9rpNe2j2ODowWXjc7jKEzgffAzB
+         JC8LC3u6+T1kPFafCV+b3fQJxB5SDSe5YyhVUCElFKybIPJGWsYfsLRwXqhLRCY2AaI0
+         5kfIQS89ROKDeOhVVvWul4ySs2Ls1IdaKKUGrbHsocu4006M1mJbtDi2XQ25iITPh3L4
+         mTrxdGNCLA5yl5lJKC2ILdSxFx4XuOS1Cv6cwBlHKKtlGZm12qyuhU1RERtV6OiagkD0
+         NzG3Zf+7jm/QW//6XIrC3marXRzaWVfkwp4JzyuniDrTnECvzjT7m1yMk3Z2qjnOVBMn
+         Fvyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:list-unsubscribe:feedback-id:subject:message-id:mime-version
+         :from:date:dkim-signature:dkim-signature;
+        bh=zJaWhIShpSAfDvMyW6DZU+C0FQH/IXDXy5VPczv7OCg=;
+        fh=CznVRnErcxvsd6aPz4wv4XMNlZLmpJODLOoG1gRHGCo=;
+        b=qjHbMr8ciLJ94Lyyy/GBU5vD1ZCeT4NJzaWcS8uHGTe/sYkQwbSf0fECjyydDyUru6
+         1widNNiFAPr9syTG90lPl54iCGxLxLPon0I8pDbN8ITYD5xoXL2LZSWgXgMnR2r9Ih8D
+         ZVlnu0IkUxQ02MNlucos99reIlceUEPlsuurDSET7APws/fQid8vJZPzDJJJ5/S6O48V
+         st+kXXKIHOb1uM3ObhnIhMr9f2/zlFj2NmPdQsd8Mu604xIMkQNJLnw6u01j+VfuWhCy
+         VfzJN0BZHMAhTl0jxwH9TOnYJPlFL9H1G7LaOYAsfv31MEjQUHj7uWNN8lVGcKlh4mGQ
+         N1Sg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@starterstory.com header.s=kl header.b=DiwWhtP0;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=JGtxBCSd;
+       spf=pass (google.com: domain of bounces+7898368-bc34-timmyg13=gmail.com@send.starterstory.com designates 149.72.196.98 as permitted sender) smtp.mailfrom="bounces+7898368-bc34-timmyg13=gmail.com@send.starterstory.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=starterstory.com
+Return-Path: <bounces+7898368-bc34-timmyg13=gmail.com@send.starterstory.com>
+Received: from o1380.shared.klaviyomail.com (o1380.shared.klaviyomail.com. [149.72.196.98])
+        by mx.google.com with ESMTPS id y6-20020a056808130600b003bc3009d158si1607133oiv.130.2024.01.10.10.03.43
+        for <timmyg13@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Jan 2024 10:03:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+7898368-bc34-timmyg13=gmail.com@send.starterstory.com designates 149.72.196.98 as permitted sender) client-ip=149.72.196.98;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@starterstory.com header.s=kl header.b=DiwWhtP0;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=JGtxBCSd;
+       spf=pass (google.com: domain of bounces+7898368-bc34-timmyg13=gmail.com@send.starterstory.com designates 149.72.196.98 as permitted sender) smtp.mailfrom="bounces+7898368-bc34-timmyg13=gmail.com@send.starterstory.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=starterstory.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=starterstory.com;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc:content-type:from:subject:to;
+	s=kl; bh=zJaWhIShpSAfDvMyW6DZU+C0FQH/IXDXy5VPczv7OCg=;
+	b=DiwWhtP0nxTWvBCtIQwIbRNOwcY+rySRrFFR3xYS0ODp0SW27Hsu9cgdzx4kbXzuC87q
+	U/l4yrX+TJ1frf8rV1v+kaOuE1NsXnbS59mZfyXOSY5wuMbCLoBSLerOt2UkxCcXSIiNyN
+	Kw7ask3osVwqx6ItSQTBYM/rE7WrIylzdKQzZzZhM8L3WgZ4LbWTicKnEJXL/cscD9ZgPh
+	iCxVxYnjgBHvrBpHDLkSXaPI1vOjvaQixA3pRwp8QweP8qmKExHwNmMXR+sD9u6hFGj603
+	VafvQVyTEi+xU2ueYdwwwTCsZiqwPQ76J18GnoVXCqJK0xZaJqArvmWeJ9/GQS7g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=zJaWhIShpSAfDvMyW6DZU+C0FQH/IXDXy5VPczv7OCg=;
+	b=JGtxBCSdJMAUyuEn6kSSs1zn2zn+JG/jev2xQW8q3sbfvoVSxnQgjvVvab3VwqejUmUX
+	MxI6qT/JtcY288Ph5tVdOellX5iUEh2/gG4lJ8VEIYEeT4nekScrsVLOKpPTNDVDlMJMG4
+	8COlMqd0BGpPHbRYHRnUOr6dn6LF3hJ9c=
+Received: by filterdrecv-7b866844d6-m64sl with SMTP id filterdrecv-7b866844d6-m64sl-1-659EDBFF-36
+        2024-01-10 18:03:43.202281657 +0000 UTC m=+7341738.470865912
+Received: from Nzg5ODM2OA (unknown)
+	by geopod-ismtpd-33 (SG) with HTTP
+	id vaM53DHxRGWG-Tukg3dOfA
+	Wed, 10 Jan 2024 18:03:43.081 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=1e1fca295b33e58435d378a4b3406c3eeab2ce0924e93a3f15c5500d3f01
+Date: Wed, 10 Jan 2024 18:03:43 +0000 (UTC)
+From: Pat Walls <pat@starterstory.com>
+Mime-Version: 1.0
+Message-ID: <vaM53DHxRGWG-Tukg3dOfA@geopod-ismtpd-33>
+Subject: The $2M Solopreneur Playbook
+X-Kmail-Account: Jchkiv
+Feedback-ID: Jchkiv:22130307611:kl
+X-Kmail-Message: 01HKR12T5QX5HE6109M867FPNN
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Chttps=3A=2F=2Fmanage=2Ekmail-lists=2Ecom=2Fsubscriptions=2Funsubscribe=3Fa=3DJc?=
+ =?us-ascii?Q?hkiv&c=3DQK2m3x&k=3D57daad023734f5902cf655e?=
+ =?us-ascii?Q?63bfd9e20&m=3D01HKR12T5QX5HE6109M867FPNN&?=
+ =?us-ascii?Q?r=3D3agaxc7s=3E?=
+X-Kmail-Ops: QK2m3x
+X-Feedback-ID: 7898368:SG
+X-SG-EID: 
+ =?us-ascii?Q?g7gyg57VKbDU6xSeDlsT7B6tzutoG33HUDqRb5i7OTHbmmWHf0mKZFH8753rAu?=
+ =?us-ascii?Q?lXP=2Fig3C8gAUPkhQG8N7w8f0kFpjM3Xp7jVUWS7?=
+ =?us-ascii?Q?M2N=2FxEEEfH0ebjlbwcCdoH7s4Cm+wdm2aVKyFL5?=
+ =?us-ascii?Q?1nDWK2h8neyIiQPt7Fpc5Matnd5hOfo95O4I+IL?=
+ =?us-ascii?Q?iB9bnRRt1hXzs9tzIUvbRXLWAcbnvda9sJqZec8?=
+ =?us-ascii?Q?dJPc0lgOAYTM8n8M4RUwPrOa+09p35Gw5c5qKK?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb3WdckyvbC2eFaxvdDHn8D1nndBBW0fUClUlZF2fTQ?=
+ =?us-ascii?Q?6KZzcTW3x5HQG8GijByaJphRxhbNot6XuTdmya7?=
+ =?us-ascii?Q?zxOlJK4w4AtGKlNQAiCSG2hn3tCWN83DU+yhbBS?=
+ =?us-ascii?Q?R5Ca1epfeyslvXGlvr1vEV5yRvY6Wr3evE4GFsz?=
+ =?us-ascii?Q?JKHXi6g5pdmYAUMvaRKKxBicJcz7C+qF0dZ8oLY?=
+ =?us-ascii?Q?7SClcEhuKF8uhYazHK4ASzIIzpqJ6jhAxBptS14?=
+ =?us-ascii?Q?jv8IM3NMSxvWVh2Kn6Psg=3D=3D?=
+To: timmyg13@gmail.com
+X-Entity-ID: tzrRFggrnf54nzzVnEbhIg==
+
+--1e1fca295b33e58435d378a4b3406c3eeab2ce0924e93a3f15c5500d3f01
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+The $2M Solopreneur Playbook
+
+Hey there,
+
+Pat here. Happy Wednesday.
+
+I have a confession.
+
+I've spent 50+ hours studying a middle-aged man from Phoenix, Arizona.
+
+His name is Brett, and he went from a normal job to making $2M/year with a =
+side project.
+
+The guy is the highest-paid solopreneur on the internet.
+
+He has zero employees, zero contractors, and only works 6 hours/day.
+
+When I first came across his story, I thought he must be lying.
+
+But then I did some more digging, studied his business, and even [flew out =
+to Arizona to meet him in person](https://www.youtube.com/watch?v=3DdXKzST0=
+FE-A).
+
+What I learned=E2=80=A6 blew my mind.
+
+Brett=E2=80=99s nearly $2M business is no accident.
+
+It has nothing to do with luck but rather some very smart decisions he made=
+ while building this business.
+
+And today, I=E2=80=99m going to give you this playbook.
+
+In about 6 minutes, I=E2=80=99m going to break down the=C2=A05 key steps th=
+at took Brett from an average business idea to a $2M/year solopreneur.
+
+Read this email and actually understand these principles.
+
+You might save yourself years focused on the wrong thing.
+
+Welcome to=E2=80=A6 The Playbook.
+
+Keep reading to learn how to
+
+- 10x your prices and actually work less.
+- Create a system to stop being flooded by clients' requests.
+- Find clients who'll happily pay you $5,000/month.
+- Design a crazy profitable business.
+- Unlock additional revenue streams effortlessly.=C2=A0
+
+How it all started
+
+---------------------------------------------------------------
+
+Brett starts out like any normal guy, working an average 9 to 5 for years.
+
+He=E2=80=99s a graphic designer working on landing pages, logos, brand desi=
+gns, etc. Simple work that pays the bills.
+
+But like any aspiring entrepreneur, deep down, he=E2=80=99s thirsty for som=
+ething more.=C2=A0
+
+Something he could truly own.
+
+Then, one day, everything changes when he comes across a peculiar website.
+
+It=E2=80=99s a subscription service offering =E2=80=9Cunlimited graphic des=
+ign=E2=80=9D for businesses.
+
+Instead of charging by the project or by the hour, this agency charges a mo=
+nthly recurring subscription fee for unlimited graphic designs.
+
+And by the looks of it, they=E2=80=99re doing really well.
+
+They even have a brick-and-mortar location with a few employees.
+
+And this is the moment that Brett gets his business idea.
+
+He decides he=E2=80=99ll do the same thing.
+
+He=E2=80=99ll start his own agency, but instead of charging clients by the =
+hour, he=E2=80=99ll just charge them a subscription fee.
+
+And instead of getting on sales calls with clients, they can instead purcha=
+se his services directly on his website.
+
+But most importantly, instead of building a whole team, he=E2=80=99ll just =
+do it himself as a side project to earn some extra income.
+
+12 hours and $29 later, Brett puts up a simple landing page and calls it De=
+signJoy.
+
+And within just 24 hours, he gets his first paying client.
+
+That=E2=80=99s pretty fast, right?=C2=A0
+
+Well, that=E2=80=99s the first key step in Brett=E2=80=99s genius playbook.
+
+=C2=A0
+
+Step #1: Demand Based Pricing
+
+---------------------------------------------------------------
+
+The hardest thing to do in business? Get your first paying customer.
+
+For most people, it takes months to finally get one person to hand their mo=
+ney over to you.
+
+And honestly, most people quit before they even get this first customer.
+
+But Brett skips this whole problem by making one key decision.=C2=A0
+
+He GROSSLY undercharges for his service.
+
+When he throws up that landing page, he sets his price at $449/month.
+
+Yes, you heard that right. Unlimited design requests for 449 bucks.
+
+The price is too good to be true, but guess what, it gets him his first cus=
+tomer in less than 24 hours.
+
+And that=E2=80=99s the genius behind it.
+
+Of course, this business is not scalable at that price point.
+
+But Brett understands the power and speed and momentum.
+
+And instead of waiting around for months for someone to pay him $5,000/mont=
+h, he throws himself into the fire.
+
+This is where Brett succeeds, whereas most others fail.
+
+He=E2=80=99s willing to put his ego aside to put in thousands of reps - eve=
+n though he=E2=80=99s basically working for free.
+
+And these reps are the ones that eventually turn him into a world class des=
+igner.
+
+His niche starts to notice, and then his services become more in demand.
+
+And when demand increases, then he does the obvious.
+
+He raises his prices!
+
+He goes from $449 to $1,000 per month.
+
+Then from $1,000 to $3,000 a month.
+
+Then from $3,000 to $5,000 a month.
+
+And now, he even charges $8,000 a month.
+
+Today, he only needs 16 clients paying $5,000/month to make about $1M/year.
+
+And this is all because he was willing to undercharge for his service and w=
+illing to do the work.
+
+That brings us to step #2 of Brett=E2=80=99s solopreneur playbook.
+
+=C2=A0
+
+Step #2: Boundaries
+
+---------------------------------------------------------------
+
+If I could sum up Brett=E2=80=99s success in one word, it would be this:
+
+Boundaries.
+
+Let me explain.
+
+So at this point, Brett=E2=80=99s put in the reps, he=E2=80=99s raising his=
+ prices, and now he has customers coming out of his ears.
+
+But this is actually a problem because Brett is a one-man band.
+
+He finds himself working 16-hour days on the verge of burnout.
+
+The solution? Hire more people, right?
+
+But Brett doesn't want to hire people. He wants to be a solopreneur.
+
+So=E2=80=A6 he comes up with a creative solution.
+
+He decides to break the rules=E2=80=A6 by creating 2 rules.
+
+1. Clients must submit design requests asynchronously via a Trello board, a=
+nd
+
+2. Clients can only have 1 design request at a time.
+
+Everything must go through this Trello board (real example from one of his =
+clients):
+
+No calls. No meetings. All client requests must be defined in writing.
+
+Once the client has submitted an active request, they=E2=80=99re not allowe=
+d to change it, or submit another one.
+
+This gives Brett a few days to deliver the work; once completed, the client=
+ can submit another request.
+
+Because of this, clients spend more time making sure their requests are ful=
+ly fleshed out and complete.
+
+Which actually leads to them sending fewer requests.
+
+And it saves both of them countless hours of meetings.
+
+This is what I call boundaries.
+
+He doesn't do this because he's an asshole. He does it because he has to.
+
+Brett creates these boundaries to protect his precious time - so he can spe=
+nd it doing what he loves: creating designs.
+
+Without these boundaries, he wouldn=E2=80=99t be able to make over $1M/year=
+ with zero employees.
+
+And he=E2=80=99d probably would lose his sanity and burn out.
+
+Many clients probably don=E2=80=99t like these boundaries, but that=E2=80=
+=99s fine.
+
+There are many that actually do, and those are the ones he works with.
+
+And that brings us to the next key move from Brett=E2=80=99s playbook.
+
+Wanna learn the secret strategies of 163 million-dollar solopreneurs?
+
+---------------------------------------------------------------
+
+Get our premium report and find out:
+
+- How they came up with their idea
+- What products they sell & how they price them
+- Where and how they acquire customers (for free)
+- What tools they use to run businesses
+
+[Click here to download the report now](https://www.starterstory.com/storie=
+s/starter-story-solopreneurs-report).
+
+Step #3: The $500 Client
+
+---------------------------------------------------------------
+
+There are two types of clients:
+
+$500 clients and $5,000 clients.
+
+$500 clients are cheap. They=E2=80=99ll waste your time with nagging reques=
+ts, ask for refunds, and they don=E2=80=99t make much money themselves.
+
+$5,000 clients are rich. As long as you deliver, they won=E2=80=99t bother =
+you much. You=E2=80=99ll always get paid, and they won=E2=80=99t churn afte=
+r 1 month.
+
+When Brett starts his business, yes, he attracts $500 clients.
+
+But once he pays his dues, he quickly moves to $5,000 clients.
+
+And you're probably wondering, who are these clients that are paying him $5=
+,000/month?
+
+The answer? Brett=E2=80=99s customers are businesses that wouldn=E2=80=99t =
+blink twice if they saw a $5,000/month invoice.
+
+The clients DesignJoy attracts see Brett=E2=80=99s service as a steal.
+
+Here=E2=80=99s why:
+
+When looking for graphic design talent, these clients have a few options:
+
+1 - Hire a $200k/year graphic designer on payroll (it=E2=80=99ll take month=
+s to hire, and they might be lazy).
+
+2 - Spend big money on a fancy agency that will charge a per-project fee th=
+at might be in the range of $30-40k (and they=E2=80=99ll take weeks to do i=
+t).
+
+3 - Sort through hundreds of cheap web design freelancers on platforms like=
+ Upwork or Fiverr and find a needle in a haystack.
+
+Or, they could hire Brett, a proven graphic designer, who will turn around =
+work in 48 hours, all with the simple click of a button.
+
+At $5,000, this is a no-brainer.
+
+Plus, they can cancel the service whenever you want, just like a Netflix su=
+bscription.
+
+Hiring a great designer is an annoying problem, and Brett provides a simple=
+ solution that companies are clearly willing to pay for.
+
+But=E2=80=A6 it=E2=80=99s not just about the type of clients Brett attracts=
+, and that brings us to our next step:
+
+=C2=A0
+
+Step #4: High Demand / Low Touch
+
+---------------------------------------------------------------
+
+Productized services are amazing, right? You get paid for your output rathe=
+r than your time.
+
+Because of this, everyone and their grandma is starting one.
+
+But the truth is that productized services will not work for every kind of =
+service.
+
+And this is the reason why Brett makes millions when most other people make=
+ nothing.
+
+And it has to do with one word: profit.
+
+As you know, the profit equation is: revenue minus expenses equals profit.
+
+But let=E2=80=99s double-click on what these look like for DesignJoy:
+
+On the revenue side, Brett=E2=80=99s doing well.
+
+And that=E2=80=99s because Brett provides a service that is high impact.
+
+A website is often the first impression that a customer will get of a start=
+up.
+
+And a really beautiful website might be the difference between success and =
+failure - for example, getting funding or not.
+
+Companies must make sure they get this right, and that=E2=80=99s why they=
+=E2=80=99re willing to pay Brett a ton of money for his service.
+
+On the expenses side, Brett is also doing well.
+
+Brett has almost zero actual dollar expenses because he=E2=80=99s a solopre=
+neur: his only real expense is his time.
+
+But Brett only works 6 hours/day - which isn=E2=80=99t bad considering he h=
+as over 16 clients at any given time.
+
+And that=E2=80=99s because website design and branding are relatively quick=
+ to fulfill.
+
+Brett can turn around a world-class landing page in a couple hours.
+
+That=E2=80=99s mostly thanks to his years of experience.
+
+But website design is one of those things that you build once and do not re=
+ally touch for a while.
+
+And that is actually the secret.
+
+That is the reason he is so profitable.
+
+He picked a service that is both high demand but also low touch.
+
+I don=E2=80=99t think this works as well for other services.
+
+For example, a productized bookkeeping or video editing service would not b=
+e as profitable.=C2=A0
+
+Because these services are both less in demand and more costly and time-con=
+suming to fulfill.
+
+And that brings us to our final point:
+
+=C2=A0
+
+Step #5: Build Once, Sell Forever
+
+---------------------------------------------------------------
+
+The only problem with a productized service=E2=80=A6
+
+No matter what, you=E2=80=99re still essentially trading your hours for dol=
+lars.
+
+And if you want to truly get rich, you need to find a way to scale those do=
+llars without=C2=A0scaling your time.
+
+And this is the final key move of Brett=E2=80=99s playbook.
+
+In 2019, he spent 6 hours putting together a product called Scribbbbles.
+
+It=E2=80=99s a downloadable collection of templates that other designers ca=
+n use to spice up their projects.
+
+He prices it at $4.99, and it gets downloaded over 25,000 times.
+
+But=E2=80=A6 why is this a genius move?
+
+Brett=E2=80=99s been spending years building up his bank of knowledge and e=
+xperience.
+
+Both on how to design amazing websites and how to build a great business al=
+ong the way.
+
+And Brett finds a way to monetize this.
+
+He turns his knowledge into a purchasable product that other designers can =
+use to=C2=A0improve their own business.
+
+Then a few years later, he takes it to the next level.
+
+He creates a course called Productize Yourself that helps other designers s=
+tart productized services.
+
+(and he charges a lot more than 5 bucks for this one)
+
+Today, these infoproducts make up 29% of his income.
+
+But he doesn=E2=80=99t have to trade his hours for these dollars. He=E2=80=
+=99s already put in the work.
+
+This has diversified his income and allowed him to work less and probably s=
+leep better at night.=C2=A0
+
+But what I love about Brett is that he didn=E2=80=99t just sell courses.
+
+He continues to build his business, serve clients, and put in the reps on D=
+esignJoy.
+
+=C2=A0
+
+A Playbook You Can Replicate=C2=A0
+
+---------------------------------------------------------------
+
+It's not luck or coincidence that Brett is one of the highest-paid solopren=
+eurs in the world.
+
+Whether he realizes it or not, he put together a genius playbook that I thi=
+nk everyone should study.
+
+I spent hours researching his business, talking to Brett, and putting toget=
+her this playbook.
+
+I hope you learned something you can apply to your own business.
+
+See exactly how online businesses go from zero to millions (like this one)
+
+---------------------------------------------------------------
+
+=E2=9C=94 Learn how founders came up with the idea that turned them into mi=
+llionaires=E2=80=A6 and exactly what that felt like.
+
+=E2=9C=94 Get the lowdown on what niches actually make money=E2=80=A6 and g=
+et the confidence that you're working on the right thing.
+
+=E2=9C=94 See exactly how $1M businesses grew=E2=80=A6 never waste months o=
+n the wrong marketing channel.
+
+=E2=9C=94 Surround yourself with success... soak up the knowledge and learn=
+ings of the most successful founders in the world.
+
+[Click HERE to redeem 25% off Starter Story right now](https://www.starters=
+tory.com/join).
+
+^^ (ends this week)
+
+Best,
+
+Pat Walls
+Founder, StarterStory.com
+
+=C2=A0
+
+[Twitter](https://twitter.com/starter_story)
+[Facebook](https://www.facebook.com/starterstoryofficial)
+[Instagram](https://www.instagram.com/starter_story/)
+
+Starter Story - PO Box 3003 Jackson, WY 83001
+
+Click [here](https://manage.kmail-lists.com/subscriptions/unsubscribe?a=3DJ=
+chkiv&c=3DQK2m3x&k=3D57daad023734f5902cf655e63bfd9e20&m=3D01HKR12T5QX5HE610=
+9M867FPNN&r=3D3agaxc7s) if you want to stop receiving emails from us.
+--1e1fca295b33e58435d378a4b3406c3eeab2ce0924e93a3f15c5500d3f01
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:o=3D"urn:=
+schemas-microsoft-com:office:office" xmlns:v=3D"urn:schemas-microsoft-com:v=
+ml"><head>
+<title>
+</title>
+<!--[if !mso]><!-->
+<meta content=3D"IE=3Dedge" http-equiv=3D"X-UA-Compatible">
+<!--<![endif]-->
+<meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type">
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1" name=3D"viewport"=
+>
+<!--[if mso]>
+        <noscript>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        </noscript>
+        <![endif]-->
+<!--[if lte mso 11]>
+        <style type=3D"text/css" data-inliner=3D"ignore">
+          .mj-outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+<!--[if !mso]><!--><!--<![endif]-->
+<style>a:link {color:#197bbd;font-weight:400;text-decoration:underline;font=
+-style:normal}
+a:visited {color:#197bbd;font-weight:400;text-decoration:underline;font-sty=
+le:normal}
+a:active {color:#197bbd;font-weight:400;text-decoration:underline;font-styl=
+e:normal}
+a:hover {color:#197bbd;font-weight:400;text-decoration:underline;font-style=
+:normal}</style><style>@import url(https://static-forms.klaviyo.com/fonts/a=
+pi/v1/Jchkiv/custom_fonts.css);
+#outlook a {
+    padding: 0
+    }
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+    }
+table, td {
+    border-collapse: collapse;
+    mso-table-lspace: 0;
+    mso-table-rspace: 0
+    }
+img {
+    border: 0;
+    line-height: 100%;
+    outline: none;
+    text-decoration: none;
+    -ms-interpolation-mode: bicubic
+    }
+p {
+    display: block;
+    margin: 13px 0
+    }
+@media only screen and (min-width: 480px) {
+    .mj-column-per-100 {
+        width: 100% !important;
+        max-width: 100%
+        }
+    }
+@media only screen and (max-width: 480px) {
+    div.kl-row.colstack div.kl-column {
+        display: block !important;
+        width: 100% !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .kl-text {
+        padding-right: 18px !important;
+        padding-left: 18px !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .component-wrapper .mob-no-spc {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+        }
+    }
+@media screen and (max-width: 480px) {
+    .kl-sl-stk {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 0 9px !important;
+        text-align: center !important
+        }
+    .kl-sl-stk.lbls {
+        padding: 0 !important
+        }
+    .kl-sl-stk.spcblk {
+        display: none !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    td.mobile-only {
+        display: table-cell !important
+        }
+    div.mobile-only {
+        display: block !important
+        }
+    table.mobile-only {
+        display: table !important
+        }
+    .desktop-only {
+        display: none !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .table-mobile-only {
+        display: table-cell !important;
+        max-height: none !important
+        }
+    .table-mobile-only.block {
+        display: block !important
+        }
+    .table-mobile-only.inline-block {
+        display: inline-block !important
+        }
+    .table-desktop-only {
+        max-height: 0 !important;
+        display: none !important;
+        mso-hide: all !important;
+        overflow: hidden !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .kl-text > div, .kl-table-subblock div, .kl-split-subblock > div {
+        font-size: 16px !important;
+        line-height: 1.5 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    h1 {
+        font-size: 40px !important;
+        line-height: 1.1 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    h2 {
+        font-size: 32px !important;
+        line-height: 1.1 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    h3 {
+        font-size: 24px !important;
+        line-height: 1.1 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    h4 {
+        font-size: 18px !important;
+        line-height: 1.1 !important
+        }
+    }
+@media only screen and (max-width: 480px) {
+    .root-container {
+        width: 100% !important
+        }
+    .root-container-spacing {
+        padding: 10px !important
+        }
+    .content-padding {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+        }
+    .content-padding.first {
+        padding-top: 0 !important
+        }
+    .content-padding.last {
+        padding-bottom: 0 !important
+        }
+    .component-wrapper {
+        padding-left: 0 !important;
+        padding-right: 0 !important
+        }
+    }</style></head>
+<body style=3D"word-spacing:normal;background-color:#FFFFFF;">
+<div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1px;max-=
+height:0px;max-width:0px;opacity:0;overflow:hidden;">
+      Has no employees and only works 6h/day=E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+ =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD
+    </div>
+<div class=3D"root-container" id=3D"bodyTable" style=3D"background-position=
+:left top; background-repeat:repeat; background-size:auto; background-color=
+:#FFF">
+<div class=3D"root-container-spacing" style=3D"font-size:0; padding-bottom:=
+20px; padding-top:32px">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"kl-section" role=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td>
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" ce=
+llspacing=3D"0" class=3D"kl-section-outlook" style=3D"width:600px;" width=
+=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly;"><![endif]-->
+<div style=3D"margin:0px auto;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"width:100%;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]-->
+<div style=3D"background:#ffffff;background-color:#ffffff;margin:0px auto;b=
+order-radius:0px 0px 0px 0px;max-width:600px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"background:#ffffff;background-color:#ffffff;wi=
+dth:100%;border-radius:0px 0px 0px 0px;">
+<tbody>
+<tr>
+<td style=3D"direction:ltr;font-size:0px;padding:20px 0;padding-bottom:0px;=
+padding-left:0px;padding-right:0px;padding-top:0px;text-align:center;">
+<!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0"><![endif]-->
+<div class=3D"content-padding first last" style=3D"padding-left:0; padding-=
+right:0; padding-top:0; padding-bottom:0">
+<!--[if true]><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"600" style=3D"width:600px;direction:ltr"><tr><![endif]-->
+<div class=3D"kl-row colstack" style=3D"display:table;table-layout:fixed;wi=
+dth:100%;">
+<!--[if true]><td style=3D"vertical-align:top;width:600px;"><![endif]-->
+<div class=3D"kl-column" style=3D"display:table-cell;vertical-align:top;wid=
+th:100%;">
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"mob-no-spc" style=3D"vertical-align:top;padding-top:0px;paddin=
+g-right:12px;padding-bottom:0px;padding-left:12px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:8px;padding-right:0px;padding-bottom:8px;padding-left:0px;word-bre=
+ak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><div><img alt=3D"" src=3D"h=
+ttps://s3.amazonaws.com/www.starterstory.com/production/images/3fe65f9af67b=
+97ed" style=3D"border:0; height:auto; line-height:100%; max-width:100%; out=
+line:none; text-decoration:none; display:block; margin-left:auto; margin-ri=
+ght:auto"></div></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"mob-no-spc" style=3D"vertical-align:top;padding-top:9px;paddin=
+g-right:12px;padding-bottom:9px;padding-left:12px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:12px;padding-right:0px;padding-bottom:12px;padding-left:0px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><h2 style=3D"color:#616161;=
+ font-family:&quot;Helvetica Neue&quot;, Arial; font-size:34px; font-style:=
+normal; font-weight:700; letter-spacing:0; line-height:1.1; margin:0; margi=
+n-bottom:16px; text-align:center"><span style=3D"font-weight: bold;">The $2=
+M Solopreneur Playbook</span></h2>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em"><img alt=3D"" src=3D"https://s3.amazonaws.co=
+m/www.starterstory.com/production/images/ea8ba821f74f8f63" style=3D"border:=
+0; height:auto; line-height:100%; max-width:100%; outline:none; text-decora=
+tion:none"></p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">Hey there,</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">Pat here. Happy Wednesday.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">I have a confession.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">I've spent 50+ hours studying a middle-aged =
+man from Phoenix, Arizona.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">His name is Brett, and <span style=3D"font-w=
+eight: bold;">he went from a normal job to making $2M/year with a side proj=
+ect.</span></p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">The guy is the highest-paid solopreneur on t=
+he internet.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">He has zero employees, zero contractors, and=
+ only works 6 hours/day.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em"><span style=3D"font-weight: bold;">When I fi=
+rst came across his story, I thought he must be lying.</span></p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">But then I did some more digging, studied hi=
+s business, and even <a style=3D"color:#197bbd; font-style:normal; font-wei=
+ght:400; text-decoration:underline" href=3D"https://trk.klclick.com/ls/clic=
+k?upn=3DnCH6fDLu-2FHycmSArPVtfrK8HNPs5CRhXk5etkGfDTrnhPHhDq2zcC7cjFK0B6nRBp=
+IpQ3VDKDwAIcuqmQ-2BliM898RroiyN7-2F7874tqY2LfOrdnd3cah59hntUZ1UsJ2oM4yEV3FW=
+6KjZwRNHNTv-2FrbJdI7piy6gbkMU2Suoh2mFsI2oP6uKkxHQTycNM7t9g67VG-2BPvSJLhrZ10=
+P40fYpOyXZUb9-2BNX8OJALH-2BH9pR5-2FPTLM5iWwKtoAQwmid-2B9AkgzA2D4D9n6FTemFMd=
+oCpQ-3D-3DaOj5_mdDW24RRL44dl4wFf2734Ue-2FwlTj3LjscG2T1pj9nlkhyoznloaHopctHJ=
+WHrr7FrQ1w7UMigm-2FnIpskaps2L8p-2BFfc2mvMxPuKNYnd5CRMQZgfae-2FM5S97v15mASEx=
+SieLFoO4PHgEF3pJx-2BPfXj-2FgIL6KJ-2F-2B4YvZ1iTDgbLBSjd5swy2VKQcHuvpgZPEuvu-=
+2FinWEMkjyFpGSh7RzAYO2iNhCa-2Fe2miG-2FahJRN-2FKawgJfHCrEdYjo1KbM9jFN-2Blqoq=
+S-2FqaxtUgOwKXR-2B9xeR9jsXSiCa0p7uzICRfG6lGa0kz8wQtnHOBk6-2FhSNzvGQ74oxnfKg=
+QiYzTwD-2F2oswTk1Obe9I9fy3bm-2FQgqR-2B6VCJjUl5qzdlmMzuV2G1zdogQV4ylQxG4wat1=
+PVWpVqDyfGqXIwjB-2FcDOjUtw-2FhV5EQt3Y4CDYOxC6-2BszHhoq8-2F-2BL7XTquXhdU7V4X=
+rubiUKeA-3D-3D">flew out to Arizona to meet him in person</a>.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">What I learned=E2=80=A6 blew my mind.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">Brett=E2=80=99s nearly $2M business is no ac=
+cident.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">It has nothing to do with luck but rather so=
+me very smart decisions he made while building this business.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">And today, I=E2=80=99m going to give you thi=
+s playbook.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">In about 6 minutes, I=E2=80=99m going to bre=
+ak down the&nbsp;<span style=3D"font-weight: bold;">5 key steps<span style=
+=3D"font-weight: 400;"> that took Brett from an</span> average business ide=
+a to a $2M/year solopreneur</span>.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">Read this email and actually understand thes=
+e principles.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:1em">You might save yourself years focused on the=
+ wrong thing.</p>
+<p dir=3D"ltr" style=3D"margin-bottom:0; margin-left:0; margin-right:0; mar=
+gin-top:0; padding-bottom:0">Welcome to=E2=80=A6 <span style=3D"font-weight=
+: bold;">The Playbook.</span></p></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#ECECFC;vertical-align:top;padding=
+-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:10px;padding-right:0px;padding-bottom:10px;padding-left:0px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><h3 style=3D"color:#222427;=
+ font-family:&quot;Helvetica Neue&quot;, Arial; font-size:24px; font-style:=
+normal; font-weight:bold; letter-spacing:0; line-height:1.1; margin:0; marg=
+in-bottom:12px; text-align:left"><span style=3D"font-weight: bold;">Keep re=
+ading to learn how to</span></h3>
+<ol>
+<li>10x your prices and actually work less.</li>
+<li>Create a system to stop being flooded by clients' requests.</li>
+<li>Find clients who'll happily pay you $5,000/month.</li>
+<li>Design a crazy profitable business.</li>
+<li>Unlock additional revenue streams effortlessly.&nbsp;</li>
+</ol></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:9px;padding-right:12=
+px;padding-bottom:9px;padding-left:12px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:12px;padding-right:0px;padding-bottom:12px;padding-left:0px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><h3 style=3D"color:#222427;=
+ font-family:&quot;Helvetica Neue&quot;, Arial; font-size:24px; font-style:=
+normal; font-weight:bold; letter-spacing:0; line-height:1.1; margin:0; marg=
+in-bottom:12px; text-align:left"><span style=3D"font-weight: bold;">How it =
+all started</span></h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Brett starts out like any normal guy, working an average=
+ 9 to 5 for years.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He=E2=80=99s a graphic designer working on landing pages=
+, logos, brand designs, etc. Simple work that pays the bills.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But like any aspiring entrepreneur, deep down, he=E2=80=
+=99s thirsty for something more.&nbsp;</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Something he could truly own.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Then, one day, everything changes when he comes across a=
+ peculiar website.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">It=E2=80=99s a subscription service offering =E2=80=9Cun=
+limited graphic design=E2=80=9D for businesses.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Instead of charging by the project or by the hour, this =
+agency charges a monthly recurring subscription fee for unlimited graphic d=
+esigns.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And by the looks of it, they=E2=80=99re doing really wel=
+l.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">They even have a brick-and-mortar location with a few em=
+ployees.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And this is the moment that Brett gets his business idea=
+.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He decides he=E2=80=99ll do the same thing.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He=E2=80=99ll start his own agency, but instead of charg=
+ing clients by the hour, he=E2=80=99ll just charge them a subscription fee.=
+</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And instead of getting on sales calls with clients, they=
+ can instead purchase his services directly on his website.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But most importantly, instead of building a whole team, =
+he=E2=80=99ll just do it himself as a side project to earn some extra incom=
+e.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">12 hours and $29 later, Brett puts up a simple landing p=
+age and calls it DesignJoy.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And within just 24 hours, he gets his first paying clien=
+t.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">That=E2=80=99s pretty fast, right?&nbsp;</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Well, that=E2=80=99s the first key step in Brett=E2=80=
+=99s genius playbook.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">&nbsp;</p>
+<h3 style=3D"color:#222427; font-family:&quot;Helvetica Neue&quot;, Arial; =
+font-size:24px; font-style:normal; font-weight:bold; letter-spacing:0; line=
+-height:1.1; margin:0; margin-bottom:12px; text-align:left"><span style=3D"=
+font-weight: bold;">Step #1: Demand Based Pricing</span></h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">The hardest thing to do in business? Get your first payi=
+ng customer.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">For most people, it takes <span style=3D"font-style: ita=
+lic;">months</span> to finally get one person to hand their money over to y=
+ou.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And honestly, most people quit before they even get this=
+ first customer.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But Brett skips this whole problem by making <span style=
+=3D"font-weight: bold;">one key decision</span>.&nbsp;</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He GROSSLY undercharges for his service.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">When he throws up that landing page, he sets his price a=
+t $449/month.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Yes, you heard that right. Unlimited design requests for=
+ 449 bucks.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">The price is too good to be true, but guess what, <span =
+style=3D"font-weight: bold;">it gets him his first customer in less than 24=
+ hours</span>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And that=E2=80=99s the genius behind it.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Of course, this business is not scalable at that price p=
+oint.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But Brett understands the power and speed and momentum.<=
+/p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And instead of waiting around for months for someone to =
+pay him $5,000/month, he throws himself into the fire.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">This is where Brett succeeds, whereas most others fail.<=
+/p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He=E2=80=99s willing to put his ego aside to put in thou=
+sands of reps - even though he=E2=80=99s basically working for free.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And these reps are the ones that eventually turn him int=
+o a world class designer.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">His niche starts to notice, and then his services become=
+ more in demand.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And when demand increases, then he does the obvious.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He raises his prices!</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He goes from $449 to $1,000 per month.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Then from $1,000 to $3,000 a month.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Then from $3,000 to $5,000 a month.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And now, he even charges $8,000 a month.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em"><img alt=3D"" src=3D"https://s3.amazonaws.com/www.starte=
+rstory.com/production/images/720028af54e8d7c5" style=3D"border:0; height:au=
+to; line-height:100%; max-width:100%; outline:none; text-decoration:none"><=
+/p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Today, he only needs 16 clients paying $5,000/month to m=
+ake about $1M/year.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And this is all because he was willing to undercharge fo=
+r his service <span style=3D"font-style: italic;">and</span> willing to do =
+the work.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">That brings us to step #2 of Brett=E2=80=99s solopreneur=
+ playbook.</p>
+<div>&nbsp;</div>
+<h3 style=3D"color:#222427; font-family:&quot;Helvetica Neue&quot;, Arial; =
+font-size:24px; font-style:normal; font-weight:bold; letter-spacing:0; line=
+-height:1.1; margin:0; margin-bottom:12px; text-align:left"><span style=3D"=
+font-weight: bold;">Step #2: Boundaries</span></h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">If I could sum up Brett=E2=80=99s success in one word, i=
+t would be this:</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Boundaries.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Let me explain.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">So at this point, Brett=E2=80=99s put in the reps, he=E2=
+=80=99s raising his prices, and now he has customers coming out of his ears=
+.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But this is actually a problem because Brett is a one-ma=
+n band.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He finds himself working 16-hour days on the verge of bu=
+rnout.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">The solution? Hire more people, right?</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But Brett doesn't want to hire people. He wants to be a =
+solopreneur.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">So=E2=80=A6 he comes up with a creative solution.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He decides to break the rules=E2=80=A6 by <span style=3D=
+"font-weight: bold;">creating 2 rules</span>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">1. Clients must submit design requests asynchronously vi=
+a a Trello board, and</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">2. Clients can only have 1 design request at a time.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Everything must go through this Trello board (real examp=
+le from one of his clients):</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em"><img alt=3D"" src=3D"https://s3.amazonaws.com/www.starte=
+rstory.com/production/images/d0865befc03653e3" style=3D"border:0; height:au=
+to; line-height:100%; max-width:100%; outline:none; text-decoration:none"><=
+/p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">No calls. No meetings. All client requests must be defin=
+ed in writing.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Once the client has submitted an active request, they=E2=
+=80=99re not allowed to change it, or submit another one.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">This gives Brett a few days to deliver the work; once co=
+mpleted, the client can submit another request.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Because of this, clients spend more time making sure the=
+ir requests are fully fleshed out and complete.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Which actually leads to them sending fewer requests.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And it saves both of them countless hours of meetings.</=
+p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">This is what I call <span style=3D"font-style: italic;">=
+boundaries</span>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He doesn't do this because he's an asshole. He does it b=
+ecause he <span style=3D"font-style: italic;">has to</span>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Brett creates these boundaries to protect his precious t=
+ime - so he can spend it doing what he loves: creating designs.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Without these boundaries, he wouldn=E2=80=99t be able to=
+ make over $1M/year with zero employees.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And he=E2=80=99d probably would lose his sanity and burn=
+ out.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Many clients probably don=E2=80=99t like these boundarie=
+s, but that=E2=80=99s fine.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">There are many that actually do, and those are the ones =
+he works with.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:0">And that brings us to the next key move from Brett=E2=80=
+=99s playbook.</p></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#ECECFC;vertical-align:top;padding=
+-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:10px;padding-right:0px;padding-bottom:10px;padding-left:0px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><h3 style=3D"color:#222427;=
+ font-family:&quot;Helvetica Neue&quot;, Arial; font-size:24px; font-style:=
+normal; font-weight:bold; letter-spacing:0; line-height:1.1; margin:0; marg=
+in-bottom:12px; text-align:left">Wanna learn the secret strategies of 163 m=
+illion-dollar solopreneurs?</h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:5px">Get our premium report and find out:</p>
+<ul style=3D"margin-top: 0px;">
+<li>How they came up with their idea</li>
+<li>What products they sell &amp; how they price them</li>
+<li>Where and how they acquire customers (<span style=3D"font-style: italic=
+;">for free</span>)</li>
+<li>What tools they use to run businesses</li>
+</ul>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em"><a style=3D"color:#197bbd; font-style:normal; font-weigh=
+t:400; text-decoration:underline" href=3D"https://trk.klclick.com/ls/click?=
+upn=3DnCH6fDLu-2FHycmSArPVtfrLaEfc1lRhHblFz79My0WkHgIZ2hcxeq3PF-2BLddPzn2Ep=
+9jsjRci4raS2XlKaJYm0203OdjwYhhuR4dZIpqyavhHAUXo8vX7e-2FV0ED6VZIbu353MIIVSk4=
+qEsvQbywOPI7CtOoAC-2BLuigpsqDUwSwrzKFowXtTBFz5PhIrz7yQsY6g-2BHO0VB1TJzoycfE=
+wYRbQFL7j6-2FNLjswB-2FQmwwsFLQVjZXKwzrLk9ijr09ykiBpUB0SQ-2BjQ2dK1s2RmQylJCJ=
+Hm7LTmygyemhU11mkDz4i7BACzBKLB1bcTkbySLUgCB8JS_mdDW24RRL44dl4wFf2734Ue-2Fwl=
+Tj3LjscG2T1pj9nlkhyoznloaHopctHJWHrr7FrQ1w7UMigm-2FnIpskaps2L8p-2BFfc2mvMxP=
+uKNYnd5CRMQZgfae-2FM5S97v15mASExSieLFoO4PHgEF3pJx-2BPfXj-2FgIL6KJ-2F-2B4YvZ=
+1iTDgbLBSjd5swy2VKQcHuvpgZPEuvu-2FinWEMkjyFpGSh7RzAYO2iNhCa-2Fe2miG-2FahJRN=
+-2FKawgJfHCrEdYjo1KbM9jFN-2BlqoqS-2FqaxtUgOwKXR-2B9xeR6z-2FhVo6b1fxoBMV3d30=
+In3RZXrJ-2Fduh7j42KNTVo5xJC04b33CTKPVEO0J60m4wRHx-2FMIK3mH6XjrQDhyxYb2EbxkP=
+0vi6u52LluVweihSVQrkXANN76h82xtIOzrsbGatmJhDTI9zOBBQXCWbevdeOQoJhqWDSho5-2F=
+QP44m5WYo8-2F-2Be40nK-2FO-2F3teVeF1lkg-3D-3D"><span style=3D"font-weight: b=
+old;">Click here to download the report now</span></a>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:0"><img alt=3D"" height=3D"1115" src=3D"https://s3.amazonaws.=
+com/www.starterstory.com/production/images/51d092b55b7674fb" style=3D"borde=
+r:0; height:auto; line-height:100%; max-width:100%; outline:none; text-deco=
+ration:none" width=3D"1957"></p></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:9px;padding-right:12=
+px;padding-bottom:9px;padding-left:12px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:12px;padding-right:0px;padding-bottom:12px;padding-left:0px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><h3 style=3D"color:#222427;=
+ font-family:&quot;Helvetica Neue&quot;, Arial; font-size:24px; font-style:=
+normal; font-weight:bold; letter-spacing:0; line-height:1.1; margin:0; marg=
+in-bottom:12px; text-align:left"><span style=3D"font-weight: bold;">Step #3=
+: </span><span style=3D"font-weight: bold;">The $500 Client</span></h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">There are two types of clients:</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">$500 clients and $5,000 clients.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">$500 clients are cheap. They=E2=80=99ll waste your time =
+with nagging requests, ask for refunds, and they don=E2=80=99t make much mo=
+ney themselves.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">$5,000 clients are rich. As long as you deliver, they wo=
+n=E2=80=99t bother you much. You=E2=80=99ll always get paid, and they won=
+=E2=80=99t churn after 1 month.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">When Brett starts his business, yes, he attracts $500 cl=
+ients.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But once he pays his dues, he quickly moves to $5,000 cl=
+ients.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And you're probably wondering, <span style=3D"font-weigh=
+t: bold;">who are these clients that are paying him $5,000/month? </span></=
+p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">The answer? Brett=E2=80=99s customers are businesses tha=
+t wouldn=E2=80=99t blink twice if they saw a $5,000/month invoice.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">The clients DesignJoy attracts see Brett=E2=80=99s servi=
+ce as a steal.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Here=E2=80=99s why:</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">When looking for graphic design talent, these clients ha=
+ve a few options:</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">1 - Hire a $200k/year graphic designer on payroll (it=E2=
+=80=99ll take months to hire, and they might be lazy).</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">2 - Spend big money on a fancy agency that will charge a=
+ per-project fee that might be in the range of $30-40k (and they=E2=80=99ll=
+ take weeks to do it).</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">3 - Sort through hundreds of cheap web design freelancer=
+s on platforms like Upwork or Fiverr and find a needle in a haystack.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Or, they could hire Brett, a proven graphic designer, wh=
+o will turn around work in 48 hours, all with the simple click of a button.=
+</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">At $5,000, this is a no-brainer.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Plus, they can cancel the service whenever you want, jus=
+t like a Netflix subscription.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Hiring a great designer is an annoying problem, and Bret=
+t provides a simple solution that companies are clearly willing to pay for.=
+</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But=E2=80=A6 it=E2=80=99s not just about the type of cli=
+ents Brett attracts, and that brings us to our next step:</p>
+<div>&nbsp;</div>
+<h3 style=3D"color:#222427; font-family:&quot;Helvetica Neue&quot;, Arial; =
+font-size:24px; font-style:normal; font-weight:bold; letter-spacing:0; line=
+-height:1.1; margin:0; margin-bottom:12px; text-align:left"><span style=3D"=
+font-weight: bold;">Step #4: High Demand / Low Touch </span></h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Productized services are amazing, right? You get paid fo=
+r your output rather than your time.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Because of this, everyone and their grandma is starting =
+one.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But the truth is that productized services will not work=
+ for every kind of service.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And this is the reason why Brett makes millions when mos=
+t other people make nothing.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And it has to do with one word: <span style=3D"font-weig=
+ht: bold;">profit</span>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">As you know, the profit equation is: revenue minus expen=
+ses equals profit.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But let=E2=80=99s double-click on what these look like f=
+or DesignJoy:</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">On the <span style=3D"font-weight: bold;">revenue</span>=
+ side, Brett=E2=80=99s doing well.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And that=E2=80=99s because Brett provides a service that=
+ is high impact.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">A website is often the first impression that a customer =
+will get of a startup.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And a really beautiful website might be the difference b=
+etween success and failure - for example, getting funding or not.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Companies must make sure they get this right, and that=
+=E2=80=99s why they=E2=80=99re willing to pay Brett a ton of money for his =
+service.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">On the <span style=3D"font-weight: bold;">expenses</span=
+> side, Brett is also doing well.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Brett has almost zero actual dollar expenses because he=
+=E2=80=99s a solopreneur: his only real expense is his time.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But Brett only works 6 hours/day - which isn=E2=80=99t b=
+ad considering he has over 16 clients at any given time.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And that=E2=80=99s because website design and branding a=
+re relatively <span style=3D"font-style: italic;">quick to fulfill</span>.<=
+/p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Brett can turn around a world-class landing page in a co=
+uple hours.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">That=E2=80=99s mostly thanks to his years of experience.=
+</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But website design is one of those things that you build=
+ once and do not really touch for a while.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And <span style=3D"font-style: italic;">that</span> is a=
+ctually the secret.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">That is the reason he is so profitable.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He picked a service that is both <span style=3D"font-wei=
+ght: bold;">high demand</span> but also <span style=3D"font-weight: bold;">=
+low touch</span>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">I don=E2=80=99t think this works as well for other servi=
+ces.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">For example, a productized bookkeeping or video editing =
+service would not be as profitable.&nbsp;</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Because these services are both less in demand and more =
+costly and time-consuming to fulfill.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And that brings us to our final point:</p>
+<div>&nbsp;</div>
+<h3 style=3D"color:#222427; font-family:&quot;Helvetica Neue&quot;, Arial; =
+font-size:24px; font-style:normal; font-weight:bold; letter-spacing:0; line=
+-height:1.1; margin:0; margin-bottom:12px; text-align:left"><span style=3D"=
+font-weight: bold;">Step #5: Build Once, Sell Forever</span></h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">The only problem with a productized service=E2=80=A6</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">No matter what, you=E2=80=99re still essentially trading=
+ your hours for dollars.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And if you want to truly get rich, you need to find a wa=
+y to <span style=3D"font-weight: bold;">scale those dollars without&nbsp;sc=
+aling your time</span>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And this is the final key move of Brett=E2=80=99s playbo=
+ok.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">In 2019, he spent 6 hours putting together a product cal=
+led Scribbbbles.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">It=E2=80=99s a downloadable collection of templates that=
+ other designers can use to spice up their projects.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He prices it at $4.99, and it gets downloaded over 25,00=
+0 times.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But=E2=80=A6 why is this a genius move?</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Brett=E2=80=99s been spending years building up his bank=
+ of knowledge and experience.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Both on how to design amazing websites and how to build =
+a great business along the way.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">And Brett finds a way to monetize this.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He turns his knowledge into a purchasable product that o=
+ther designers can use to&nbsp;<span style=3D"font-weight: bold;">improve t=
+heir own business</span>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Then a few years later, he takes it to the next level.</=
+p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He creates a course called Productize Yourself that help=
+s other designers start productized services.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">(and he charges a lot more than 5 bucks for this one)</p=
+>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Today, these infoproducts make up 29% of his income.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But he doesn=E2=80=99t have to trade his hours for these=
+ dollars. He=E2=80=99s already put in the work.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">This has diversified his income and allowed him to work =
+less and probably sleep better at night.&nbsp;</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">But what I love about Brett is that he didn=E2=80=99t ju=
+st sell courses.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">He continues to build his business, serve clients, and p=
+ut in the reps on DesignJoy.</p>
+<div>&nbsp;</div>
+<h3 style=3D"color:#222427; font-family:&quot;Helvetica Neue&quot;, Arial; =
+font-size:24px; font-style:normal; font-weight:bold; letter-spacing:0; line=
+-height:1.1; margin:0; margin-bottom:12px; text-align:left"><span style=3D"=
+font-weight: bold;">A Playbook You Can Replicate&nbsp;</span></h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">It's not luck or coincidence that Brett is one of the hi=
+ghest-paid solopreneurs in the world.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">Whether he realizes it or not, he put together a genius =
+playbook that I think everyone should study.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">I spent hours researching his business, talking to Brett=
+, and putting together this playbook.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:0">I hope you learned something you can apply to your own bus=
+iness.</p></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"background-color:#ECECFC;vertical-align:top;padding=
+-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:10px;padding-right:0px;padding-bottom:10px;padding-left:0px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><h3 style=3D"color:#222427;=
+ font-family:&quot;Helvetica Neue&quot;, Arial; font-size:24px; font-style:=
+normal; font-weight:bold; letter-spacing:0; line-height:1.1; margin:0; marg=
+in-bottom:12px; text-align:left">See <span style=3D"font-style: italic;">ex=
+actly</span> how online businesses go from zero to millions (like this one)=
+</h3>
+<hr>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">=E2=9C=94 Learn how founders came up with the idea that =
+turned them into millionaires=E2=80=A6 and exactly what that <em>felt like.=
+</em></p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">=E2=9C=94 Get the lowdown on what niches <em>actually</e=
+m> make money=E2=80=A6 and get the confidence that you're working on the ri=
+ght thing.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">=E2=9C=94 See exactly how $1M businesses grew=E2=80=A6 n=
+ever waste months on the wrong marketing channel.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em">=E2=9C=94 Surround yourself with success... soak up the =
+knowledge and learnings of the most successful founders in the world.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em"><a style=3D"color:#197bbd; font-style:normal; font-weigh=
+t:400; text-decoration:underline" href=3D"https://trk.klclick.com/ls/click?=
+upn=3DnCH6fDLu-2FHycmSArPVtfrLaEfc1lRhHblFz79My0WkGr1978s2UOigZ1OoGscwgVCue=
+6TwXLfqG-2BDIlVy-2BZWly85kja-2BBP2EKNmnj-2F2tdppMX5WNrmHEtOX7uAMY-2FAMIHIvK=
+OZiC1Odbs46E5Ovhp2pbKnVNL-2FawKJSDc92JD5XWJLNRpHHonWQajzTF-2FJGZjWh5mE3mZYo=
+Zhy-2FkKWY8bXBjSRs5-2BvbpRWtTZfhvdsj-2Bq2dEm6e-2FhqhjvfPzc3aRXrtg_mdDW24RRL=
+44dl4wFf2734Ue-2FwlTj3LjscG2T1pj9nlkhyoznloaHopctHJWHrr7FrQ1w7UMigm-2FnIpsk=
+aps2L8p-2BFfc2mvMxPuKNYnd5CRMQZgfae-2FM5S97v15mASExSieLFoO4PHgEF3pJx-2BPfXj=
+-2FgIL6KJ-2F-2B4YvZ1iTDgbLBSjd5swy2VKQcHuvpgZPEuvu-2FinWEMkjyFpGSh7RzAYO2iN=
+hCa-2Fe2miG-2FahJRN-2FKawgJfHCrEdYjo1KbM9jFN-2BlqoqS-2FqaxtUgOwKXR-2B9xeRxD=
+petaNKu5fK1llyYQUrQeZKpjvzOYmhspiL5eN5qpOWBvC9s5n3EWz1TDY3evGQLKfApJ8gWHJir=
+0ZvXveZlAY4rhRc9Cav9yLNdbCRKQI-2Bp-2FOm-2BX16SGuS15A1wDf6ejlYHHjUmg-2BnxpVe=
+tn9heMvm0i1vWeYLG0bLV36ZFhCQmWZZr3GGWqF-2FHrwqocQWA-3D-3D"><span style=3D"f=
+ont-weight: bold;">Click HERE to redeem 25% off Starter Story right now</sp=
+an></a>.</p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:0"><span style=3D"font-style: italic;">^^ (ends this week)</s=
+pan></p></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"mob-no-spc" style=3D"vertical-align:top;padding-top:0px;paddin=
+g-right:12px;padding-bottom:0px;padding-left:12px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:12px;padding-right:0px;padding-bottom:12px;padding-left:0px;word-b=
+reak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><p style=3D"margin-bottom:0=
+; margin-left:0; margin-right:0; margin-top:0; padding-bottom:1em">Best,</p=
+>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:1em"><strong>Pat Walls</strong><br>Founder, StarterStory.com<=
+/p>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:0"><span style=3D"font-weight: 400;">&nbsp;</span></p></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:9px;padding-right:9p=
+x;padding-bottom:9px;padding-left:9px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td>
+<div style=3D"width:100%;text-align:center">
+<!--[if true]><table style=3D"all:unset;opacity:0;" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" ><tr><![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:inline-block;padding-r=
+ight:10px;"><!--<![endif]-->
+<!--[if true]><td style=3D"padding-right:10px;"><![endif]-->
+<div style=3D"text-align: center;">
+<a style=3D"color:#197bbd; font-style:normal; font-weight:400; text-decorat=
+ion:underline" target=3D"_blank" href=3D"https://trk.klclick.com/ls/click?u=
+pn=3DnCH6fDLu-2FHycmSArPVtfrORAwz-2BPLcaNg1GuJjkPhy3juO-2F0FeIYXvFoAOd973pc=
+N8kMOA4T2JDUbLnGxg9xxgvmmlfcuhjOehE6o10Ti-2Fq3sHED5k1BD-2F0CXtGL-2F2BiWB-2F=
+eIdtlrLgX-2FGC0KuxX-2Fya2mbsJdR7fhQB2ZutaZYNOjWALSYttAooDQ4BxtIrMUpaCI2h8Rb=
+Bb6Y2EwPlFBEXg3tUoYQssirczz0Pl5oq8Ju9pI6yphSo0TsSop8JdJIjw_mdDW24RRL44dl4wF=
+f2734Ue-2FwlTj3LjscG2T1pj9nlkhyoznloaHopctHJWHrr7FrQ1w7UMigm-2FnIpskaps2L8p=
+-2BFfc2mvMxPuKNYnd5CRMQZgfae-2FM5S97v15mASExSieLFoO4PHgEF3pJx-2BPfXj-2FgIL6=
+KJ-2F-2B4YvZ1iTDgbLBSjd5swy2VKQcHuvpgZPEuvu-2FinWEMkjyFpGSh7RzAYO2iNhCa-2Fe=
+2miG-2FahJRN-2FKawgJfHCrEdYjo1KbM9jFN-2BlqoqS-2FqaxtUgOwKXR-2B9xeRwiYaievyz=
+H37YsneluQREKRdNiguUJhJtZEtD9S4ZMEaZ-2B2e0BLY-2FQYPPUnw-2FX2seGFEVGd6KvAK-2=
+B-2B9A3rWDiW6x20G8li0n9lsOEXiTwqiutsArE0dLTORBLgRw18E5ncLfJnSbRm-2FyIhZPkQI=
+1uJC31fObj2rvJuJ3U7q5FQ3c3B5pLvmiMqqMcnBYN4Dcg-3D-3D">
+<img alt=3D"Twitter" src=3D"https://d3k81ch9hvuctc.cloudfront.net/assets/em=
+ail/buttons/subtle/twitter_96.png" style=3D"border:0; height:auto; line-hei=
+ght:100%; max-width:100%; outline:none; text-decoration:none; width:32px" w=
+idth=3D"32">
+</a>
+</div>
+<!--[if true]></td><![endif]-->
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:inline-block;padding-r=
+ight:10px;"><!--<![endif]-->
+<!--[if true]><td style=3D"padding-right:10px;"><![endif]-->
+<div style=3D"text-align: center;">
+<a style=3D"color:#197bbd; font-style:normal; font-weight:400; text-decorat=
+ion:underline" target=3D"_blank" href=3D"https://trk.klclick.com/ls/click?u=
+pn=3DnCH6fDLu-2FHycmSArPVtfrNTC9f348TEpFH7CADIP8rNAKwb14Dnr1DXv6ZRmRCJUK8Yi=
+Ylvtw0cCMX6Qt-2B1PqO9QjTr5B6xO-2Bw1Rq2jEeh-2BwTFzddLqc5wDykyd9-2B7mEJALQD2s=
+CX3CXfEPIxCDhzqDvkxQom-2Fk17pmFIDabTlUInUtFYGCUts7HnMWd-2FqT4KVVR0GlDNSIEJx=
+VNVhPZ-2BlAI33fEqhpuucU5qCawUOik3CVTIq-2BuX7K23kLPZXPUgp1a4wY9UonlnRh3axLTd=
+Q-3D-3D1yve_mdDW24RRL44dl4wFf2734Ue-2FwlTj3LjscG2T1pj9nlkhyoznloaHopctHJWHr=
+r7FrQ1w7UMigm-2FnIpskaps2L8p-2BFfc2mvMxPuKNYnd5CRMQZgfae-2FM5S97v15mASExSie=
+LFoO4PHgEF3pJx-2BPfXj-2FgIL6KJ-2F-2B4YvZ1iTDgbLBSjd5swy2VKQcHuvpgZPEuvu-2Fi=
+nWEMkjyFpGSh7RzAYO2iNhCa-2Fe2miG-2FahJRN-2FKawgJfHCrEdYjo1KbM9jFN-2BlqoqS-2=
+FqaxtUgOwKXR-2B9xeR0lbiUxvaMeo05puodH4-2F3JArDZG31mGOUn4bwZYvwB3GmuvY-2FpHW=
+AOX6qfBxd56yMKZpTjkHrKLg1CnlWyiAGIswL-2B7GzIEKlPzYKuUmebtUjkGFA-2F2pgyczmoT=
+bViO7BwxnxuCz6Y84-2BmbEgLyysq3ELaiG8iNlczH09kjbi9f7wQZt-2FK42CbRWFR8Nk1XIg-=
+3D-3D">
+<img alt=3D"Facebook" src=3D"https://d3k81ch9hvuctc.cloudfront.net/assets/e=
+mail/buttons/subtle/facebook_96.png" style=3D"border:0; height:auto; line-h=
+eight:100%; max-width:100%; outline:none; text-decoration:none; width:32px"=
+ width=3D"32">
+</a>
+</div>
+<!--[if true]></td><![endif]-->
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if !true]><!--><div class=3D"" style=3D"display:inline-block;"><!--<![=
+endif]-->
+<!--[if true]><td style=3D""><![endif]-->
+<div style=3D"text-align: center;">
+<a style=3D"color:#197bbd; font-style:normal; font-weight:400; text-decorat=
+ion:underline" target=3D"_blank" href=3D"https://trk.klclick.com/ls/click?u=
+pn=3DnCH6fDLu-2FHycmSArPVtfrGFE9TfSGn6aJxx88Z90Npk9GzEOJwPpFuOkv0CDH-2FHbOZ=
+WZJ5EIrSAhP-2FLpCmfaRxM8wQICUL-2BdD26trFaYAe1gNomOVbQ-2FIaAarP2gAKhazdpQuKh=
+QgUtgWJ-2BSJwL3vMITG7-2B6VRRppGTdtS-2FJNTGc2PSqk3vx5Xo68s5Wfb7ym5lD8ByoUPw5=
+S6wbV1mBKWG-2Fyhyhj-2FL6XZYpyxg0b-2FMgV8Axry-2B8I5jE8oc6E9ASRdJs1co-2Bt3dpc=
+0aY34WjgQ-3D-3Dsoov_mdDW24RRL44dl4wFf2734Ue-2FwlTj3LjscG2T1pj9nlkhyoznloaHo=
+pctHJWHrr7FrQ1w7UMigm-2FnIpskaps2L8p-2BFfc2mvMxPuKNYnd5CRMQZgfae-2FM5S97v15=
+mASExSieLFoO4PHgEF3pJx-2BPfXj-2FgIL6KJ-2F-2B4YvZ1iTDgbLBSjd5swy2VKQcHuvpgZP=
+Euvu-2FinWEMkjyFpGSh7RzAYO2iNhCa-2Fe2miG-2FahJRN-2FKawgJfHCrEdYjo1KbM9jFN-2=
+BlqoqS-2FqaxtUgOwKXR-2B9xeRy8mJCJCcZftc-2FrXNvKEN72ga-2FxBJxbewNDtb9CtuNUGi=
+p2v3Nv8d2cun7KgBW5Z4xNrSVlreWsCkisrFxZxVFPXzUOuIV0rtWpSvehDHrzGkTfT8nzR56cy=
+5-2BsfT0Ujra-2BSU0R2V2xBGl-2FcBEVDQsVWoWH6vgtymlRrzw-2BCb584fey1oXDbVM7rET-=
+2F61hjn-2FA-3D-3D">
+<img alt=3D"Instagram" src=3D"https://d3k81ch9hvuctc.cloudfront.net/assets/=
+email/buttons/subtle/instagram_96.png" style=3D"border:0; height:auto; line=
+-height:100%; max-width:100%; outline:none; text-decoration:none; width:32p=
+x" width=3D"32">
+</a>
+</div>
+<!--[if true]></td><![endif]-->
+<!--[if !true]><!--></div><!--<![endif]-->
+<!--[if true]></tr></table><![endif]-->
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"mj-column-per-100 mj-outlook-group-fix component-wrapper" sty=
+le=3D"font-size:0px;text-align:left;direction:ltr;vertical-align:top;width:=
+100%;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"width:100%;" width=3D"100%">
+<tbody>
+<tr>
+<td class=3D"" style=3D"vertical-align:top;padding-top:9px;padding-right:12=
+px;padding-bottom:9px;padding-left:12px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" class=3D"kl-text" style=3D"font-size:0px;padding:0px;pad=
+ding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;word-bre=
+ak:break-word;">
+<div style=3D"font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans=
+-serif;font-size:18px;font-style:Normal;font-weight:400;letter-spacing:0px;=
+line-height:1.5;text-align:left;color:#616161;"><div style=3D"text-align: c=
+enter;"><span style=3D"font-size: 12px;">Starter Story - </span><span style=
+=3D"font-size: 12px;">PO Box 3003 Jackson, WY 83001</span></div>
+<p style=3D"margin-bottom:0; margin-left:0; margin-right:0; margin-top:0; p=
+adding-bottom:0; text-align:center"><span style=3D"font-size: 12px;">Click =
+<a class=3D"unsubscribe-link" style=3D"color:#197bbd;font-style:normal;font=
+-weight:400;text-decoration:underline;" href=3D"https://trk.klclick.com/ls/=
+click?upn=3DnCH6fDLu-2FHycmSArPVtfrCtbKKDSjzkLNVrLIosmwa9Ah02JhG9fMBM8O-2F8=
+LMukXcQ7JXHEwW2XClmJ93gPrnXaY7reLRqcvxvbfOuonyt6o0aejdpCO1bRHJX3JILJK4GILhC=
+FLqHQmKMrxRK6DtQTua5NJ7LXGsWwBgfyl7HX2DSeMwH9VdjWHYiuTo32bny0Kyx-2Bvs4RzZrW=
+VT1w2aQ-3D-3DnbTD_mdDW24RRL44dl4wFf2734Ue-2FwlTj3LjscG2T1pj9nlkhyoznloaHopc=
+tHJWHrr7FrQ1w7UMigm-2FnIpskaps2L8p-2BFfc2mvMxPuKNYnd5CRMQZgfae-2FM5S97v15mA=
+SExSieLFoO4PHgEF3pJx-2BPfXj-2FgIL6KJ-2F-2B4YvZ1iTDgbLBSjd5swy2VKQcHuvpgZPEu=
+vu-2FinWEMkjyFpGSh7RzAYO2iNhCa-2Fe2miG-2FahJRN-2FKawgJfHCrEdYjo1KbM9jFN-2Bl=
+qoqS-2FqaxtUgOwKXR-2B9xeR336oCPJgeu2vzUji4LY-2FVIQ2a1EEdZMxWAf93dDkRKt62VQW=
+cnKEcE6EA0HqtX6isknEnKOyA7CZXSWDTXEXlrz85xjcvLFdqjGhHtjUBwQzHhVF0euL-2FnPCw=
+6HLatw4oorEgYqS7ijgSH2ir-2F-2BYVrET-2FXOa8nXscySrUyTAUmh7KcEuuu58scNtPgBI2V=
+mvg-3D-3D">here</a> if you want to stop receiving emails from us.<br></span=
+></p></div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!--[if true]></td><![endif]-->
+</div>
+<!--[if true]></tr></table><![endif]-->
+</div>
+<!--[if mso | IE]></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--[if mso | IE]></td></tr></table><![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<img src=3D"https://trk.klclick.com/wf/open?upn=3DAsZLUFBe6GTXwuy-2B3myd5wW=
+E8GiM-2FcSmH1L5XHU2Sx05lWj-2BQk9JXVek-2Fzwkl4MD5aNsJoQW-2BlNF6-2FzdNm29Ey8g=
+UNft2JllJiwVUVUWpG28LUEI4DRAohhkk2NSUM6mDxVtSa9uWrYGH-2Fg55n-2FpOznHzkwGmT-=
+2FLCYV1n2Y0K7ewK7H4Fk8N3vOfQMLguconc5NYSiFN36Yv7pAE4-2FayPIYM0J5Lm86N6F03uO=
+9VN21JQYa1tPEjX-2BVdK-2F7wfwFJDY6T43R0uS9IdsUCViDB1HnI1pV3BI2PwCzLFMJ8BaC1-=
+2Fc8Y6VxwfLnKAm6fzinDSZ7pMEQBqykKU-2Boqh5V8V58yMCOmdwIpovpP7KwsjOceKp5v037Z=
+1yvFBgKc2wn7D5LZO1FngYZZ6DinTM7JH84rAGhVt9r31V7We1D1fY5k-2F28bAEBnUJ0P5vdLe=
+hEAhtkPCRG40R8VNqYrzc16xA-3D-3D" alt=3D"" width=3D"1" height=3D"1" border=
+=3D"0" style=3D"height:1px !important;width:1px !important;border-width:0 !=
+important;margin-top:0 !important;margin-bottom:0 !important;margin-right:0=
+ !important;margin-left:0 !important;padding-top:0 !important;padding-botto=
+m:0 !important;padding-right:0 !important;padding-left:0 !important;"/></bo=
+dy></html>
+--1e1fca295b33e58435d378a4b3406c3eeab2ce0924e93a3f15c5500d3f01--

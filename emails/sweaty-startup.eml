@@ -1,0 +1,1331 @@
+Delivered-To: timmyg13@gmail.com
+Received: by 2002:a05:6022:5206:b0:4b:eb:35ff with SMTP id w6csp341328law;
+        Tue, 9 Jan 2024 08:07:59 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHYvw+5HGlAc/61i5wE2m2vUWQvDZnRcAz3nZxKp8UY4NXLxIPmiKX1dIPxv14q4Pz1Cd++
+X-Received: by 2002:a25:b1a1:0:b0:dbd:9cd6:8c64 with SMTP id h33-20020a25b1a1000000b00dbd9cd68c64mr2868757ybj.93.1704816479639;
+        Tue, 09 Jan 2024 08:07:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1704816479; cv=none;
+        d=google.com; s=arc-20160816;
+        b=yafVzpof/monRAQ624I/QNouwtNh+EbPphV7itetAyECyjWgqeFYaOIT1ZIVJL4yNA
+         KSZzC3oTzjaCPaR/AMolhD1I+ek1yNbFXiT/QEbuE/KiDNmV5aKNqaD1Xsw5fd7LWn1q
+         kEqLqXpRGrzmwlqxrb9NBe1EM8yq1V8dskxxfaxNBbjHviKTKwPBWED8Zp5uRc0JG0PH
+         x+te5kx994imOmPHA6rbDV7wSxs/rypD/j98BBLB6d0BwTIuMOFMpAqXou080yLnFclO
+         SkDsYfSy9zQ4vMomRUDtYh+6BmXoEJMKYld7G7KC6hHAkLP1RTna5E4FMJCXs6UewDYp
+         LQVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:feedback-id:precedence:list-unsubscribe:subject:message-id
+         :mime-version:from:date:dkim-signature:dkim-signature;
+        bh=5Hyix4Pc+dUwvWOIQWhLouf0JOMED7NeNXUhX7PyyRc=;
+        fh=CznVRnErcxvsd6aPz4wv4XMNlZLmpJODLOoG1gRHGCo=;
+        b=nUDevF8Iq06qrddGmKdlIypO6xyuchlXQe7fZ3QrgSrAYHlQ40rjdWNTcTlDKGtOmr
+         j2nMK2zm/skLThWKu5d7hlgqv0FM6tbz2//6exTCcerJa5NfZ608ml36NpCZ3JD++QwE
+         iM6d1Gkq8JOYn7JtQPVIZaY49BSBR6faba4UJHPtB/KyORZLk3tuSEwjz9yFH92na1EZ
+         4csZKy9vcm7jvZiEWZRSuMCfUfDAq6T5Ure4QPUkN5RrzX1lqARNPiRPP+NsZy7tWkfF
+         T9zWVYhe/dwUIPbypnQk09ogdi5r+UYaw6SGrooGeS06yQeFqywvohTY9yjwidaMyMDC
+         u+4g==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=IA2HH1Kl;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=MI+jg03Y;
+       spf=pass (google.com: domain of bounces+20157226-f83a-timmyg13=gmail.com@mail.n.convertkit.com designates 149.72.39.237 as permitted sender) smtp.mailfrom="bounces+20157226-f83a-timmyg13=gmail.com@mail.n.convertkit.com"
+Return-Path: <bounces+20157226-f83a-timmyg13=gmail.com@mail.n.convertkit.com>
+Received: from o38.ck.n.convertkit.com (o38.ck.n.convertkit.com. [149.72.39.237])
+        by mx.google.com with ESMTPS id 187-20020a2506c4000000b00dbdab069a8dsi1123983ybg.496.2024.01.09.08.07.59
+        for <timmyg13@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Jan 2024 08:07:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+20157226-f83a-timmyg13=gmail.com@mail.n.convertkit.com designates 149.72.39.237 as permitted sender) client-ip=149.72.39.237;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@n.convertkit.com header.s=s1 header.b=IA2HH1Kl;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=MI+jg03Y;
+       spf=pass (google.com: domain of bounces+20157226-f83a-timmyg13=gmail.com@mail.n.convertkit.com designates 149.72.39.237 as permitted sender) smtp.mailfrom="bounces+20157226-f83a-timmyg13=gmail.com@mail.n.convertkit.com"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=n.convertkit.com;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc:content-type:from:subject:to;
+	s=s1; bh=5Hyix4Pc+dUwvWOIQWhLouf0JOMED7NeNXUhX7PyyRc=;
+	b=IA2HH1KlZIokscr4e8JFQE7A3AAfhv9z5y5vPgZsgpqhbjZuxiBOgEPU33JQeF46fl2M
+	zcmpK2hlKM1oy/VEMWzeWOyrjJfusuZ6DvGU78tUWUAYyAbaBS1KJ6QYufvp5liGij2JHM
+	4pqWPthuTPr6sbVg8MmrO0xulcHxxuijrk0uCRTIeAGqpqKYKAF4K32cnK5JIoOzy+Fxxg
+	UEQ8jbCm1YqCER8Fjq2GWnUCUchBArwVXSeSJhlG5xwJRAjRz4POPJFK/jdANVWJWiWdZr
+	YQSZ4OTy2vAgDJWJjSyfWLGWxkKDgYfFQJnJds4BcUIwvYoSLVhLdAPY+cZQNt4g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:list-unsubscribe:x-feedback-id:
+	to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=5Hyix4Pc+dUwvWOIQWhLouf0JOMED7NeNXUhX7PyyRc=;
+	b=MI+jg03YZoHIFyKHbVlcsTsHk0xouUYR1uy74vQhtJJl3iPyayYA8DTPYWmhjv/XoJDs
+	8/Md+aP1L9fLaFrfQsVrhzjQm9KjyXHq6utMWbSh5nNcIi3t5bkKwAGFiVoh4BUmtyLpDP
+	Ec1cSpa2yzcOifLpVzPnPYQMRF2HcQmKU=
+Received: by filterdrecv-bcd576c5f-nzchn with SMTP id filterdrecv-bcd576c5f-nzchn-1-659D6F5F-2
+        2024-01-09 16:07:59.034521499 +0000 UTC m=+7248357.645818341
+Received: from MjAxNTcyMjY (unknown)
+	by geopod-ismtpd-10 (SG) with HTTP
+	id 72voK8i5SU66aZA5WzlEcA
+	Tue, 09 Jan 2024 16:07:58.927 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=490d147be279cb7ef914f2b71592b6cc656d072fce8793865f06e184cb05
+Date: Tue, 09 Jan 2024 16:07:59 +0000 (UTC)
+From: Nick Huber <nick@sweatystartup.com>
+Mime-Version: 1.0
+Message-ID: <d0u6n9mg72u0h4v8owma9imv4n544@convertkit-mail2.com>
+Subject: The best business decision I've ever made and how to get treated
+ better by EVERYONE
+List-Unsubscribe: 
+ <https://unsubscribe.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544>
+X-Report-Spam: <abuse@convertkit.com>
+X-Report-Abuse: <abuse@convertkit.com>
+Precedence: bulk
+Feedback-ID: 12746981:573930:broadcast:CK
+X-Feedback-ID: 20157226:SG
+X-SG-EID: 
+ =?us-ascii?Q?=2F3HJjG7NRQk3vj0b=2Fnme+2E2DtMQjMnX20ED+brOxK1A5QTngipnAUzqm0oUC3?=
+ =?us-ascii?Q?u54cjpdRmZBiuMwRGfgO7aHnzs9J0MkzZ43wIKv?=
+ =?us-ascii?Q?dmO6Nt=2FEtHuNFrbGYP726zHIhK316=2F1MlISHpcs?=
+ =?us-ascii?Q?Xh0tB3BcEElqA1pasBd14sWMi=2FPpz+MQ84P8kwb?=
+ =?us-ascii?Q?TtzXH6DgN9aDQskFZAZhWVKWjU3nVhzaKE2ly81?=
+ =?us-ascii?Q?DzapZRUnc1+fly7sxQEmEQr5p8myqAmmXKSUyg?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FJHjDFAea1uZocvZojyqe?=
+ =?us-ascii?Q?ADs4gOTOnsPNTe+qGkrtLo3uwR8VERnMD+ZJWC=2F?=
+ =?us-ascii?Q?2b6LJsx5nzCCXv5HX05Jml4xwcjFCwwCMTZ6rNj?=
+ =?us-ascii?Q?JQYyeoTqVApu4qf6iRHRIaNK4waJAwK8Dw2XeXV?=
+ =?us-ascii?Q?KOVYGutUU7AR03fYSX3mBbmD2yp=2F0VCPzz=2FZDqP?=
+ =?us-ascii?Q?kaQSfkUKsEXOkobb09t7C4CVgrxqjIdE1wkgKEW?=
+ =?us-ascii?Q?DYEzoleCszUFb=2FH1=2FCld8sY7SSGo932zlNEH6gs?=
+ =?us-ascii?Q?H0N=2F6roVATx8WPjzMgIe8iVDMMdjNb1+AmKdEC8?=
+ =?us-ascii?Q?GTakKOfxYzuZmRBm9StCxLs9TEzyKqOtm=2FxvIxb?=
+ =?us-ascii?Q?6chf9Tmqsc=2FD2htFRPZUOVk0qIfBF9ZCiByHcDm?=
+ =?us-ascii?Q?Jtmr67j83T=2FWTrVaGRwnTk=2F1qMlo2+7xEhr?=
+To: timmyg13@gmail.com
+X-Entity-ID: tITYL5717Dx2QvpYiokUkA==
+
+--490d147be279cb7ef914f2b71592b6cc656d072fce8793865f06e184cb05
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+One of the smartest things I've ever done is hire a
+foreign employee at my company. Now 80% of my busienss is made up
+of them.
+
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C
+
+Folks ask me quite often what the best business decision I ever
+made was. Here is my answer:
+
+Hiring my first overseas employee.
+
+In 2021 I engaged a company called Support Shepherd (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/reh8hoh0me=
+qoowt2/aHR0cHM6Ly93d3cuc3VwcG9ydHNoZXBoZXJkLmNvbS8_dXRtX3NvdXJjZT1uZXdzbGV0=
+dGVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5pY2todWJlcl9pbnNlcnRkYXRlMTI=
+xMjIy
+) to recruit a Philippines based employee for my storage company.
+
+Today 80% of the employees across my 11 companies are located in
+either the Philippines or LATAM (Columbia, Argentina, Brazil,
+etc).
+
+The average salary is $1200 USD per month ($5 per hour).
+
+What do they do at my companies?
+
+Customer service. Underwriting. Billing. Sales. Financial
+analysis. Property management (dealing with all of our vendors).
+Web design. Graphic design. Video editing. Bookkeeping. You name
+it. Any job that can be done remote, you can find exceptional
+talent in these countries.
+
+Several of these folks have the potential to RUN one of my
+companies someday.
+
+If I had to guess I'd say about 10% of companies in America with
+less than 500 employees outsource. I bet that number in 2034 is
+closer to 50%. Every year that goes by companies are getting more
+and more comfortable with it and the folks who don't do it are
+falling further and further behind.
+
+Check out supportshepherd.com (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/reh8hoh0me=
+qoowt2/aHR0cHM6Ly93d3cuc3VwcG9ydHNoZXBoZXJkLmNvbS8_dXRtX3NvdXJjZT1uZXdzbGV0=
+dGVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5pY2todWJlcl9pbnNlcnRkYXRlMTI=
+xMjIy
+) to see if overseas talent could help your company.
+
+(I'm so passionate about this for small busiensses I actually
+invested in Support Shepherd).
+
+--
+
+Don=E2=80=99t forget something very important about this life:=E2=80=8B=E2=
+=80=8BYour job
+is to train people how to treat you.=E2=80=8B=E2=80=8BYou get more of what =
+you
+tolerate.=E2=80=8BIf you tolerate people being manipulative, you=E2=80=99ll=
+ get
+more of it.=E2=80=8BIf you tolerate employees being flakey and
+unreliable, you=E2=80=99ll get more of it.=E2=80=8BIf you tolerate customer=
+s
+making outrageous demands, you=E2=80=99ll get more of it.
+
+If you tolerate a boss sending you demands on Sunday morning, he
+will continue to overwork you.=E2=80=8BIf you tolerate verbal abuse, head
+games and drama from your spouse you will get more of it.=E2=80=8BIt
+isn=E2=80=99t rocket science folks.=E2=80=8BPeople will do more of what ben=
+efits
+them and hurts you if you reinforce that behavior with positive
+outcomes for them.=E2=80=8BIt takes a very secure person to stand up for
+what is right when another person is acting irrational.
+
+Set boundaries in all areas of life!
+
+Caveat:
+
+I'm not saying to be rude to people. Just stand up for yourself
+in a respectful, rational way.
+
+And always, always, always treat people well and respectful in
+return. This goes both ways.
+
+--=E2=80=8BIf you want to raise kids who share hobbies with you, watch
+this video (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/08hwh9hd2k=
+mppzal/aHR0cHM6Ly94LmNvbS9zd2VhdHlzdGFydHVwL3N0YXR1cy8xNzM3MDc2MTE4MTk1MjA4=
+MjY5P3M9MjA=3D
+)=E2=80=8B
+
+Nothing is more important to me in life than sharing memories
+with my kids and making them want to be around me when they=E2=80=99re
+old enough to not be around me.
+
+--
+
+Something I've changed my mind on over the years:
+
+How you dress and how you present yourself matters. People judge
+a book by its cover ALL THE TIME.
+
+How you look matters.
+
+It matters in dating. It matters in business. It matters at your
+job and with your friends.
+
+People judge you based on how you look all the time. Everyone
+does it. Whether they admit it or not.
+
+If you purposely dress casual and die your hair an unnatural
+color people will perceive you as less reliable and less
+trustworthy.
+
+If you dress professional and you are clean-cut with a nice
+haircut people perceive you as more reliable and more
+trustworthy.
+
+Therefore you are more likely to get paid more money for the same
+contribution. Or get more opportunities.
+
+It is that simple. You can hate the game if you want to, but get
+over yourself and start playing it if you want to win.
+
+--
+
+An underrated key to delegation and management:
+
+Saying something that takes others 3 minutes to say in 15
+seconds.
+
+Clear and simple communication, both written and verbal, is a
+superpower. People have extremely short attention spans.
+
+They may look at you and nod...
+
+But they aren't paying attention. KEEP IT SIMPLE AND KEEP IT
+SHORT.
+
+How to practice this:
+
+Before you hit send, spend twice as much time thinking about how
+you can REMOVE words. Record yourself talking. Get a transcript.
+Then do the same thing.
+
+It takes practice.
+
+There is no greater threat to effective leadership than overly
+complicated and unclear communication.
+
+Onward and upward,
+
+Nick Huber
+
+P.S.
+
+Tax season is right around the corner and my final income tax
+bill will be $0 for one main reason - Cost Segregation Studies
+and bonus depreciation.
+
+DO NOT FORGET TO GET COST SEGREGATION STUDIES DONE ON YOUR REAL
+ESTATE.
+
+The folks at RE Cost Seg (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/8ghqhohlox=
+g77khk/aHR0cHM6Ly9jbGljay5jb252ZXJ0a2l0LW1haWwyLmNvbS8wdnV6cjkyeHBrYzlob25n=
+bDdudDBpd3F3N2s1NS9kcGhlaDBoMHF4b24zOGFtL2FIUjBjSE02THk5M2QzY3VjbVZqYjNOMGM=
+yVm5MbU52YlM4X2RYUnRYM052ZFhKalpUMXVaWGR6YkdWMGRHVnlKblYwYlY5dFpXUnBkVzA5Wl=
+cxaGFXd21kWFJ0WDJOaGJYQmhhV2R1UFdoMVltVnk=3D
+) have already delivered my cost segs this year and the
+depreciation is mouth watering. Reach out if you're in the market
+- the proposal is free.=E2=80=8BProfessional engineering reports you can
+count on, and they do virtual visits to turn them around even
+quicker. (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/8ghqhohlox=
+g77khk/aHR0cHM6Ly9jbGljay5jb252ZXJ0a2l0LW1haWwyLmNvbS8wdnV6cjkyeHBrYzlob25n=
+bDdudDBpd3F3N2s1NS9kcGhlaDBoMHF4b24zOGFtL2FIUjBjSE02THk5M2QzY3VjbVZqYjNOMGM=
+yVm5MbU52YlM4X2RYUnRYM052ZFhKalpUMXVaWGR6YkdWMGRHVnlKblYwYlY5dFpXUnBkVzA5Wl=
+cxaGFXd21kWFJ0WDJOaGJYQmhhV2R1UFdoMVltVnk=3D
+)=E2=80=8B
+
+Not sure what a cost seg is? Check out this thread. (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/l2hehmh3lz=
+oddec6/aHR0cHM6Ly9jbGljay5jb252ZXJ0a2l0LW1haWwyLmNvbS8wdnV6cjkyeHBrYzlob25n=
+bDdudDBpd3F3N2s1NS9lMGhwaDdoMGt6bG94NGI4L2FIUjBjSE02THk5MGQybDBkR1Z5TG1OdmJ=
+TOXlaV052YzNSelpXY3ZjM1JoZEhWekx6RTFOamN5TXpRME1UWXlOakkwT0Rnd05qWV9jejB5TU=
+NaMFBWTXhVemhYVEZFelRGOHlka2h0WDB4cFkzbElaV2M9
+)=E2=80=8B
+
+Share with friends, get cool free stuff
+
+* 1 Referral: 200+ Free Business Ideas cheatsheet
+* 3 Referrals: Delegation & Hiring (101)
+* 5 Referrals: Twitter Growth Course ($500 value)
+* 10 Referrals: Nicks Real Estate Starter Class ($749 value)
+* 100 Referrals: 30 Minute Call w/ Nick
+
+Please note, these rewards are in limited supply, get moving
+while they last.
+
+https://sparklp.co/9d4a9082/ (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/m2h7h5h837=
+oll5fm/aHR0cHM6Ly9zcGFya2xwLmNvLzlkNGE5MDgyLw=3D=3D
+)
+
+Facebook (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/e0hph7h072=
+kddgi8/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3NoYXJlci5waHA_dT1odHRwczovL3NwYXJr=
+bHAuY28vOWQ0YTkwODIvJTNGdXRtX3NvdXJjZSUzRGZhY2Vib29r
+)
+Twitter (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/owhkhqhrw7=
+4002uv/aHR0cHM6Ly90d2l0dGVyLmNvbS9pbnRlbnQvdHdlZXQ_dGV4dD1JJTIwanVzdCUyMHNp=
+Z25lZCUyMHVwJTIwb24lMjB0aGlzJTIwYXdlc29tZSUyMG5ld3NsZXR0ZXIhJTBBJTBBaHR0cHM=
+6Ly9zcGFya2xwLmNvLzlkNGE5MDgyLyUzRnV0bV9zb3VyY2UlM0R0d2l0dGVy
+)
+Whatsapp (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/z2hghnh3e8=
+ommlip/aHR0cHM6Ly9hcGkud2hhdHNhcHAuY29tL3NlbmQ_dGV4dD1JJTIwanVzdCUyMHNpZ25l=
+ZCUyMHVwJTIwb24lMjB0aGlzJTIwYXdlc29tZSUyMG5ld3NsZXR0ZXIhJTBBJTBBaHR0cHM6Ly9=
+zcGFya2xwLmNvLzlkNGE5MDgyLyUzRnV0bV9zb3VyY2UlM0R3aGF0c2FwcA=3D=3D
+)
+Linkedin (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/p8heh9hz4l=
+9pppcq/aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL3NoYXJpbmcvc2hhcmUtb2Zmc2l0ZS8_dXJs=
+PWh0dHBzOi8vc3BhcmtscC5jby85ZDRhOTA4Mi8lM0Z1dG1fc291cmNlJTNEbGlua2VkaW4=3D
+)
+Email (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/x0hph6hwel=
+n44mf5/bWFpbHRvOj9zdWJqZWN0PUNoZWNrJTIwdGhpcyUyMG91dCZib2R5PUklMjBqdXN0JTIw=
+c2lnbmVkJTIwdXAlMjBvbiUyMHRoaXMlMjBhd2Vzb21lJTIwbmV3c2xldHRlciElMEElMEFodHR=
+wczovL3NwYXJrbHAuY28vOWQ0YTkwODIvJTNGdXRtX3NvdXJjZSUzRGVtYWls
+)
+
+PS: You have referred 0 people so far
+
+See how many referrals you have (
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/qvh8h7hrd0=
+8l3vhl/aHR0cHM6Ly9odWIuc3BhcmtscC5jby9zdWJfZWU2MGI0NmI1ODk5LzE=3D
+)
+
+(
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/g3hnh5h3mk=
+e02our/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3N3ZWF0eXN0YXJ0dXA=3D
+)
+
+(
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/9qhzhnhpdl=
+ge8lt9/aHR0cHM6Ly90d2l0dGVyLmNvbS9zd2VhdHlzdGFydHVw
+)
+
+(
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/48hvhehrmn=
+073rcx/aHR0cHM6Ly93d3cueW91dHViZS5jb20vY2hhbm5lbC9VQ0JZd1JkUnc2eDliSDRQc3lD=
+TG5tT3c=3D
+)
+
+(
+https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/reh8hoh0me=
+qopwu2/aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9zd2VhdHlzdGFydHVwLw=3D=3D
+)
+
+Thanks for reading! If you loved it, tell your friends to
+subscribe.If you didn=E2=80=99t enjoy the email you can unsubscribe here
+(
+https://unsubscribe.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544
+). To change your email or preferences manage your profile (
+https://preferences.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544
+). 113 Cherry St #92768, Seattle, WA 98104-2205
+--490d147be279cb7ef914f2b71592b6cc656d072fce8793865f06e184cb05
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:g=
+rayscale;line-height:1.5">
+<head style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:g=
+rayscale">
+<style style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:=
+grayscale">@media only screen and (max-width:600px){.email-container{paddin=
+g:0 !important;}}
+@media only screen and (max-width:600px) {
+        .ck-mobile-font-size {
+          font-size: 50px !important;
+        }
+     }</style>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" st=
+yle=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale=
+">
+</head>
+<body style=3D"-moz-osx-font-smoothing:grayscale;margin:0;padding:0;-webkit=
+-font-smoothing:antialiased;line-height:1.5;-webkit-text-size-adjust:100%;-=
+ms-text-size-adjust:100%">
+<div id=3D"preview-text" style=3D"-webkit-font-smoothing:antialiased;-moz-o=
+sx-font-smoothing:grayscale">
+          <span style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-s=
+moothing:grayscale;display: none; max-height: 0; overflow: hidden;">
+            One of the smartest things I've ever done is hire a foreign emp=
+loyee at my company. Now 80% of my busienss is made up of them.
+          </span>
+
+          <span style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-s=
+moothing:grayscale;display: none; max-height: 0; overflow: hidden;">
+            =C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=
+=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C
+          </span>
+        </div>
+<div style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gr=
+ayscale;background-color:#ffffff"><table role=3D"presentation" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"email" style=3D"-webkit-font-smoothing:an=
+tialiased;-moz-osx-font-smoothing:grayscale;border-collapse:separate;line-h=
+eight:1.5;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table=
+-lspace:0pt;mso-table-rspace:0pt;background-color:#ffffff;background:#fffff=
+f !important;width:100%" bgcolor=3D"#ffffff"><tbody style=3D"-webkit-font-s=
+moothing:antialiased;-moz-osx-font-smoothing:grayscale"><tr style=3D"-webki=
+t-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">
+<td style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;vertical-align:top"><div class=3D"email-conta=
+iner normal" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoo=
+thing:grayscale;padding-top:0;padding-left:0;padding-bottom:30px;padding-ri=
+ght:0;margin:0 auto;max-width:100%"><div style=3D"-webkit-font-smoothing:an=
+tialiased;-moz-osx-font-smoothing:grayscale">
+<div class=3D"ck-section" style=3D"-webkit-font-smoothing:antialiased;-moz-=
+osx-font-smoothing:grayscale;margin:0px auto 0px auto"><center style=3D"-we=
+bkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale"><table c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"-webkit-font-smoothing:antialia=
+sed;-moz-osx-font-smoothing:grayscale;border-collapse:separate;line-height:=
+1.5;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspac=
+e:0pt;mso-table-rspace:0pt;width:100%;margin:0 auto;max-width:640px"><tbody=
+ style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:graysc=
+ale"><tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothin=
+g:grayscale">
+<td contenteditable=3D"false" style=3D"-webkit-font-smoothing:antialiased;-=
+moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-siz=
+e-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top"=
+></td>
+<td width=3D"640" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font=
+-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100=
+%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;background-c=
+olor:#ffffff;background-size:cover;background-position:center;box-sizing:bo=
+rder-box" bgcolor=3D"#ffffff"><div class=3D"ck-inner-section ck-padding-lef=
+t-mobile-friendly ck-padding-right-mobile-friendly" style=3D"-webkit-font-s=
+moothing:antialiased;-moz-osx-font-smoothing:grayscale;padding:40px !import=
+ant;padding:36px 36px 0px 36px"><div style=3D"-webkit-font-smoothing:antial=
+iased;-moz-osx-font-smoothing:grayscale;margin-left:auto;margin-right:auto;=
+max-width:640px">
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Folks ask me quite often what the best=
+ business decision I ever made was. Here is my answer:</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D""><strong style=3D"-webkit-font-smoothin=
+g:antialiased;-moz-osx-font-smoothing:grayscale">Hiring my first overseas e=
+mployee.</strong></p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">In 2021 I engaged a company called <a =
+href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/re=
+h8hoh0meqoowt2/aHR0cHM6Ly93d3cuc3VwcG9ydHNoZXBoZXJkLmNvbS8_dXRtX3NvdXJjZT1u=
+ZXdzbGV0dGVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5pY2todWJlcl9pbnNlcnR=
+kYXRlMTIxMjIy" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webk=
+it-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tex=
+t-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C;color:#0875c1" u=
+rl-id=3D"1602255682">Support Shepherd</a> to recruit a Philippines based em=
+ployee for my storage company.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Today 80% of the employees across my 1=
+1 companies are located in either the Philippines or LATAM (Columbia, Argen=
+tina, Brazil, etc).</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">The average salary is $1200 USD per mo=
+nth ($5 per hour).</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D""><strong style=3D"-webkit-font-smoothin=
+g:antialiased;-moz-osx-font-smoothing:grayscale">What do they do at my comp=
+anies?</strong></p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Customer service. Underwriting. Billin=
+g. Sales. Financial analysis. Property management (dealing with all of our =
+vendors). Web design. Graphic design. Video editing. Bookkeeping. You name =
+it. Any job that can be done remote, you can find exceptional talent in the=
+se countries.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D""><strong style=3D"-webkit-font-smoothin=
+g:antialiased;-moz-osx-font-smoothing:grayscale">Several of these folks hav=
+e the potential to RUN one of my companies someday.</strong></p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">If I had to guess I'd say about 10% of=
+ companies in America with less than 500 employees outsource. I bet that nu=
+mber in 2034 is closer to 50%. Every year that goes by companies are gettin=
+g more and more comfortable with it and the folks who don't do it <strong s=
+tyle=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscal=
+e">are falling further and further behind.</strong></p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Check out <a href=3D"https://click.con=
+vertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/reh8hoh0meqoowt2/aHR0cHM6Ly=
+93d3cuc3VwcG9ydHNoZXBoZXJkLmNvbS8_dXRtX3NvdXJjZT1uZXdzbGV0dGVyJnV0bV9tZWRpd=
+W09ZW1haWwmdXRtX2NhbXBhaWduPW5pY2todWJlcl9pbnNlcnRkYXRlMTIxMjIy" target=3D"=
+_blank" rel=3D"noopener noreferrer" style=3D"-webkit-font-smoothing:antiali=
+ased;-moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-te=
+xt-size-adjust:100%;color:#2C2C2C;color:#0875c1" url-id=3D"1602255682">supp=
+ortshepherd.com</a> to see if overseas talent could help your company.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">(I'm so passionate about this for smal=
+l busiensses I actually invested in Support Shepherd).</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">--</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Don=E2=80=99t forget something very im=
+portant about this life:<br style=3D"-webkit-font-smoothing:antialiased;-mo=
+z-osx-font-smoothing:grayscale">=E2=80=8B<br style=3D"-webkit-font-smoothin=
+g:antialiased;-moz-osx-font-smoothing:grayscale">=E2=80=8B<strong style=3D"=
+-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">Your =
+job is to train people how to treat you.</strong>=E2=80=8B<br style=3D"-web=
+kit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">=E2=80=8B=
+<br style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale">You get more of what you tolerate.<br style=3D"-webkit-font-smoothi=
+ng:antialiased;-moz-osx-font-smoothing:grayscale">=E2=80=8B<br style=3D"-we=
+bkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">If you t=
+olerate people being manipulative, you=E2=80=99ll get more of it.<br style=
+=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">=
+=E2=80=8B<br style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoo=
+thing:grayscale">If you tolerate employees being flakey and unreliable, you=
+=E2=80=99ll get more of it.<br style=3D"-webkit-font-smoothing:antialiased;=
+-moz-osx-font-smoothing:grayscale">=E2=80=8B<br style=3D"-webkit-font-smoot=
+hing:antialiased;-moz-osx-font-smoothing:grayscale">If you tolerate custome=
+rs making outrageous demands, you=E2=80=99ll get more of it.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">If you tolerate a boss sending you dem=
+ands on Sunday morning, he will continue to overwork you.<br style=3D"-webk=
+it-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">=E2=80=8B<=
+br style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale">If you tolerate verbal abuse, head games and drama from your spouse =
+you will get more of it.<br style=3D"-webkit-font-smoothing:antialiased;-mo=
+z-osx-font-smoothing:grayscale">=E2=80=8B<br style=3D"-webkit-font-smoothin=
+g:antialiased;-moz-osx-font-smoothing:grayscale">It isn=E2=80=99t rocket sc=
+ience folks.<br style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-s=
+moothing:grayscale">=E2=80=8B<br style=3D"-webkit-font-smoothing:antialiase=
+d;-moz-osx-font-smoothing:grayscale">People will do more of what benefits t=
+hem and hurts you if you reinforce that behavior with positive outcomes for=
+ them.<br style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothi=
+ng:grayscale">=E2=80=8B<br style=3D"-webkit-font-smoothing:antialiased;-moz=
+-osx-font-smoothing:grayscale">It takes a very secure person to stand up fo=
+r what is right when another person is acting irrational.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D""><strong style=3D"-webkit-font-smoothin=
+g:antialiased;-moz-osx-font-smoothing:grayscale">Set boundaries in all area=
+s of life!</strong></p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Caveat:</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">I'm not saying to be rude to people. J=
+ust stand up for yourself in a respectful, rational way.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">And always, always, always treat peopl=
+e well and respectful in return. This goes both ways.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">--<br style=3D"-webkit-font-smoothing:=
+antialiased;-moz-osx-font-smoothing:grayscale">=E2=80=8B<br style=3D"-webki=
+t-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">If you want=
+ to raise kids who share hobbies with you, watch <a href=3D"https://click.c=
+onvertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/08hwh9hd2kmppzal/aHR0cHM6=
+Ly94LmNvbS9zd2VhdHlzdGFydHVwL3N0YXR1cy8xNzM3MDc2MTE4MTk1MjA4MjY5P3M9MjA=3D"=
+ target=3D"_blank" rel=3D"noopener noreferrer" style=3D"-webkit-font-smooth=
+ing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:=
+100%;-ms-text-size-adjust:100%;color:#2C2C2C;color:#0875c1" url-id=3D"16022=
+55683">this video</a>=E2=80=8B</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Nothing is more important to me in lif=
+e than sharing memories with my kids and making them want to be around me w=
+hen they=E2=80=99re old enough to not be around me.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">--</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Something I've changed my mind on over=
+ the years: </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">How you dress and how you present your=
+self matters. People judge a book by its cover ALL THE TIME.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">How you look matters.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">It matters in dating. It matters in bu=
+siness. It matters at your job and with your friends.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D""> People judge you based on how you loo=
+k all the time. Everyone does it. Whether they admit it or not. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">If you purposely dress casual and die =
+your hair an unnatural color people will perceive you as less reliable and =
+less trustworthy. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">If you dress professional and you are =
+clean-cut with a nice haircut people perceive you as more reliable and more=
+ trustworthy. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Therefore you are more likely to get p=
+aid more money for the same contribution. Or get more opportunities. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">It is that simple. You can hate the ga=
+me if you want to, but get over yourself and start playing it if you want t=
+o win.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">--</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">An underrated key to delegation and ma=
+nagement: </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Saying something that takes others 3 m=
+inutes to say in 15 seconds. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Clear and simple communication, both w=
+ritten and verbal, is a superpower. People have extremely short attention s=
+pans. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">They may look at you and nod... </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">But they aren't paying attention. KEEP=
+ IT SIMPLE AND KEEP IT SHORT. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">How to practice this: </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Before you hit send, spend twice as mu=
+ch time thinking about how you can REMOVE words. Record yourself talking. G=
+et a transcript. Then do the same thing. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">It takes practice. </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">There is no greater threat to effectiv=
+e leadership than overly complicated and unclear communication.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Onward and upward,</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Nick Huber</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">P.S.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Tax season is right around the corner =
+and my final income tax bill will be $0 for one main reason - Cost Segregat=
+ion Studies and bonus depreciation.</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D""><strong style=3D"-webkit-font-smoothin=
+g:antialiased;-moz-osx-font-smoothing:grayscale">DO NOT FORGET TO GET COST =
+SEGREGATION STUDIES DONE ON YOUR REAL ESTATE.</strong> </p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">The folks at <a href=3D"https://click.=
+convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/8ghqhohloxg77khk/aHR0cHM=
+6Ly9jbGljay5jb252ZXJ0a2l0LW1haWwyLmNvbS8wdnV6cjkyeHBrYzlob25nbDdudDBpd3F3N2=
+s1NS9kcGhlaDBoMHF4b24zOGFtL2FIUjBjSE02THk5M2QzY3VjbVZqYjNOMGMyVm5MbU52YlM4X=
+2RYUnRYM052ZFhKalpUMXVaWGR6YkdWMGRHVnlKblYwYlY5dFpXUnBkVzA5WlcxaGFXd21kWFJ0=
+WDJOaGJYQmhhV2R1UFdoMVltVnk=3D" target=3D"_blank" rel=3D"noopener noreferre=
+r" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C=
+;color:#0875c1" url-id=3D"1602255684">RE Cost Seg</a> have already delivere=
+d my cost segs this year and the depreciation is mouth watering. Reach out =
+if you're in the market - the proposal is free.<br style=3D"-webkit-font-sm=
+oothing:antialiased;-moz-osx-font-smoothing:grayscale">=E2=80=8B<br style=
+=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">P=
+rofessional engineering reports you can count on, and they <a href=3D"https=
+://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/8ghqhohloxg77kh=
+k/aHR0cHM6Ly9jbGljay5jb252ZXJ0a2l0LW1haWwyLmNvbS8wdnV6cjkyeHBrYzlob25nbDdud=
+DBpd3F3N2s1NS9kcGhlaDBoMHF4b24zOGFtL2FIUjBjSE02THk5M2QzY3VjbVZqYjNOMGMyVm5M=
+bU52YlM4X2RYUnRYM052ZFhKalpUMXVaWGR6YkdWMGRHVnlKblYwYlY5dFpXUnBkVzA5WlcxaGF=
+Xd21kWFJ0WDJOaGJYQmhhV2R1UFdoMVltVnk=3D" target=3D"_blank" rel=3D"noopener =
+noreferrer" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoot=
+hing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;colo=
+r:#2C2C2C;color:#0875c1" url-id=3D"1602255684">do virtual visits to turn th=
+em around even quicker.</a>=E2=80=8B</p>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:18px;color:#000000;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-transform:none" class=3D"">Not sure what a cost seg is? Check out=
+ <a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n54=
+4/l2hehmh3lzoddec6/aHR0cHM6Ly9jbGljay5jb252ZXJ0a2l0LW1haWwyLmNvbS8wdnV6cjky=
+eHBrYzlob25nbDdudDBpd3F3N2s1NS9lMGhwaDdoMGt6bG94NGI4L2FIUjBjSE02THk5MGQybDB=
+kR1Z5TG1OdmJTOXlaV052YzNSelpXY3ZjM1JoZEhWekx6RTFOamN5TXpRME1UWXlOakkwT0Rnd0=
+5qWV9jejB5TUNaMFBWTXhVemhYVEZFelRGOHlka2h0WDB4cFkzbElaV2M9" target=3D"_blan=
+k" rel=3D"noopener noreferrer" style=3D"-webkit-font-smoothing:antialiased;=
+-moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-si=
+ze-adjust:100%;color:#2C2C2C;color:#0875c1" url-id=3D"1602255686">this thre=
+ad.</a>=E2=80=8B</p>
+</div></div></td>
+<td contenteditable=3D"false" style=3D"-webkit-font-smoothing:antialiased;-=
+moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-siz=
+e-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top"=
+></td>
+</tr></tbody></table></center></div>
+<div class=3D"ck-section" style=3D"-webkit-font-smoothing:antialiased;-moz-=
+osx-font-smoothing:grayscale;margin:0px auto 0px auto"><center style=3D"-we=
+bkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale"><table c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"-webkit-font-smoothing:antialia=
+sed;-moz-osx-font-smoothing:grayscale;border-collapse:separate;line-height:=
+1.5;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspac=
+e:0pt;mso-table-rspace:0pt;width:100%;margin:0 auto;max-width:640px"><tbody=
+ style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:graysc=
+ale"><tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothin=
+g:grayscale">
+<td contenteditable=3D"false" style=3D"-webkit-font-smoothing:antialiased;-=
+moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-siz=
+e-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top"=
+></td>
+<td width=3D"640" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font=
+-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100=
+%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;background-c=
+olor:#ffffff;background-size:cover;background-position:center;box-sizing:bo=
+rder-box" bgcolor=3D"#ffffff"><div class=3D"ck-inner-section ck-padding-lef=
+t-mobile-friendly ck-padding-right-mobile-friendly" style=3D"-webkit-font-s=
+moothing:antialiased;-moz-osx-font-smoothing:grayscale;padding:40px !import=
+ant;padding:18px 36px 18px 36px"><div style=3D"-webkit-font-smoothing:antia=
+liased;-moz-osx-font-smoothing:grayscale;margin-left:auto;margin-right:auto=
+;max-width:640px">
+<div style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gr=
+ayscale"><table style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-s=
+moothing:grayscale;border-collapse:separate;line-height:1.5;-webkit-text-si=
+ze-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-rsp=
+ace:0pt;width: 100%; margin-bottom: 10px;" width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0"><tr style=3D"-webkit-font-smoothing:antiali=
+ased;-moz-osx-font-smoothing:grayscale"><td align=3D"left" style=3D"-webkit=
+-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-text-=
+size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-table-r=
+space:0pt;vertical-align:top;word-break: break-word; vertical-align: top; p=
+adding: 5px 0;"><table style=3D"-webkit-font-smoothing:antialiased;-moz-osx=
+-font-smoothing:grayscale;border-collapse:separate;line-height:1.5;-webkit-=
+text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspace:0pt;mso-ta=
+ble-rspace:0pt;width: 100%; max-width: 550px; padding: 5px 0;" width=3D"550=
+" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+<tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale"><td align=3D"left" style=3D"-webkit-font-smoothing:antialiased;-moz=
+-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-a=
+djust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top"><i=
+mg src=3D"https://dash.sparkloop.app/rails/active_storage/blobs/eyJfcmFpbHM=
+iOnsibWVzc2FnZSI6IkJBaHBBcFZUIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--59d8=
+f6700096fc454a02a10638bee2d8f48cfcfd/Nick%20Huber%20(1200%20%C3%97%20500%20=
+px).gif" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothin=
+g:grayscale;border:0 none;display:block;border:0;height:auto;line-height:10=
+0%;outline:none;-webkit-text-decoration:none;text-decoration:none;-ms-inter=
+polation-mode:bicubic;max-width:100%;text-decoration: none; height: auto; b=
+order: 0px; max-height: 250px; max-width: 100%;"></td></tr>
+<tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale"><td align=3D"left" style=3D"-webkit-font-smoothing:antialiased;-moz=
+-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-a=
+djust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;pad=
+ding: 25px 10px 10px;"><p style=3D"-webkit-font-smoothing:antialiased;-moz-=
+osx-font-smoothing:grayscale;margin:1em 0;padding: 0; margin: 0; font-size:=
+ 22px; color: #000000; line-height: 1.6; font-weight: bold;">Share with fri=
+ends, get cool free stuff</p></td></tr>
+<tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale"><td align=3D"left" style=3D"-webkit-font-smoothing:antialiased;-moz=
+-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-a=
+djust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;pad=
+ding: 0px 10px 15px;">
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;padding: 0; margin:0; line-height: 1.8; font-size: 16px;=
+ color: #000000"></p>
+<ul style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale;margin:1em 0;margin-left:1em;padding:0;list-style-position:outside !=
+important">
+ 	<li style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:g=
+rayscale;padding:0 0 0 1em;margin:0;margin-left:1em;line-height: 1.8; font-=
+size: 16px; color: #000000;">1 Referral: 200+ Free Business Ideas cheatshee=
+t</li>
+ 	<li style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:g=
+rayscale;padding:0 0 0 1em;margin:0;margin-left:1em;line-height: 1.8; font-=
+size: 16px; color: #000000;">3 Referrals: Delegation &amp; Hiring (101)</li=
+>
+ 	<li style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:g=
+rayscale;padding:0 0 0 1em;margin:0;margin-left:1em;line-height: 1.8; font-=
+size: 16px; color: #000000;">5 Referrals: Twitter Growth Course ($500 value=
+)</li>
+ 	<li style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:g=
+rayscale;padding:0 0 0 1em;margin:0;margin-left:1em;line-height: 1.8; font-=
+size: 16px; color: #000000;">10 Referrals: Nicks Real Estate Starter Class =
+($749 value)</li>
+ 	<li style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:g=
+rayscale;padding:0 0 0 1em;margin:0;margin-left:1em;line-height: 1.8; font-=
+size: 16px; color: #000000;">100 Referrals: 30 Minute Call w/ Nick</li>
+</ul>
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;padding: 0; margin:0; line-height: 1.8; font-size: 16px;=
+ color: #000000">Please note, these rewards are in limited supply, get movi=
+ng while they last. </p>
+</td></tr>
+<tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale"><td align=3D"center" style=3D"-webkit-font-smoothing:antialiased;-m=
+oz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;p=
+adding: 10px;"><p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font=
+-smoothing:grayscale;margin:1em 0;padding: 0; margin: 0; font-size: 16px; c=
+olor: #464ba4; line-height: 1.6"><a style=3D"-webkit-font-smoothing:antiali=
+ased;-moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-te=
+xt-size-adjust:100%;color:#2C2C2C;color: #464ba4; text-decoration: underlin=
+e;" href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n54=
+4/m2h7h5h837oll5fm/aHR0cHM6Ly9zcGFya2xwLmNvLzlkNGE5MDgyLw=3D=3D" url-id=3D"=
+1602255687">https://sparklp.co/9d4a9082/</a></p></td></tr>
+<tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale"><td align=3D"center" style=3D"-webkit-font-smoothing:antialiased;-m=
+oz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;p=
+adding: 10px;"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;b=
+order-collapse:separate;line-height:1.5;-webkit-text-size-adjust:100%;-ms-t=
+ext-size-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt"><tr style=
+=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale">
+<td style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;vertical-align:top;padding: 0 10px 10px 0;"><=
+a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/=
+e0hph7h072kddgi8/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3NoYXJlci5waHA_dT1odHRwcz=
+ovL3NwYXJrbHAuY28vOWQ0YTkwODIvJTNGdXRtX3NvdXJjZSUzRGZhY2Vib29r" style=3D"-w=
+ebkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-=
+text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C;display: bloc=
+k; padding: 0px; width: 40px; height: 40px; border-radius: 5px; text-decora=
+tion: none; background-color: #38b6ff; background-image: url('https://spark=
+loop-static-images.s3-us-west-1.amazonaws.com/facebook.png'); background-re=
+peat: no-repeat; background-size: auto 19px; background-position: center ce=
+nter;line-height: 1.4; color: transparent; text-indent: -99999px;" title=3D=
+"Share via Facebook" url-id=3D"1602255689">Facebook</a></td>
+<td style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;vertical-align:top;padding: 0 10px 10px 0;"><=
+a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/=
+owhkhqhrw74002uv/aHR0cHM6Ly90d2l0dGVyLmNvbS9pbnRlbnQvdHdlZXQ_dGV4dD1JJTIwan=
+VzdCUyMHNpZ25lZCUyMHVwJTIwb24lMjB0aGlzJTIwYXdlc29tZSUyMG5ld3NsZXR0ZXIhJTBBJ=
+TBBaHR0cHM6Ly9zcGFya2xwLmNvLzlkNGE5MDgyLyUzRnV0bV9zb3VyY2UlM0R0d2l0dGVy" st=
+yle=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale=
+;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C;disp=
+lay: block; padding: 0px; width: 40px; height: 40px; border-radius: 5px; te=
+xt-decoration: none; background-color: #38b6ff; background-image: url('http=
+s://sparkloop-static-images.s3-us-west-1.amazonaws.com/twitter.png'); backg=
+round-repeat: no-repeat; background-size: auto 19px; background-position: c=
+enter center;line-height: 1; color: transparent; text-indent: -99999px;" ti=
+tle=3D"Share via Twitter" url-id=3D"1602255691">Twitter</a></td>
+<td style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;vertical-align:top;padding: 0 10px 10px 0;"><=
+a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/=
+z2hghnh3e8ommlip/aHR0cHM6Ly9hcGkud2hhdHNhcHAuY29tL3NlbmQ_dGV4dD1JJTIwanVzdC=
+UyMHNpZ25lZCUyMHVwJTIwb24lMjB0aGlzJTIwYXdlc29tZSUyMG5ld3NsZXR0ZXIhJTBBJTBBa=
+HR0cHM6Ly9zcGFya2xwLmNvLzlkNGE5MDgyLyUzRnV0bV9zb3VyY2UlM0R3aGF0c2FwcA=3D=3D=
+" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays=
+cale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C;=
+display: block; padding: 0px; width: 40px; height: 40px; border-radius: 5px=
+; text-decoration: none; background-color: #38b6ff; background-image: url('=
+https://sparkloop-static-images.s3-us-west-1.amazonaws.com/whatsapp.png'); =
+background-repeat: no-repeat; background-size: auto 19px; background-positi=
+on: center center;line-height: 1; color: transparent; text-indent: -99999px=
+;" title=3D"Share via Whatsapp" url-id=3D"1602255692">Whatsapp</a></td>
+<td style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;vertical-align:top;padding: 0 10px 10px 0;"><=
+a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/=
+p8heh9hz4l9pppcq/aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL3NoYXJpbmcvc2hhcmUtb2Zmc2=
+l0ZS8_dXJsPWh0dHBzOi8vc3BhcmtscC5jby85ZDRhOTA4Mi8lM0Z1dG1fc291cmNlJTNEbGlua=
+2VkaW4=3D" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smooth=
+ing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;color=
+:#2C2C2C;display: block; padding: 0px; width: 40px; height: 40px; border-ra=
+dius: 5px; text-decoration: none; background-color: #38b6ff; background-ima=
+ge: url('https://sparkloop-static-images.s3-us-west-1.amazonaws.com/linkedi=
+n.png'); background-repeat: no-repeat; background-size: auto 19px; backgrou=
+nd-position: center center;line-height: 1; color: transparent; text-indent:=
+ -99999px;" title=3D"Share via Linkedin" url-id=3D"1602255693">Linkedin</a>=
+</td>
+<td style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;vertical-align:top;padding: 0px 0px 10px;"><a=
+ href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544/x=
+0hph6hweln44mf5/bWFpbHRvOj9zdWJqZWN0PUNoZWNrJTIwdGhpcyUyMG91dCZib2R5PUklMjB=
+qdXN0JTIwc2lnbmVkJTIwdXAlMjBvbiUyMHRoaXMlMjBhd2Vzb21lJTIwbmV3c2xldHRlciElME=
+ElMEFodHRwczovL3NwYXJrbHAuY28vOWQ0YTkwODIvJTNGdXRtX3NvdXJjZSUzRGVtYWls" sty=
+le=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;=
+-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C;displ=
+ay: block; padding: 0px; width: 40px; height: 40px; border-radius: 5px; tex=
+t-decoration: none; background-color: #38b6ff; background-image: url('https=
+://sparkloop-static-images.s3-us-west-1.amazonaws.com/email.png'); backgrou=
+nd-repeat: no-repeat; background-size: auto 19px; background-position: cent=
+er center;line-height: 1; color: transparent; text-indent: -99999px;" title=
+=3D"Share via Email" url-id=3D"1602255694">Email</a></td>
+</tr></table></td></tr>
+<tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale"><td align=3D"center" style=3D"-webkit-font-smoothing:antialiased;-m=
+oz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;p=
+adding: 10px;"><p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font=
+-smoothing:grayscale;margin:1em 0;padding: 0; margin: 0; line-height: 1.2; =
+font-size: 16px; color: #000000">PS: You have referred 0 people so far</p><=
+/td></tr>
+<tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale"><td align=3D"center" style=3D"-webkit-font-smoothing:antialiased;-m=
+oz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;p=
+adding: 10px;"><a style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font=
+-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100=
+%;color:#2C2C2C;font-size: 16px; line-height: 1.6; background-color: #38b6f=
+f; color: #ffffff; padding: 10px 20px; display: inline-block; border-radius=
+: 5px; text-decoration: none;" href=3D"https://click.convertkit-mail2.com/d=
+0u6n9mg72u0h4v8owma9imv4n544/qvh8h7hrd08l3vhl/aHR0cHM6Ly9odWIuc3BhcmtscC5jb=
+y9zdWJfZWU2MGI0NmI1ODk5LzE=3D" url-id=3D"1602255699"><span style=3D"-webkit=
+-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;mso-text-rais=
+e:13pt;">See how many referrals you have</span></a></td></tr>
+<tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale"></tr>
+</table></td></tr></table></div>
+<div style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gr=
+ayscale"><span style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-sm=
+oothing:grayscale">
+<div class=3D"social-links" style=3D"-webkit-font-smoothing:antialiased;-mo=
+z-osx-font-smoothing:grayscale"><center style=3D"-webkit-font-smoothing:ant=
+ialiased;-moz-osx-font-smoothing:grayscale">
+
+<a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544=
+/g3hnh5h3mke02our/aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3N3ZWF0eXN0YXJ0dXA=3D" s=
+tyle=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscal=
+e;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C" ur=
+l-id=3D"1602255700"><img src=3D"https://embed.filekitcdn.com/e/7F76Ywc8kn9o=
+MKbMMKADTy/sbxEPQAmhVvgPdFdRLkeCo/email" alt=3D"Facebook" width=3D"32" styl=
+e=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;d=
+isplay:block;border:0;height:auto;line-height:100%;outline:none;-webkit-tex=
+t-decoration:none;text-decoration:none;-ms-interpolation-mode:bicubic;max-w=
+idth:100%;border:0 none;text-decoration: none; width: 32px; display:inline-=
+block;"></a>
+
+<a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544=
+/9qhzhnhpdlge8lt9/aHR0cHM6Ly90d2l0dGVyLmNvbS9zd2VhdHlzdGFydHVw" style=3D"-w=
+ebkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-=
+text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C" url-id=3D"16=
+02255701"><img src=3D"https://embed.filekitcdn.com/e/7F76Ywc8kn9oMKbMMKADTy=
+/vLzb14YzR2749cSKs1ZVD1/email" alt=3D"Instagram" width=3D"32" style=3D"-web=
+kit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;display:bl=
+ock;border:0;height:auto;line-height:100%;outline:none;-webkit-text-decorat=
+ion:none;text-decoration:none;-ms-interpolation-mode:bicubic;max-width:100%=
+;border:0 none;text-decoration: none; width: 32px; display:inline-block;"><=
+/a>
+
+<a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544=
+/48hvhehrmn073rcx/aHR0cHM6Ly93d3cueW91dHViZS5jb20vY2hhbm5lbC9VQ0JZd1JkUnc2e=
+DliSDRQc3lDTG5tT3c=3D" style=3D"-webkit-font-smoothing:antialiased;-moz-osx=
+-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjus=
+t:100%;color:#2C2C2C" url-id=3D"1602255704"><img src=3D"https://embed.filek=
+itcdn.com/e/7F76Ywc8kn9oMKbMMKADTy/6mcGXnrcw6UudHvxbhiXnY/email" alt=3D"Web=
+site" width=3D"32" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-fon=
+t-smoothing:grayscale;display:block;border:0;height:auto;line-height:100%;o=
+utline:none;-webkit-text-decoration:none;text-decoration:none;-ms-interpola=
+tion-mode:bicubic;max-width:100%;border:0 none;text-decoration: none; width=
+: 32px; display:inline-block;"></a>
+
+<a href=3D"https://click.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544=
+/reh8hoh0meqopwu2/aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9zd2VhdHlzdGFydHVwLw=3D=
+=3D" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gr=
+ayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C=
+2C" url-id=3D"1602255706"><img src=3D"https://embed.filekitcdn.com/e/7F76Yw=
+c8kn9oMKbMMKADTy/ioh3kpEDU4eXnyNxrRMzxn/email" alt=3D"Website" width=3D"32"=
+ style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:graysc=
+ale;display:block;border:0;height:auto;line-height:100%;outline:none;-webki=
+t-text-decoration:none;text-decoration:none;-ms-interpolation-mode:bicubic;=
+max-width:100%;border:0 none;text-decoration: none; width: 32px; display:in=
+line-block;"></a>
+ </center></div>
+</span></div>
+</div></div></td>
+<td contenteditable=3D"false" style=3D"-webkit-font-smoothing:antialiased;-=
+moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-siz=
+e-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top"=
+></td>
+</tr></tbody></table></center></div>
+<div class=3D"ck-section" style=3D"-webkit-font-smoothing:antialiased;-moz-=
+osx-font-smoothing:grayscale;margin:30px auto 0px auto"><center style=3D"-w=
+ebkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale"><table =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"-webkit-font-smoothing:antiali=
+ased;-moz-osx-font-smoothing:grayscale;border-collapse:separate;line-height=
+:1.5;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-lspa=
+ce:0pt;mso-table-rspace:0pt;width:100%;margin:0 auto;max-width:640px"><tbod=
+y style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays=
+cale"><tr style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothi=
+ng:grayscale">
+<td contenteditable=3D"false" style=3D"-webkit-font-smoothing:antialiased;-=
+moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-siz=
+e-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top"=
+></td>
+<td width=3D"640" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font=
+-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100=
+%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top;background-c=
+olor:#ffffff;background-size:cover;background-position:center;box-sizing:bo=
+rder-box" bgcolor=3D"#ffffff"><div class=3D"ck-inner-section ck-padding-lef=
+t-none ck-padding-right-none" style=3D"-webkit-font-smoothing:antialiased;-=
+moz-osx-font-smoothing:grayscale;padding:40px !important;padding:0px 0px 0p=
+x 0px"><div style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoot=
+hing:grayscale;margin-left:auto;margin-right:auto;max-width:640px">
+<p style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gray=
+scale;margin:1em 0;font-family:-apple-system, BlinkMacSystemFont, sans-seri=
+f;font-size:12px;color:#656565;font-weight:400;letter-spacing:0;line-height=
+:1.5;text-align:center;text-transform:none" class=3D"">Thanks for reading! =
+If you loved it, tell your friends to subscribe.<br style=3D"-webkit-font-s=
+moothing:antialiased;-moz-osx-font-smoothing:grayscale">If you didn=E2=80=
+=99t enjoy the email you can <a href=3D"https://unsubscribe.convertkit-mail=
+2.com/d0u6n9mg72u0h4v8owma9imv4n544" target=3D"_blank" rel=3D"noopener nore=
+ferrer" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing=
+:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2=
+C2C2C;color:#0000ff">unsubscribe here</a>. <br style=3D"-webkit-font-smooth=
+ing:antialiased;-moz-osx-font-smoothing:grayscale">To change your email or =
+preferences <a href=3D"https://preferences.convertkit-mail2.com/d0u6n9mg72u=
+0h4v8owma9imv4n544" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"=
+-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webki=
+t-text-size-adjust:100%;-ms-text-size-adjust:100%;color:#2C2C2C;color:#0000=
+ff">manage your profile</a>. <br style=3D"-webkit-font-smoothing:antialiase=
+d;-moz-osx-font-smoothing:grayscale">113 Cherry St #92768, Seattle, WA 9810=
+4-2205</p>
+<div style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gr=
+ayscale"></div>
+</div></div></td>
+<td contenteditable=3D"false" style=3D"-webkit-font-smoothing:antialiased;-=
+moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-siz=
+e-adjust:100%;mso-table-lspace:0pt;mso-table-rspace:0pt;vertical-align:top"=
+></td>
+</tr></tbody></table></center></div>
+</div></div></td>
+<td style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:gra=
+yscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;vertical-align:top"></td>
+</tr></tbody></table></div>
+<!-- -->
+<img src=3D"https://open.convertkit-mail2.com/d0u6n9mg72u0h4v8owma9imv4n544=
+" alt=3D"" style=3D"-webkit-font-smoothing:antialiased;-moz-osx-font-smooth=
+ing:grayscale;border:0 none;display:block;border:0;height:auto;line-height:=
+100%;outline:none;-webkit-text-decoration:none;text-decoration:none;-ms-int=
+erpolation-mode:bicubic;max-width:100%">
+</body>
+</html>
+
+--490d147be279cb7ef914f2b71592b6cc656d072fce8793865f06e184cb05--

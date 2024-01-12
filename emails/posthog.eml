@@ -1,0 +1,2306 @@
+Delivered-To: timmyg13@gmail.com
+Received: by 2002:a05:6022:5206:b0:4b:eb:35ff with SMTP id w6csp1155513law;
+        Wed, 10 Jan 2024 10:31:10 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEA9LCpPREut62I6IeKmDSqx4n9b7imGHNSbWv0GlFDtDL61432vW/pF7HQhtrwM+2rWoH/
+X-Received: by 2002:a05:6808:218f:b0:3bd:4bf8:ef92 with SMTP id be15-20020a056808218f00b003bd4bf8ef92mr46399oib.47.1704911469992;
+        Wed, 10 Jan 2024 10:31:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1704911469; cv=none;
+        d=google.com; s=arc-20160816;
+        b=JZpAdoIBDyUvQkm4a9KeQrNx/gl6WLtNxf7camxWoIlcVXevCMmG7DzfMn4eW50Jh8
+         q1VH+eyWcnlbz0HTqbEZYOddolEqsacSW0d+PeUS/vK9+q1LIKr/VX3VZvgYs+6RzO/v
+         LK272lj/dHc8ITQjWSNbnu7n77Pw9qbw/NV+BDGEHr7p9TKwn98FyRUVK1IsOiSPb9Cu
+         XaugAwh01G2zDVnd/1IA9gd1Hw0hHT6STWX5FXdCHTo4sPr7kityU8IUzxsrs0bGE98o
+         kMiEB0SE2GWebvap8nG6x3R0haBkXkKvZZaO5B4HNk+7GcBnCf9Ndy7YrNkVkNfG9kPZ
+         uqPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-post:list-id:list-unsubscribe-post:list-unsubscribe
+         :list-archive:list-url:list-owner:reply-to:in-reply-to:references
+         :sender:date:message-id:to:from:subject:mime-version:dkim-signature
+         :dkim-signature;
+        bh=uc53kqQ1cHAv0W6IffcZNANmjJPx8sjcBYKNBUGxTXk=;
+        fh=CznVRnErcxvsd6aPz4wv4XMNlZLmpJODLOoG1gRHGCo=;
+        b=YDv6Ui+8yRvn8NbFqC+k178EJN2P1nYGo9/RDy9sOh+JjNr+By0vX7QizeeVJF6Z1x
+         WvxzO2+cKKmQvj58nRmIRDCB3HTLE2WI1KweyKymZ9FeMfjDtQ2hkm8x9MxSpCHy4dVl
+         2JL9RjZDF/6BkE0DR685ug25278gMJ6HoPyvpIlXidCUmhelyuQ8mcfmzxymTE9o8qI2
+         R1/OdNhOztW1OeuW7ndi1YrHE5T5q+PlLgofyRIj2drKFxR8AY1YvEHdXpLenbiXt+uj
+         J+OUSuk5Ap/V8gZb5jIgEI1egKypx1OSV2Fea1ba+9qgwug44jW3n25BrXivXTUAy2fp
+         YWoA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mg2.substack.com header.s=mailo header.b=f4AO8gqq;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=hwpnw9x2;
+       spf=pass (google.com: domain of bounce+616296.4d1858-timmyg13=gmail.com@mg2.substack.com designates 159.112.244.27 as permitted sender) smtp.mailfrom="bounce+616296.4d1858-timmyg13=gmail.com@mg2.substack.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=substack.com
+Return-Path: <bounce+616296.4d1858-timmyg13=gmail.com@mg2.substack.com>
+Received: from m244-27.mailgun.net (m244-27.mailgun.net. [159.112.244.27])
+        by mx.google.com with UTF8SMTPS id a27-20020a0cb35b000000b0067f3ac7815esi4791924qvf.570.2024.01.10.10.31.09
+        for <timmyg13@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Jan 2024 10:31:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+616296.4d1858-timmyg13=gmail.com@mg2.substack.com designates 159.112.244.27 as permitted sender) client-ip=159.112.244.27;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mg2.substack.com header.s=mailo header.b=f4AO8gqq;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=hwpnw9x2;
+       spf=pass (google.com: domain of bounce+616296.4d1858-timmyg13=gmail.com@mg2.substack.com designates 159.112.244.27 as permitted sender) smtp.mailfrom="bounce+616296.4d1858-timmyg13=gmail.com@mg2.substack.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=substack.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mg2.substack.com;
+ q=dns/txt; s=mailo; t=1704911469; x=1704918669; h=List-Post: List-Id:
+ List-Unsubscribe: List-Archive: List-Owner: Reply-To: In-Reply-To:
+ References: sender: sender: Date: Message-Id: To: To: From: From: Subject:
+ Subject: Content-Type: Mime-Version: X-Feedback-Id;
+ bh=uc53kqQ1cHAv0W6IffcZNANmjJPx8sjcBYKNBUGxTXk=;
+ b=f4AO8gqqKvDuwGcbduj3ahdf/taeZYLM62H92xNH4bzAaL/zs94Thb3f64SSahjaPiaqfPhA8n0zoaGXBValtPAPZApnnZULhGSB9zNKe4lhY4pNiUnGWr4XEE6izaDRgN0eSM2ZCuxw0iBzN85pCNbrnFpEP73nuvZ1vVSkKTI=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org;
+ q=dns/txt; s=mg; t=1704911469; x=1704918669; h=List-Post: List-Id:
+ List-Unsubscribe: List-Archive: List-Owner: Reply-To: In-Reply-To:
+ References: sender: sender: Date: Message-Id: To: To: From: From: Subject:
+ Subject: Content-Type: Mime-Version: X-Feedback-Id;
+ bh=uc53kqQ1cHAv0W6IffcZNANmjJPx8sjcBYKNBUGxTXk=;
+ b=hwpnw9x2VA9GlVhHiAXEAQZ0HkWyRhCR/wlPQXjB8kOZq8W63sseHwPKOqGOgKIvg5QmMD0Dn6lWr/oDBGjfSKgsPmtaIIxI8cTz4kTKWEegOQYaGYrDtGQw5PmGjjz2iab64zFeZbgWZcsmrXIKxTDhugz3C1Q7NXSUa3t8zWs=
+X-Feedback-Id: postmaster@mg2.substack.com:post:5a78b6d5cd16820001f2a9d4:mailgun
+X-Mailgun-Sending-Ip: 159.112.244.27
+X-Mailgun-Sid: WyJmMmMzNiIsInRpbW15ZzEzQGdtYWlsLmNvbSIsIjRkMTg1OCJd
+Received: from <unknown> (<unknown> []) by 42b2e228c985 with HTTP id
+ 659ee26dd45260c598fc1576; Wed, 10 Jan 2024 18:30:53 GMT
+X-Mailgun-Batch-Id: 659ee25d5872fa4f6c3a6171
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="ba03becc3a7d4bee8683d5fa5e249a38fbef35519dba72cf1e8826986020"
+Subject: How we decide what to build
+From: PostHog <productforengineers@substack.com>
+To: timmyg13@gmail.com
+X-Mailgun-Tag: post
+X-Mailgun-Track-Clicks: false
+Message-Id: <20240110183040.3.eadaae2b2cf6dfde@mg2.substack.com>
+Date: Wed, 10 Jan 2024 18:30:40 +0000
+sender: PostHog <productforengineers@substack.com>
+References: <post-140404838@substack.com>
+In-Reply-To: <post-140404838@substack.com>
+Reply-To: PostHog
+ <reply+2bld2e&3dyl2&&ac7948269d33a09e974bc87431aaa0af20feb47f841106acfb341ded16cafa12@mg1.substack.com>
+List-Owner: <mailto:productforengineers@substack.com>
+List-URL: <https://newsletter.posthog.com/>
+List-Archive: <https://newsletter.posthog.com/archive>
+List-Unsubscribe: <https://newsletter.posthog.com/action/disable_email/disable?token=eyJ1c2VyX2lkIjo1NjkwMTk4LCJwb3N0X2lkIjoxNDA0MDQ4MzgsImlhdCI6MTcwNDkxMTQ1MSwiZXhwIjoxNzA3NTAzNDUxLCJpc3MiOiJwdWItMTMxODIyNSIsInN1YiI6ImRpc2FibGVfZW1haWwifQ.jTS-OVFutWJaOe1HAdwlgze8XmCew8pUvh3pw9SSb1M&expires=365d>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Id: <productforengineers.substack.com>
+List-Post: <https://newsletter.posthog.com/p/how-we-decide-what-to-build>
+X-Mailgun-Variables: {"category": "post", "email_generated_at": "1704911452414", "is_freemail":
+ "true", "post_audience": "everyone", "post_id": "140404838", "post_type":
+ "newsletter", "pub_community_enabled": "true", "publication_id": "1318225",
+ "subdomain": "productforengineers", "user_id": "5690198"}
+
+--ba03becc3a7d4bee8683d5fa5e249a38fbef35519dba72cf1e8826986020
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+View this post on the web at https://newsletter.posthog.com/p/how-we-decide=
+-what-to-build
+
+Welcome to Product for Engineers, a newsletter created by=C2=A0PostHog [ ht=
+tps://substack.com/redirect/e9441dbb-0c24-4dcf-8c02-e6ec51d78878?j=3DeyJ1Ij=
+oiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ]=C2=A0for enginee=
+rs and founders who want to build successful startups
+There is a point in your product journey where what to build next goes from=
+ obvious to unclear. The options seem endless and choosing correctly can be=
+ the difference between a thriving product and a failing one.
+It=E2=80=99s a problem we=E2=80=99ve experienced firsthand. Our goal is to =
+build the all-in-one platform for building better products (we like to aim =
+high). Consequently, there are dozens of features we could build at any one=
+ time.
+We=E2=80=99ve developed ways to navigate this problem. Based on the positio=
+n we=E2=80=99re in and the success of what we=E2=80=99ve built recently [ h=
+ttps://substack.com/redirect/ebfbae5e-b132-4c3f-bc2e-800c8ac3cd44?j=3DeyJ1I=
+joiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ], we=E2=80=99re =
+confident in our process now. This is what we=E2=80=99ve learned.
+This week=E2=80=99s theme is: Picking winning features
+1. Agree on your product principles
+It=E2=80=99s impossible to make good decisions without some shared principl=
+es to guide you. They give you a common language and framework for discussi=
+ng ideas.=20
+Critically, product principles make it easier to say no to ideas, even pote=
+ntially good ones. Without them, you=E2=80=99re left with a lot of opinions=
+ and no way to evaluate them.
+At PostHog, our principles for what to build tie to our core strategy [ htt=
+ps://substack.com/redirect/008bdfe7-7b0f-4ead-956c-7add69dfeeec?j=3DeyJ1Ijo=
+iM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ]:
+Provide every tool needed for evaluating success.
+Get in first.
+Be the source of truth for customer and product data.
+We also put a lot of weight on user feedback, especially from our ideal cus=
+tomer profile (ICP) [ https://substack.com/redirect/795f937e-c2d5-4267-bc52=
+-f282eb5d10de?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLF=
+PtgpY ]. We talk to users regularly and ask them to comment on our public r=
+oadmap and vote on what they want.
+There are many other principles such as agile, lean, RICE, themes, metrics,=
+ top-down planning, weighted scoring, or following a benevolent dictator [ =
+https://substack.com/redirect/e4025441-c916-4393-a217-d57504a0f44b?j=3DeyJ1=
+IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ]. What matters =
+is choosing something.
+Principles help avoid pitfalls like becoming a feature factory, building fo=
+r big customers, caring too much about competitors, focusing on easy featur=
+es, or building what generates the most MRR. These can become never-ending =
+treadmills that don=E2=80=99t improve your product.
+2. Map everything your users want
+You need a map to go exploring. Mapping everything your users want, or coul=
+d want, ensures you don=E2=80=99t get tunnel vision. Start wide and then na=
+rrow down or you=E2=80=99ll miss great ideas just beyond the horizon.
+By talking directly to users and making it easy to share ad hoc feedback, w=
+e=E2=80=99ve built a good idea of all the products our users want [ https:/=
+/substack.com/redirect/52edf396-4877-4e00-b01d-bfd1c7a4914d?j=3DeyJ1IjoiM2R=
+5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ], ranging from product=
+ analytics to error handling, revenue tracking, and data governance.
+The axes for this graph relate to our ICP [ https://substack.com/redirect/7=
+95f937e-c2d5-4267-bc52-f282eb5d10de?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715=
+Wn9QOR4ytY6S_djQ55iVLFPtgpY ]: product engineers at high-growth startups. E=
+verything we=E2=80=99ve built already is in green, while things we=E2=80=99=
+re building at the moment are in blue.
+Features towards the bottom left correlate best to our ICP, but there are o=
+utliers. We=E2=80=99re building web analytics, for example, because it help=
+s us get in first and it=E2=80=99s easy for us to build because we=E2=80=99=
+ve already built product analytics.=20
+This brings us to our next point=E2=80=A6
+3. Prioritize by effort vs impact
+At a lower level, individual teams also have an idea of what all the potent=
+ial features they can build are. To discover these, they use user feedback =
+[ https://substack.com/redirect/356f07ca-c4d4-46b8-9477-c729744caec0?j=3Dey=
+J1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ], metrics, ex=
+perience, product principles, and personal opinions.
+Our small teams use their offsites to map these options. Below is an exampl=
+e of a Team Replay [ https://substack.com/redirect/dfd2179e-bdbc-4a8b-94c9-=
+4f11b7ca6cf5?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFP=
+tgpY ] 2x2 grid from a recent offsite (notes in the top right are high effo=
+rt and high impact):
+After mapping out their ideas, the team voted on the 1-3 features they want=
+ed to work on, =E2=80=9CX=E2=80=9D at the bottom. Depending on the size of =
+the team, once a feature gets 2-3 Xs, it=E2=80=99s chosen and implementatio=
+n begins.=20
+For example, mobile replay, in the top right corner (high impact, high effo=
+rt), now has an in-progress mega issue [ https://substack.com/redirect/b70f=
+b938-c16f-4aab-8346-c2624f356083?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9=
+QOR4ytY6S_djQ55iVLFPtgpY ] dedicated to its implementation. Mobile dashboar=
+ds, bottom right (high impact, low effort), will be live shortly.
+Enjoying this post? We send new ones every two weeks=E2=80=A6 and they=E2=
+=80=99re free.
+4. Make ownership clear
+This process creates clear ownership and, in turn, makes deciding what to b=
+uild much clearer. The owner becomes responsible for validating the idea, i=
+mplementing the feature, making tweaks and bug fixes, and ensuring ongoing =
+success.
+The unique qualities of product engineers [ https://substack.com/redirect/6=
+dc51ca4-d4c9-4216-8e7b-c1275a5c928c?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715=
+Wn9QOR4ytY6S_djQ55iVLFPtgpY ] are key here. They have all the skills needed=
+ to take an idea to a fully-featured, revenue-generating product. This enab=
+les them to work with a high degree of autonomy and speed.
+This is counter to a larger, ownership-avoidant team. Their process for cho=
+osing what to build might look like:
+Plan a decision-making process.
+Have a brainstorming meeting.
+Develop promising product specs from the brainstorm.
+Have a meeting to decide which one to build.
+Write up and agree on implementation details.
+Project manage a multi-role team to get the feature to completion.
+This is slow. Less gets shipped and the team is disconnected from the real =
+user experience. Having someone own the decision and be responsible for its=
+ ongoing implementation speeds up the decision-making process and gets more=
+ shipped, faster.
+5. Test with minimal effort
+Testing is part of the decision-making process. Building MVPs of features a=
+nd products reveals:
+Does anyone care?
+How much effort will building it take?
+All of PostHog=E2=80=99s products (beyond product analytics) were initially=
+ built in 1 to 3 person teams at our hackathons. Our newest products like w=
+eb analytics [ https://substack.com/redirect/8d90ce09-9b33-4482-be17-a16e12=
+cb93e1?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ]=
+ and the data warehouse [ https://substack.com/redirect/4fcb144f-a1d1-40f8-=
+92a8-dce49656fb14?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55=
+iVLFPtgpY ] are being built by single-person teams.=20
+This enables us to get stronger validation on demand before investing furth=
+er. Companies like Apple [ https://substack.com/redirect/0f87e955-696c-4c3f=
+-bf56-4f3a1215ddd7?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ5=
+5iVLFPtgpY ] and Spotify [ https://substack.com/redirect/53c54dbc-7dae-4a46=
+-9f80-647d28587bf7?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ5=
+5iVLFPtgpY ] also rely on this prototyping-heavy style.
+Another way we test with minimal effort is by building on what we=E2=80=99v=
+e already done. For example, surveys use the JavaScript library to display =
+forms, event capture for responses, and feature flags for targeting. Having=
+ all these things built first made surveys easier to implement, a perfect e=
+xample of a high impact, low effort opportunity.
+Choosing to build surveys (a real-world example)
+Surveys [ https://substack.com/redirect/07b305ce-de97-4c2a-8646-a6a51d9f889=
+0?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ] were=
+ one of our largest releases of last year. How we inevitably chose to build=
+ it is a good example of how our process works:
+The first request for a user interview tool [ https://substack.com/redirect=
+/c2d958c6-30cd-4790-ab01-38ad5ced40af?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM7=
+15Wn9QOR4ytY6S_djQ55iVLFPtgpY ] happened nearly 3 years before it launched.=
+ For the majority of this time, we pointed users who requested it to workar=
+ounds like capturing feedback as an event.
+In October 2022, we hired our first product managers. This made the need fo=
+r a feedback-gathering tool more obvious, as they were doing it more often.=
+ The process of finding and contacting users was tedious and had a low resp=
+onse rate.
+Also around this time, Marius shipped site apps [ https://substack.com/redi=
+rect/bab66cdb-038d-424e-89a7-db2e0ea8c772?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2df=
+rcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ]. This enabled MVPs of feedback, user in=
+terview, and NPS survey apps, which got solid usage internally and some usa=
+ge externally.
+At our Aruba offsite [ https://substack.com/redirect/6206f0da-4c53-43a2-9cb=
+c-851622298a32?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVL=
+FPtgpY ], the Feature Success team [ https://substack.com/redirect/6c3624ea=
+-36bd-4df8-bfb1-350e0eaee352?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4=
+ytY6S_djQ55iVLFPtgpY ] was doing roadmap planning. They decided they had go=
+od ways to measure success quantitatively, but not qualitatively. To ensure=
+ PostHog =E2=80=9Cprovides every tool needed for evaluating success=E2=80=
+=9D (a core strategy point), it made sense to build surveys out further.
+Li [ https://substack.com/redirect/e1a58255-9303-4404-adda-cec9fc783500?j=
+=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ] took ow=
+nership of surveys and built on top of site apps (initially), feature flags=
+, and product analytics. Throughout the process, she got feedback (sometime=
+s using surveys, very meta), and shipped towards launch.
+Good reads for product engineers =F0=9F=93=96
+11 years of SaaS product strategy [ https://substack.com/redirect/e1c91dc0-=
+b354-4c70-bb69-b8c3b54d62fe?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4y=
+tY6S_djQ55iVLFPtgpY ] =E2=80=93 Alex Ghiculescu =20
+Alex, co-founder of Tanda, writes about the phases of product strategy he=
+=E2=80=99s experienced over 11 years, and reflects on what he=E2=80=99d hav=
+e done differently.
+Shape Up [ https://substack.com/redirect/fa7e0cb9-6ac4-47bb-89b5-2edc6e9444=
+cf?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ] =E2=
+=80=93 Ryan Singer=20
+Basecamp=E2=80=99s full guide to building products detailing their three-st=
+ep process: shaping, betting, and building.
+The most useful product health metrics [ https://substack.com/redirect/1a4d=
+561c-87fe-4c2e-a4e2-a5a21c7a08c5?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9=
+QOR4ytY6S_djQ55iVLFPtgpY ] =E2=80=93 Ian Vanagas
+The metrics you need to see if what you=E2=80=99re building is working. I b=
+reak down metrics for adoption, retention, and engagement and how to pick t=
+he right ones.
+Prioritising Features: Who=E2=80=99ll Use It & How Often? [ https://substac=
+k.com/redirect/b13fde81-d566-4853-8180-c28e5e151a18?j=3DeyJ1IjoiM2R5bDIifQ.=
+wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY ] =E2=80=93 Des Traynor
+The Co-founder and Chief Strategy Officer of Intercom goes over how to avoi=
+d your product becoming a collection of useless tools by prioritizing featu=
+res used by everyone all the time.
+How to prioritize features [ https://substack.com/redirect/30d788b3-33e5-40=
+4a-a335-7a7af0dc9dbd?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_dj=
+Q55iVLFPtgpY ] =E2=80=93 Emmett Shear
+Former CEO of Twitch (and OpenAI =F0=9F=A7=90) breaks down his three featur=
+e prioritization frameworks: built for me, switch to us, and three numbers =
+matter.
+Join the 7,000+ product engineers who already enjoy Product for Engineers.
+Words by Ian Vanagas, who wonders what happened to all the =E2=80=9Cgrowth =
+hackers.=E2=80=9D
+
+Unsubscribe https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9uZXdzbGV0dGV=
+yLnBvc3Rob2cuY29tL2FjdGlvbi9kaXNhYmxlX2VtYWlsP3Rva2VuPWV5SjFjMlZ5WDJsa0lqbz=
+FOamt3TVRrNExDSndiM04wWDJsa0lqb3hOREEwTURRNE16Z3NJbWxoZENJNk1UY3dORGt4TVRRM=
+U1Td2laWGh3SWpveE56QTNOVEF6TkRVeExDSnBjM01pT2lKd2RXSXRNVE14T0RJeU5TSXNJbk4x=
+WWlJNkltUnBjMkZpYkdWZlpXMWhhV3dpZlEualRTLU9WRnV0V0phT2UxSEFkd2xnemU4WG1DZXc=
+4cFV2aDNwdzlTU2IxTSZleHBpcmVzPTM2NWQiLCJwIjoxNDA0MDQ4MzgsInMiOjEzMTgyMjUsIm=
+YiOnRydWUsInUiOjU2OTAxOTgsImlhdCI6MTcwNDkxMTQ1MSwiZXhwIjoxNzA3NTAzNDUxLCJpc=
+3MiOiJwdWItMCIsInN1YiI6ImxpbmstcmVkaXJlY3QifQ.4Aqn3SUguE-hHbSMmdOlKHX6Eh3ue=
+XYgA4gNZfEsbnw?
+--ba03becc3a7d4bee8683d5fa5e249a38fbef35519dba72cf1e8826986020
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><meta charset=3D"utf-8"><title>How we decide what to build</tit=
+le><style>
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .typography .markup table.image-wrapper img,
+  .typography.editor .markup table.image-wrapper img,
+  .typography .markup table.kindle-wrapper img,
+  .typography.editor .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .typography .markup div.youtube-inner div.youtube-screen,
+  .typography.editor .markup div.youtube-inner div.youtube-screen,
+  .typography .markup div.vimeo-inner div.youtube-screen,
+  .typography.editor .markup div.vimeo-inner div.youtube-screen {
+    display: none !important;
+  }
+}
+
+
+@media screen and (max-width: 370px) {
+  .typography .markup div.tiktok-wrap,
+  .typography.editor .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .typography .markup div.embedded-publication-wrap .embedded-publication.s=
+how-subscribe,
+  .typography.editor .markup div.embedded-publication-wrap .embedded-public=
+ation.show-subscribe {
+    padding: 24px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe {
+    padding: 24px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .typography .markup .tweet,
+  .typography.editor .markup .tweet {
+    padding: 12px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .typography .markup .tweet .tweet-text,
+  .typography.editor .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .typography .markup .tweet .tweet-photos-container.two,
+  .typography.editor .markup .tweet .tweet-photos-container.two,
+  .typography .markup .tweet .tweet-photos-container.three,
+  .typography.editor .markup .tweet .tweet-photos-container.three,
+  .typography .markup .tweet .tweet-photos-container.four,
+  .typography.editor .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .typography .markup .tweet a.expanded-link .expanded-link-img,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .typography .markup .tweet a.expanded-link .expanded-link-description,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-descript=
+ion {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .typography .markup .apple-podcast-container,
+  .typography.editor .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed img.install-substack-app-=
+embed-img,
+  .typography.editor .markup .install-substack-app-embed img.install-substa=
+ck-app-embed-img {
+    margin: 0 auto 16px auto;
+  }
+}
+
+
+@media screen and (min-width: 420px) and (max-width: 600px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-text,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-text {
+    max-width: calc(100% - 100px);
+    width: initial;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-text,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-text {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-link,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-link {
+    margin-top: 16px;
+    width: 100%;
+  }
+}
+
+
+@media screen and (min-width: 481px) {
+  .share-button-container {
+    height: 38px;
+  }
+}
+
+
+@media screen and (min-width: 481px) {
+  .share-button-container a.comment {
+    height: 38px;
+    line-height: 38px;
+    padding-right: 10px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .share-button-container .separator {
+    display: block;
+    margin: 0;
+    height: 8px;
+    border-left: none;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .share-button-container a.share.first img {
+    padding-left: 0;
+  }
+}
+
+
+@media screen and (min-width: 481px) {
+  .share-button-container a.mobile {
+    display: none !important;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .social-media-share-preview__description {
+    -webkit-line-clamp: 2;
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  .congrats-box {
+    flex-direction: column;
+  }
+  .congrats-box .congrats-box-right {
+    margin-left: 38px;
+    margin-top: 16px;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .congrats-box {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer {
+    padding: 36px;
+    height: 680px;
+  }
+}
+
+
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer .footer {
+    position: absolute;
+    bottom: 36px;
+    margin: 0px;
+  }
+}
+
+
+@media screen and (max-width: 840px) {
+  .header-with-anchor-widget .header-anchor-widget,
+  .header-anchor-container .header-anchor-widget {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .post {
+    padding: 32px 0 0 0;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post .post-header .post-label {
+    margin-top: 8px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post .post-header .meta-author-wrap.alternative-meta .meta-right-column =
+=2Epost-meta {
+    margin-top: 6px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post .footer-facepile-container {
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post .post-footer.use-separators {
+    justify-content: center;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post .post-footer.next-prev {
+    height: 64px;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post-contributor-footer .post-contributor-bio-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-table-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .post-contributor-footer .post-contributor-bio-userhead-cell,
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    flex-grow: 1;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table-row {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell,
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell {
+    margin: 0 0 16px 0;
+  }
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    width: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls {
+    margin: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls .button.primary {
+    width: 100%;
+  }
+  .post-contributor-footer .post-contributor-bio-text {
+    font-size: 14px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .post-silhouette {
+    padding: 16px 0;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-title {
+    margin-top: 10.44225025px;
+    height: 120px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta {
+    width: 75%;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta.with-byline-image {
+    margin: 20px 0;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    padding-right: 16px;
+  }
+}
+
+
+@media screen and (max-width: 370px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    font-size: 14px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item.guest-author-pu=
+blication,
+  .post-meta.alternative-meta .post-meta-item.guest-author-publication {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item .post-meta-button {
+    height: 36px !important;
+  }
+  .post-meta .post-meta-item .post-meta-button .meta-button-label {
+    display: none;
+  }
+  .post-meta .post-meta-item .post-meta-button > svg {
+    margin-right: 0;
+  }
+}
+
+
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item {
+    font-size: 12px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post .floating-subscribe-button {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body .markup table.image-wrapper img,
+  body .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  body .markup div.youtube-inner div.youtube-screen,
+  body .markup div.vimeo-inner div.youtube-screen {
+    display: none !important;
+  }
+}
+
+
+@media screen and (max-width: 370px) {
+  body .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  body .markup div.embedded-publication-wrap .embedded-publication.show-sub=
+scribe {
+    padding: 24px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e {
+    padding: 24px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe .subscription-widget-subscribe .button,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  body .markup .tweet {
+    padding: 12px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  body .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  body .markup .tweet .tweet-photos-container.two,
+  body .markup .tweet .tweet-photos-container.three,
+  body .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  body .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  body .markup .tweet a.expanded-link .expanded-link-description {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  body .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+
+
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed img.install-substack-app-embed-i=
+mg {
+    margin: 0 auto 16px auto;
+  }
+}
+
+
+@media screen and (min-width: 420px) and (max-width: 600px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-text=
+ {
+    max-width: calc(100% - 100px);
+    width: initial;
+  }
+}
+
+
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-text=
+ {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 600px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-link=
+ {
+    margin-top: 16px;
+    width: 100%;
+  }
+}
+
+
+@media screen and (min-width: 500px) {
+  body .header a.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+  body .subscription-receipt table:first-of-type .subscription-amount .subs=
+cription-discount {
+    width: 72px !important;
+  }
+}
+
+
+@media screen and (min-width: 481px) {
+  body .share-button-container {
+    height: auto;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  body .share-button-container .separator {
+    display: block !important;
+    margin: 0 !important;
+    height: 8px !important;
+    border-left: none !important;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .digest .item .post-meta-item.audience {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 500px) {
+  .digest-publication .logo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .comments-page .container .comment-list .collapsed-reply {
+    margin-left: 17px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .comment > .comment-list {
+    padding-left: 25px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .finish-magic-login-modal .modal-content .container {
+    padding: 24px 0;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .reader2-text-b3 {
+    line-height: 24px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .reader2-text-h4 {
+    line-height: 24px;
+  }
+}
+
+
+@media screen and (min-width: 541px) {
+  .user-profile-modal {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .subscribe-widget form.form .sideBySideWrap button.rightButton {
+    padding: 10px 12px;
+  }
+}
+
+
+@media screen and (min-width: 541px) {
+  .pub-icon:hover .logo-hover,
+  .feed-item-icon:hover .logo-hover {
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper {
+    width: 100%;
+    padding: 16px;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper:empty {
+    display: none;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper {
+    padding: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor {
+    padding: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor:active {
+    padding: 0;
+  }
+}
+
+
+@media only screen and (max-width: 650px) {
+  .file-embed-button.wide,
+  .file-embed-error-button.wide {
+    display: none;
+  }
+}
+
+
+@media only screen and (min-width: 630px) {
+  .file-embed-button.narrow,
+  .file-embed-error-button.narrow {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 541px) {
+  .audio-player-wrapper .audio-player {
+    min-width: 500px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress .audio-player-=
+progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress .audio-p=
+layer-progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+
+
+@media (min-width: 250px) {
+  .audio-player-wrapper-fancy .audio-player {
+    padding: 32px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:last-of-type=
+ {
+    display: block;
+  }
+}
+
+
+@media (min-width: 300px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+
+
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-title {
+    margin-top: 16px;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 15%;
+    width: 15%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+}
+
+
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 25%;
+    width: 25%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+
+
+@media (min-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 40%;
+    width: 40%;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    margin-top: 12px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button {
+    font-size: 13px;
+    padding: 6px 12px;
+    height: auto;
+    margin-top: 10px;
+  }
+}
+
+
+@media (min-width: 600px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 55%;
+    width: 55%;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .poll-editor-modal {
+    min-width: calc(100% - 20px);
+  }
+}
+
+
+@media (max-width: 750px) {
+  .poll-embed .poll-anchor-target .poll-anchor-copy-button {
+    left: 8px;
+    top: 45px;
+  }
+}
+
+
+@media screen and (min-width: 541px) {
+  .poll-embed .poll-wrapper.poll-web .poll-dialog .modal-table .modal-row .=
+modal-content > .container {
+    width: 552px;
+    padding: 26px 24px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .poll-embed .poll-wrapper.poll-web .poll-dialog .modal-table .modal-row .=
+modal-content > .container {
+    padding: 40px 0;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .poll-embed .poll-wrapper.poll-web .poll-dialog .modal-row .modal-cell .m=
+odal-exit-btn {
+    margin-right: -20px;
+  }
+}
+
+
+@media not all and (min-resolution: 0.001dpcm) {
+}
+</style></head><body class=3D"email-body" style=3D"font-kerning: auto;"><im=
+g src=3D"https://eotrx.substackcdn.com/open?token=3DeyJtIjoiPDIwMjQwMTEwMTg=
+zMDQwLjMuZWFkYWFlMmIyY2Y2ZGZkZUBtZzIuc3Vic3RhY2suY29tPiIsInUiOjU2OTAxOTgsIn=
+IiOiJ0aW1teWcxM0BnbWFpbC5jb20iLCJkIjoibWcyLnN1YnN0YWNrLmNvbSIsInAiOjE0MDQwN=
+DgzOCwidCI6Im5ld3NsZXR0ZXIiLCJhIjoiZXZlcnlvbmUiLCJzIjoxMzE4MjI1LCJjIjoicG9z=
+dCIsImYiOnRydWUsInBvc2l0aW9uIjoidG9wIiwiaWF0IjoxNzA0OTExNDUyLCJleHAiOjE3MDc=
+1MDM0NTIsImlzcyI6InB1Yi0wIiwic3ViIjoiZW8ifQ.GrpvWRt9dFvB92PQnCDW3stShvMZnXH=
+5LBPUCz2F-c8" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"heigh=
+t:1px !important;width:1px !important;border-width:0 !important;margin-top:=
+0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-le=
+ft:0 !important;padding-top:0 !important;padding-bottom:0 !important;paddin=
+g-right:0 !important;padding-left:0 !important;"/><div style=3D"display:non=
+e;font-size:1px;color:#333333;line-height:1px;max-height:0px;max-width:0px;=
+opacity:0;overflow:hidden;" class=3D"preview">Strategies for navigating the=
+ product maze, with real examples &#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;</div><table role=3D"presentation" width=3D"100%" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" class=3D"email-body-container"><tr><td></t=
+d><td width=3D"550" class=3D"content"></td><td></td></tr><tr><td></td><td a=
+lign=3D"left" width=3D"550" class=3D"content"><div style=3D"font-size: 16px=
+; line-height: 26px; margin: 0 auto; max-width: 550px; overflow-wrap: break=
+-word; width: 100%;"><table role=3D"presentation" width=3D"100%" border=3D"=
+0" cellspacing=3D"0" cellpadding=3D"0"><tr><td align=3D"right" style=3D"hei=
+ght: 20px;"><table role=3D"presentation" width=3D"auto" border=3D"0" cellsp=
+acing=3D"0" cellpadding=3D"0"><tr><td style=3D"vertical-align: middle;"><sp=
+an class=3D"pencraft pc-reset frontend-pencraft-Text-module__reset--dW0zZ t=
+w-font-body tw-text-ssm tw-text-substack-secondary" style=3D"color: rgb(128=
+, 128, 128) !important; font-family: SF Pro Text, -apple-system, BlinkMacSy=
+stemFont, Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Colo=
+r Emoji, Segoe UI Emoji, Segoe UI Symbol !important; font-size: 13px !impor=
+tant; list-style: none; margin: 0; text-decoration: unset;"><div class=3D"p=
+encraft pc-reset frontend-pencraft-Text-module__align-right--PcYkZ frontend=
+-pencraft-Text-module__size-12--KorQF frontend-pencraft-Text-module__reset-=
+-dW0zZ" style=3D"color: unset; font-size: 12px; letter-spacing: 0; line-hei=
+ght: 16px; list-style: none; margin: 0; text-align: right; text-decoration:=
+ unset;"><span translated class=3D"pencraft pc-reset frontend-pencraft-Text=
+-module__reset--dW0zZ" style=3D"color: unset; list-style: none; margin: 0; =
+text-decoration: unset;">Forwarded this email? <a href=3D"https://substack.=
+com/redirect/2/eyJlIjoiaHR0cHM6Ly9uZXdzbGV0dGVyLnBvc3Rob2cuY29tL3N1YnNjcmli=
+ZT91dG1fc291cmNlPWVtYWlsJnV0bV9jYW1wYWlnbj1lbWFpbC1zdWJzY3JpYmUmcj0zZHlsMiZ=
+uZXh0PWh0dHBzJTNBJTJGJTJGbmV3c2xldHRlci5wb3N0aG9nLmNvbSUyRnAlMkZob3ctd2UtZG=
+VjaWRlLXdoYXQtdG8tYnVpbGQiLCJwIjoxNDA0MDQ4MzgsInMiOjEzMTgyMjUsImYiOnRydWUsI=
+nUiOjU2OTAxOTgsImlhdCI6MTcwNDkxMTQ1MSwiZXhwIjoxNzA3NTAzNDUxLCJpc3MiOiJwdWIt=
+MCIsInN1YiI6ImxpbmstcmVkaXJlY3QifQ.6YuMMiu9GjojQQuPB7usV7ZjUm3OmW8JUHWxLLzE=
+omo?" class=3D"pencraft pc-reset frontend-pencraft-Text-module__decoration-=
+underline--sj8pE frontend-pencraft-Text-module__reset--dW0zZ" style=3D"colo=
+r: unset; list-style: none; margin: 0; text-decoration: unset; text-decorat=
+ion-line: underline;">Subscribe here</a> for more</span></div></span></td><=
+/tr></table></td></tr></table><table role=3D"presentation" width=3D"auto" c=
+lass=3D"header graphic-header" style=3D"border-spacing: 0; padding: 16px 0 =
+32px;"><tr><td align=3D"center" style=3D"padding: 0; text-align: center;"><=
+a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9uZXdzbGV0dGVyL=
+nBvc3Rob2cuY29tL3AvaG93LXdlLWRlY2lkZS13aGF0LXRvLWJ1aWxkP3V0bV9jYW1wYWlnbj1l=
+bWFpbC1oYWxmLXBvc3Qmcj0zZHlsMiZ0b2tlbj1leUoxYzJWeVgybGtJam8xTmprd01UazRMQ0p=
+3YjNOMFgybGtJam94TkRBME1EUTRNemdzSW1saGRDSTZNVGN3TkRreE1UUTFNU3dpWlhod0lqb3=
+hOekEzTlRBek5EVXhMQ0pwYzNNaU9pSndkV0l0TVRNeE9ESXlOU0lzSW5OMVlpSTZJbkJ2YzNRd=
+GNtVmhZM1JwYjI0aWZRLkhURGMtSHg5ZFU4SHJEVlRGbXVNTHVWN3JGMU1PZFZ4RHNVWHJLajdJ=
+bE0iLCJwIjoxNDA0MDQ4MzgsInMiOjEzMTgyMjUsImYiOnRydWUsInUiOjU2OTAxOTgsImlhdCI=
+6MTcwNDkxMTQ1MSwiZXhwIjoxNzA3NTAzNDUxLCJpc3MiOiJwdWItMCIsInN1YiI6Imxpbmstcm=
+VkaXJlY3QifQ.6Ao6da5sBg5KU-k2CAiBIw3qyMyM8jOPn4keUBKBJkk?"><img role=3D"pre=
+sentation" width=3D"550" height=3D"110" src=3D"https://substackcdn.com/imag=
+e/fetch/w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%=
+2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa2254430-b7f2-41=
+04-af1b-85747358ef17_1100x220.png" class=3D"header-image" style=3D"border: =
+none !important; display: block; height: auto; margin: 0 auto; max-width: 5=
+50px; vertical-align: middle; width: 100%;"></a></td></tr></table><div dir=
+=3D"auto" class=3D"post typography" style=3D"font-size: 16px; line-height: =
+26px; padding: 16px 0 0 0;"><div class=3D"post-header" style=3D"font-size: =
+16px; line-height: 26px;"><h1 class=3D"post-title published" style=3D"-moz-=
+appearance: optimizelegibility; -moz-osx-font-smoothing: antialiased; -webk=
+it-appearance: optimizelegibility; -webkit-font-smoothing: antialiased; app=
+earance: optimizelegibility; color: rgb(64, 64, 64); font-family: 'SF Compa=
+ct Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helveti=
+ca, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Sym=
+bol'; font-size: 32px; font-weight: bold; line-height: 36px; margin: 0;"><a=
+ href=3D"https://substack.com/app-link/post?publication_id=3D1318225&post_i=
+d=3D140404838&utm_source=3Dpost-email-title&utm_campaign=3Demail-post-title=
+&isFreemail=3Dtrue&r=3D3dyl2&token=3DeyJ1c2VyX2lkIjo1NjkwMTk4LCJwb3N0X2lkIj=
+oxNDA0MDQ4MzgsImlhdCI6MTcwNDkxMTQ1MSwiZXhwIjoxNzA3NTAzNDUxLCJpc3MiOiJwdWItM=
+TMxODIyNSIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.HTDc-Hx9dU8HrDVTFmuMLuV7rF1MOdVxD=
+sUXrKj7IlM" style=3D"color: rgb(64, 64, 64); text-decoration: none;">How we=
+ decide what to build</a></h1><h3 class=3D"subtitle" style=3D"-moz-appearan=
+ce: optimizelegibility; -moz-osx-font-smoothing: antialiased; -webkit-appea=
+rance: optimizelegibility; -webkit-font-smoothing: antialiased; appearance:=
+ optimizelegibility; color: #808080; font-family: 'SF Compact Display', -ap=
+ple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-=
+serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size:=
+ 18px; font-weight: normal; line-height: 24px; margin: 4px 0 0; margin-top:=
+ 12px;">Strategies for navigating the product maze, with real examples</h3>=
+<table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" class=3D"post-meta" style=3D"align-items: center; height:=
+ 20px; margin: 1em 0;"><tr><td><table role=3D"presentation" width=3D"auto" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td><table role=3D"pre=
+sentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=
+<tr><td style=3D"vertical-align: middle;"><div class=3D"pencraft pc-reset f=
+rontend-pencraft-Text-module__color-primary--ud4Z0 frontend-pencraft-Text-m=
+odule__line-height-20--p0dP8 frontend-pencraft-Text-module__font-meta--U_nx=
+y frontend-pencraft-Text-module__size-11--k1e8b frontend-pencraft-Text-modu=
+le__weight-medium--x7khA frontend-pencraft-Text-module__transform-uppercase=
+--IDkUL frontend-pencraft-Text-module__reset--dW0zZ frontend-pencraft-Text-=
+module__meta--jzHdd custom-css-email-post-author" style=3D"color: rgb(64, 6=
+4, 64); font-family: 'SF Compact', -apple-system, -apple-system, -system-ui=
+, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Ap=
+ple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 11px; fon=
+t-weight: 500; letter-spacing: .2px; line-height: 20px; list-style: none; m=
+argin: 0; text-decoration: unset; text-transform: uppercase;"><a style=3D"c=
+olor: rgb(64, 64, 64); font-family: 'SF Compact', -apple-system, -apple-sys=
+tem, -system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, =
+sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-=
+size: 11px; font-weight: 500; letter-spacing: .2px; line-height: 20px; list=
+-style: none; margin: 0; text-decoration: none; text-transform: uppercase;"=
+ href=3D"https://substack.com/redirect/913425a1-e557-4ae0-8e06-081d2c4ceb7a=
+?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" class=
+=3D"pencraft pc-reset frontend-pencraft-Text-module__color-primary--ud4Z0 f=
+rontend-pencraft-Text-module__line-height-20--p0dP8 frontend-pencraft-Text-=
+module__font-meta--U_nxy frontend-pencraft-Text-module__size-11--k1e8b fron=
+tend-pencraft-Text-module__weight-medium--x7khA frontend-pencraft-Text-modu=
+le__transform-uppercase--IDkUL frontend-pencraft-Text-module__reset--dW0zZ =
+frontend-pencraft-Text-module__meta--jzHdd">Ian Vanagas</a></div></td></tr>=
+</table></td></tr><tr><td><table role=3D"presentation" width=3D"auto" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td style=3D"vertical-align=
+: middle;"><div class=3D"pencraft pc-reset frontend-pencraft-Text-module__c=
+olor-secondary--WRADg frontend-pencraft-Text-module__line-height-20--p0dP8 =
+frontend-pencraft-Text-module__font-meta--U_nxy frontend-pencraft-Text-modu=
+le__size-11--k1e8b frontend-pencraft-Text-module__weight-medium--x7khA fron=
+tend-pencraft-Text-module__transform-uppercase--IDkUL frontend-pencraft-Tex=
+t-module__reset--dW0zZ frontend-pencraft-Text-module__meta--jzHdd" style=3D=
+"color: rgb(128, 128, 128); font-family: 'SF Compact', -apple-system, -appl=
+e-system, -system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Ar=
+ial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; =
+font-size: 11px; font-weight: 500; letter-spacing: .2px; line-height: 20px;=
+ list-style: none; margin: 0; text-decoration: unset; text-transform: upper=
+case;"><time dateTime=3D"2024-01-10T18:30:49.064Z">Jan 10</time></div></td>=
+</tr></table></td></tr></table></td><td align=3D"right"><table role=3D"pres=
+entation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><=
+tr><td style=3D"vertical-align: middle;"><a href=3D"https://substack.com/re=
+direct/913425a1-e557-4ae0-8e06-081d2c4ceb7a?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2=
+dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY"><img src=3D"https://substackcdn.com/im=
+age/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-po=
+st-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56e6c63d-4e58-4af0-ad19-c3ac1=
+5c7d4fc_1026x898.webp" style=3D"border: none !important; border-radius: 500=
+000px; box-sizing: border-box; display: inline; height: 40px; margin: 0px; =
+max-width: 550px; min-height: 40px; min-width: 40px; object-fit: cover; ver=
+tical-align: middle; width: 40px;" width=3D"40" height=3D"40" class=3D"cust=
+om-css-email-avatar frontend-email-system-basics-module__avatar--eNC1i"></a=
+></td></tr></table></td></tr></table><table role=3D"presentation" width=3D"=
+100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"email-ufi-2=
+-top" style=3D"border-bottom: 1px solid rgba(0, 0, 0, .13); border-top: 1px=
+ solid rgba(0, 0, 0, .13); min-width: 100%;"><tr height=3D"16"><td height=
+=3D"16" style=3D"font-size: 0px; line-height: 0;">&#160;</td></tr><tr><td><=
+table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0"><tr><td><table role=3D"presentation" width=3D"auto" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td style=3D"vertical-align:=
+ middle;"><table role=3D"presentation" width=3D"38" border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0"><tr><td align=3D"center"><a href=3D"https://subst=
+ack.com/app-link/post?publication_id=3D1318225&post_id=3D140404838&utm_sour=
+ce=3Dsubstack&isFreemail=3Dtrue&submitLike=3Dtrue&token=3DeyJ1c2VyX2lkIjo1N=
+jkwMTk4LCJwb3N0X2lkIjoxNDA0MDQ4MzgsInJlYWN0aW9uIjoi4p2kIiwiaWF0IjoxNzA0OTEx=
+NDUxLCJleHAiOjE3MDc1MDM0NTEsImlzcyI6InB1Yi0xMzE4MjI1Iiwic3ViIjoicmVhY3Rpb24=
+ifQ.qpnnNWcYohk7DDNYsiUY61EXssO3dCQYr6qXaHsQ8NE&utm_medium=3Demail&utm_camp=
+aign=3Demail-reaction&r=3D3dyl2" style=3D"border: 1px solid rgba(0, 0, 0, .=
+13); border-radius: 100000px; box-sizing: border-box; color: rgb(128, 128, =
+128); display: inline-block; font-family: 'SF Pro Text', -apple-system, ui-=
+sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-=
+serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size:=
+ 12px; font-weight: 500; line-height: 1; min-width: 38px; padding: 9px 0; t=
+ext-decoration: none; text-transform: uppercase; width: 38px;" class=3D"ema=
+il-icon-button"><img src=3D"https://substackcdn.com/image/fetch/w_36,c_scal=
+e,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%=
+2FLucideHeart%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26=
+strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"border: none !importan=
+t; max-width: 18px; vertical-align: middle;" alt class=3D"icon"></a></td></=
+tr></table></td><td width=3D"8" style=3D"min-width: 8px"></td><td style=3D"=
+vertical-align: middle;"><table role=3D"presentation" width=3D"38" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td align=3D"center"><a href=
+=3D"https://substack.com/app-link/post?publication_id=3D1318225&post_id=3D1=
+40404838&utm_source=3Dsubstack&utm_medium=3Demail&isFreemail=3Dtrue&comment=
+s=3Dtrue&token=3DeyJ1c2VyX2lkIjo1NjkwMTk4LCJwb3N0X2lkIjoxNDA0MDQ4MzgsImlhdC=
+I6MTcwNDkxMTQ1MSwiZXhwIjoxNzA3NTAzNDUxLCJpc3MiOiJwdWItMTMxODIyNSIsInN1YiI6I=
+nBvc3QtcmVhY3Rpb24ifQ.HTDc-Hx9dU8HrDVTFmuMLuV7rF1MOdVxDsUXrKj7IlM&r=3D3dyl2=
+&utm_campaign=3Demail-half-magic-comments&utm_source=3Dsubstack&utm_medium=
+=3Demail" style=3D"border: 1px solid rgba(0, 0, 0, .13); border-radius: 100=
+000px; box-sizing: border-box; color: rgb(128, 128, 128); display: inline-b=
+lock; font-family: 'SF Pro Text', -apple-system, ui-sans-serif, BlinkMacSys=
+temFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emo=
+ji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-weight: 500=
+; line-height: 1; min-width: 38px; padding: 9px 0; text-decoration: none; t=
+ext-transform: uppercase; width: 38px;" class=3D"email-icon-button"><img sr=
+c=3D"https://substackcdn.com/image/fetch/w_36,c_scale,f_png,q_auto:good,fl_=
+progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3Fv%3D=
+4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" wid=
+th=3D"18" height=3D"18" style=3D"border: none !important; max-width: 18px; =
+vertical-align: middle;" alt class=3D"icon"></a></td></tr></table></td><td =
+width=3D"8" style=3D"min-width: 8px"></td><td style=3D"vertical-align: midd=
+le;"><table role=3D"presentation" width=3D"38" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0"><tr><td align=3D"center"><a href=3D"https://substack.c=
+om/app-link/post?publication_id=3D1318225&post_id=3D140404838&utm_source=3D=
+substack&utm_medium=3Demail&utm_content=3Dshare&utm_campaign=3Demail-share&=
+action=3Dshare&triggerShare=3Dtrue&isFreemail=3Dtrue&r=3D3dyl2&token=3DeyJ1=
+c2VyX2lkIjo1NjkwMTk4LCJwb3N0X2lkIjoxNDA0MDQ4MzgsImlhdCI6MTcwNDkxMTQ1MSwiZXh=
+wIjoxNzA3NTAzNDUxLCJpc3MiOiJwdWItMTMxODIyNSIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ=
+=2EHTDc-Hx9dU8HrDVTFmuMLuV7rF1MOdVxDsU=
+XrKj7IlM" style=3D"border: 1px solid rg=
+ba(0, 0, 0, .13); border-radius: 100000px; box-sizing: border-box; color: r=
+gb(128, 128, 128); display: inline-block; font-family: 'SF Pro Text', -appl=
+e-system, ui-sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,=
+ Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol=
+'; font-size: 12px; font-weight: 500; line-height: 1; min-width: 38px; padd=
+ing: 9px 0; text-decoration: none; text-transform: uppercase; width: 38px;"=
+ class=3D"email-icon-button"><img src=3D"https://substackcdn.com/image/fetc=
+h/w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstac=
+k.com%2Ficon%2FLucideShare2%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D=
+%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"border: =
+none !important; max-width: 18px; vertical-align: middle;" alt class=3D"ico=
+n"></a></td></tr></table></td><td width=3D"8" style=3D"min-width: 8px"></td=
+><td style=3D"vertical-align: middle;"><table role=3D"presentation" width=
+=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td align=3D"c=
+enter"><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9uZXdzb=
+GV0dGVyLnBvc3Rob2cuY29tL3AvaG93LXdlLWRlY2lkZS13aGF0LXRvLWJ1aWxkP3V0bV9zb3Vy=
+Y2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZhY3Rpb249cmVzdGFjay1jb21tZW50JnV0bV9=
+jYW1wYWlnbj1lbWFpbC1yZXN0YWNrLWNvbW1lbnQmcj0zZHlsMiIsInAiOjE0MDQwNDgzOCwicy=
+I6MTMxODIyNSwiZiI6dHJ1ZSwidSI6NTY5MDE5OCwiaWF0IjoxNzA0OTExNDUxLCJleHAiOjE3M=
+Dc1MDM0NTEsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.wX6SUrlfVvsyOA5=
+zHAf-zMuOjo8ZNgoW9LxNf3v_o20?&utm_source=3Dsubstack&utm_medium=3Demail" sty=
+le=3D"border: 1px solid rgba(0, 0, 0, .13); border-radius: 100000px; box-si=
+zing: border-box; color: rgb(128, 128, 128); display: inline-block; font-fa=
+mily: 'SF Pro Text', -apple-system, ui-sans-serif, BlinkMacSystemFont, 'Seg=
+oe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe U=
+I Emoji', 'Segoe UI Symbol'; font-size: 12px; font-weight: 500; line-height=
+: 1; min-width: 38px; padding: 9px 0; text-decoration: none; text-transform=
+: uppercase; width: 38px;" class=3D"email-icon-button"><img src=3D"https://=
+substackcdn.com/image/fetch/w_36,c_scale,f_png,q_auto:good,fl_progressive:s=
+teep/https%3A%2F%2Fsubstack.com%2Ficon%2FNoteForwardIcon%3Fv%3D4%26height%3=
+D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" he=
+ight=3D"18" style=3D"border: none !important; max-width: 18px; vertical-ali=
+gn: middle;" alt class=3D"icon"></a></td></tr></table></td></tr></table></t=
+d><td align=3D"right"><table role=3D"presentation" width=3D"auto" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td style=3D"vertical-align: mi=
+ddle;"><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0"><tr><td align=3D"center"><a href=3D"https://open.s=
+ubstack.com/pub/productforengineers/p/how-we-decide-what-to-build?utm_sourc=
+e=3Demail&redirect=3Dapp-store" class=3D"email-button-outline" style=3D"bor=
+der: 1px solid rgba(0, 0, 0, .13); border-radius: 100000px; color: rgb(128,=
+ 128, 128); display: inline-block; font-family: 'SF Pro Text', -apple-syste=
+m, ui-sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,=
+ sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font=
+-size: 12px; font-weight: 500; line-height: 12px; padding: 9px 14px; text-d=
+ecoration: none; text-transform: uppercase;"><div class=3D"email-button-spa=
+cer" style=3D"display: inline-block; font-size: 16px; line-height: 26px; ma=
+x-width: 0; min-height: 18px; vertical-align: middle;"></div><span style=3D=
+"margin-right: 4px; vertical-align: middle;" class=3D"email-button-text">RE=
+AD IN APP</span><img src=3D"https://substackcdn.com/image/fetch/w_36,c_scal=
+e,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%=
+2FLucideArrowUpRight%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%252380=
+8080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"border: none !i=
+mportant; margin-left: 0; margin-right: 0; max-width: 18px; min-height: 18p=
+x; min-width: 18px; vertical-align: middle;" alt class=3D"icon text-icon"><=
+/a></td></tr></table></td></tr></table></td></tr></table></td></tr><tr heig=
+ht=3D"16"><td height=3D"16" style=3D"font-size: 0px; line-height: 0;">&#160=
+;</td></tr></table></div></div><div dir=3D"auto" class=3D"post typography" =
+style=3D"font-size: 16px; line-height: 26px; padding: 16px 0 0 0;"><div dir=
+=3D"auto" class=3D"body markup" style=3D"font-family: 'SF Pro Display', -ap=
+ple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Ari=
+al, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; f=
+ont-size: 16px; font-weight: 400; line-height: 26px; margin-bottom: 16px; t=
+ext-align: initial; width: 100%; word-break: break-word;"><p style=3D"color=
+: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0; =
+margin-top: 0;"><em><span>Welcome to Product for Engineers, a newsletter cr=
+eated by&#160;</span><strong><a href=3D"https://substack.com/redirect/e9441=
+dbb-0c24-4dcf-8c02-e6ec51d78878?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9Q=
+OR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-decoration: none=
+;">PostHog</a></strong><span>&#160;for engineers and founders who want to b=
+uild successful startups</span></em></p><div style=3D"font-size: 16px; line=
+-height: 26px;"><hr style=3D"background: #e0e0e0; border: none; height: 1px=
+; margin: 32px 0; padding: 0;"></div><p style=3D"color: rgb(64, 64, 64); fo=
+nt-size: 16px; line-height: 26px; margin: 0 0 20px 0;">There is a point in =
+your product journey where what to build next goes from obvious to unclear.=
+ The options seem endless and choosing correctly can be the difference betw=
+een a thriving product and a failing one.</p><p style=3D"color: rgb(64, 64,=
+ 64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0;"><span>It&#82=
+17;s a problem we&#8217;ve experienced firsthand. Our goal is to build </sp=
+an><em>the</em><span> all-in-one platform for building better products (we =
+like to aim high). Consequently, there are dozens of features we could buil=
+d at any one time.</span></p><p style=3D"color: rgb(64, 64, 64); font-size:=
+ 16px; line-height: 26px; margin: 0 0 20px 0;"><span>We&#8217;ve developed =
+ways to navigate this problem. Based on the position we&#8217;re in and the=
+ success of </span><a href=3D"https://substack.com/redirect/ebfbae5e-b132-4=
+c3f-bc2e-800c8ac3cd44?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_d=
+jQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-decoration: none;">what we=
+&#8217;ve built recently</a><span>, we&#8217;re confident in our process no=
+w. This is what we&#8217;ve learned.</span></p><p style=3D"color: rgb(64, 6=
+4, 64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0;"><strong>Th=
+is week&#8217;s theme is: </strong><span>Picking winning features</span></p=
+><div style=3D"font-size: 16px; line-height: 26px;"><hr style=3D"background=
+: #e0e0e0; border: none; height: 1px; margin: 32px 0; padding: 0;"></div><t=
+able cellSpacing=3D"16px" width=3D"100%" class=3D"poll-embed poll-email" st=
+yle=3D"margin: 32px auto; max-width: 600px;"><tbody><tr><td align=3D"center=
+"><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0=
+" cellpadding=3D"0" data-component-name=3D"StaticPoll" class=3D"poll-email-=
+wrapper" style=3D"border: 1px solid rgba(0, 0, 0, .13); border-radius: 12px=
+; color: rgb(64, 64, 64); font-family: -apple-system, -system-ui, BlinkMacS=
+ystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color E=
+moji', 'Segoe UI Emoji', 'Segoe UI Symbol'; padding: 16px 16px 8px; width: =
+100%;"><tr><td><table role=3D"presentation" width=3D"100%" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0"><tr><td class=3D"poll-header" style=3D"col=
+or: rgb(128, 128, 128); font-size: 12px; font-weight: 500; line-height: 20p=
+x; margin-bottom: 4px; padding: 0;">POLL</td></tr><tr width=3D"100%" class=
+=3D"poll-question" style=3D"color: rgb(64, 64, 64); font-family: 'SF Pro Di=
+splay', -apple-system-headline, -apple-system, -system-ui, BlinkMacSystemFo=
+nt, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', =
+'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 20px; font-weight: 700; lin=
+e-height: 32px; margin-bottom: 8px; vertical-align: top;"><td>What should w=
+e write about next?</td></tr><tr><td><table role=3D"presentation" width=3D"=
+100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"poll-option=
+s" style=3D"border-spacing: 0 12px;"><tr><td width=3D"100%" class=3D"poll-o=
+ption"><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9uZXdzb=
+GV0dGVyLnBvc3Rob2cuY29tL2FwaS92MS9wb2xsL3ZvdGUvZW1haWw_dG9rZW49ZXlKMWMyVnlY=
+MmxrSWpvMU5qa3dNVGs0TENKd2IzTjBYMmxrSWpveE5EQTBNRFE0TXpnc0luQnZiR3hmYVdRaU9=
+qRXpOVFF6T1N3aWNHOXNiRjl2Y0hScGIyNWZhV1FpT2pRMU1EQTNNeXdpYVdGMElqb3hOekEwT1=
+RFeE5EVXhMQ0psZUhBaU9qRTNNRGMxTURNME5URXNJbWx6Y3lJNkluQjFZaTB4TXpFNE1qSTFJa=
+XdpYzNWaUlqb2ljRzlzYkMxMmIzUmxJbjAuX0pxWFBSQWh1dVJaNmMwSXdfQ2ZweE83Wi0tWDBU=
+UDM4VXk5WDVyaEZwMCIsInAiOjE0MDQwNDgzOCwicyI6MTMxODIyNSwiZiI6dHJ1ZSwidSI6NTY=
+5MDE5OCwiaWF0IjoxNzA0OTExNDUxLCJleHAiOjE3MDc1MDM0NTEsImlzcyI6InB1Yi0wIiwic3=
+ViIjoibGluay1yZWRpcmVjdCJ9.Q8w0o4Ywv6DaeLf37obmHfNaf2o5zhCRKzw6Myz8FWU?" wi=
+dth=3D"100%" class=3D"poll-vote-link" style=3D"background-color: rgb(238, 2=
+38, 238); border: 1px solid rgba(0, 0, 0, .13); border-radius: 6px; color: =
+rgb(128, 128, 128); display: block; height: 100%; padding: 10px 0; text-ali=
+gn: center; text-decoration: none; width: 100%;"><div class=3D"poll-vote-co=
+ntents" style=3D"color: rgb(64, 64, 64); display: block; font-size: 14px; f=
+ont-weight: 600; height: 100%; line-height: 20px; width: 100%;">A/B testing=
+ mistakes to avoid</div></a></td></tr><tr><td width=3D"100%" class=3D"poll-=
+option"><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9uZXdz=
+bGV0dGVyLnBvc3Rob2cuY29tL2FwaS92MS9wb2xsL3ZvdGUvZW1haWw_dG9rZW49ZXlKMWMyVnl=
+YMmxrSWpvMU5qa3dNVGs0TENKd2IzTjBYMmxrSWpveE5EQTBNRFE0TXpnc0luQnZiR3hmYVdRaU=
+9qRXpOVFF6T1N3aWNHOXNiRjl2Y0hScGIyNWZhV1FpT2pRMU1EQTNOQ3dpYVdGMElqb3hOekEwT=
+1RFeE5EVXhMQ0psZUhBaU9qRTNNRGMxTURNME5URXNJbWx6Y3lJNkluQjFZaTB4TXpFNE1qSTFJ=
+aXdpYzNWaUlqb2ljRzlzYkMxMmIzUmxJbjAuX3dtTFJfMUxxdWQyZ0MwLVRMSVpJMzltTnNleml=
+KWDhLVXFsUXBaRWJGYyIsInAiOjE0MDQwNDgzOCwicyI6MTMxODIyNSwiZiI6dHJ1ZSwidSI6NT=
+Y5MDE5OCwiaWF0IjoxNzA0OTExNDUxLCJleHAiOjE3MDc1MDM0NTEsImlzcyI6InB1Yi0wIiwic=
+3ViIjoibGluay1yZWRpcmVjdCJ9.AelDi30U6xmWXfT6bFM8R6wrDp5hOuBWxpwqSEws1RA?" w=
+idth=3D"100%" class=3D"poll-vote-link" style=3D"background-color: rgb(238, =
+238, 238); border: 1px solid rgba(0, 0, 0, .13); border-radius: 6px; color:=
+ rgb(128, 128, 128); display: block; height: 100%; padding: 10px 0; text-al=
+ign: center; text-decoration: none; width: 100%;"><div class=3D"poll-vote-c=
+ontents" style=3D"color: rgb(64, 64, 64); display: block; font-size: 14px; =
+font-weight: 600; height: 100%; line-height: 20px; width: 100%;">Intro to r=
+unning PMF surveys</div></a></td></tr><tr><td width=3D"100%" class=3D"poll-=
+option"><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9uZXdz=
+bGV0dGVyLnBvc3Rob2cuY29tL2FwaS92MS9wb2xsL3ZvdGUvZW1haWw_dG9rZW49ZXlKMWMyVnl=
+YMmxrSWpvMU5qa3dNVGs0TENKd2IzTjBYMmxrSWpveE5EQTBNRFE0TXpnc0luQnZiR3hmYVdRaU=
+9qRXpOVFF6T1N3aWNHOXNiRjl2Y0hScGIyNWZhV1FpT2pRMU1EQTNOU3dpYVdGMElqb3hOekEwT=
+1RFeE5EVXhMQ0psZUhBaU9qRTNNRGMxTURNME5URXNJbWx6Y3lJNkluQjFZaTB4TXpFNE1qSTFJ=
+aXdpYzNWaUlqb2ljRzlzYkMxMmIzUmxJbjAuMlNyaWtzNDdTd2s3U2JnSk1RdFNBNkpSSVRVd0Z=
+2ekVaS3RGeGFkUHlOTSIsInAiOjE0MDQwNDgzOCwicyI6MTMxODIyNSwiZiI6dHJ1ZSwidSI6NT=
+Y5MDE5OCwiaWF0IjoxNzA0OTExNDUxLCJleHAiOjE3MDc1MDM0NTEsImlzcyI6InB1Yi0wIiwic=
+3ViIjoibGluay1yZWRpcmVjdCJ9.baVBurn3vs_KT3g0GERU_BEDW8-yU-NAlEVKL3maAaw?" w=
+idth=3D"100%" class=3D"poll-vote-link" style=3D"background-color: rgb(238, =
+238, 238); border: 1px solid rgba(0, 0, 0, .13); border-radius: 6px; color:=
+ rgb(128, 128, 128); display: block; height: 100%; padding: 10px 0; text-al=
+ign: center; text-decoration: none; width: 100%;"><div class=3D"poll-vote-c=
+ontents" style=3D"color: rgb(64, 64, 64); display: block; font-size: 14px; =
+font-weight: 600; height: 100%; line-height: 20px; width: 100%;">Your guide=
+ to usage-based pricing</div></a></td></tr><tr><td width=3D"100%" class=3D"=
+poll-option"><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9=
+uZXdzbGV0dGVyLnBvc3Rob2cuY29tL2FwaS92MS9wb2xsL3ZvdGUvZW1haWw_dG9rZW49ZXlKMW=
+MyVnlYMmxrSWpvMU5qa3dNVGs0TENKd2IzTjBYMmxrSWpveE5EQTBNRFE0TXpnc0luQnZiR3hmY=
+VdRaU9qRXpOVFF6T1N3aWNHOXNiRjl2Y0hScGIyNWZhV1FpT2pRMU1EQTNOaXdpYVdGMElqb3hO=
+ekEwT1RFeE5EVXhMQ0psZUhBaU9qRTNNRGMxTURNME5URXNJbWx6Y3lJNkluQjFZaTB4TXpFNE1=
+qSTFJaXdpYzNWaUlqb2ljRzlzYkMxMmIzUmxJbjAuTW5NYUJTRlptYjl2VFphOXJFVXctZlNCTD=
+VMd1FKYmVTTFNWc2tZanJUZyIsInAiOjE0MDQwNDgzOCwicyI6MTMxODIyNSwiZiI6dHJ1ZSwid=
+SI6NTY5MDE5OCwiaWF0IjoxNzA0OTExNDUxLCJleHAiOjE3MDc1MDM0NTEsImlzcyI6InB1Yi0w=
+Iiwic3ViIjoibGluay1yZWRpcmVjdCJ9.19qffYzazieHJ2QFEzLMhGTItyGnM9jx812-kHxiLb=
+s?" width=3D"100%" class=3D"poll-vote-link" style=3D"background-color: rgb(=
+238, 238, 238); border: 1px solid rgba(0, 0, 0, .13); border-radius: 6px; c=
+olor: rgb(128, 128, 128); display: block; height: 100%; padding: 10px 0; te=
+xt-align: center; text-decoration: none; width: 100%;"><div class=3D"poll-v=
+ote-contents" style=3D"color: rgb(64, 64, 64); display: block; font-size: 1=
+4px; font-weight: 600; height: 100%; line-height: 20px; width: 100%;">Why s=
+tartups need product engineers</div></a></td></tr></table></td></tr></table=
+></td></tr></table></td></tr></tbody></table><div style=3D"font-size: 16px;=
+ line-height: 26px;"><hr style=3D"background: #e0e0e0; border: none; height=
+: 1px; margin: 32px 0; padding: 0;"></div><h2 class=3D"header-with-anchor-w=
+idget" style=3D"-moz-appearance: optimizelegibility; -moz-osx-font-smoothin=
+g: antialiased; -webkit-appearance: optimizelegibility; -webkit-font-smooth=
+ing: antialiased; appearance: optimizelegibility; color: rgb(64, 64, 64); f=
+ont-family: 'SF Compact Display', -apple-system, BlinkMacSystemFont, 'Segoe=
+ UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI =
+Emoji', 'Segoe UI Symbol'; font-size: 1.625em; font-weight: bold; line-heig=
+ht: 1.16em; margin: 1em 0 0.625em 0; position: relative;">1. Agree on your =
+product principles</h2><p style=3D"color: rgb(64, 64, 64); font-size: 16px;=
+ line-height: 26px; margin: 0 0 20px 0;">It&#8217;s impossible to make good=
+ decisions without some shared principles to guide you. They give you a com=
+mon language and framework for discussing ideas. </p><p style=3D"color: rgb=
+(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0;">Crit=
+ically, product principles make it easier to say no to ideas, even potentia=
+lly good ones. Without them, you&#8217;re left with a lot of opinions and n=
+o way to evaluate them.</p><p style=3D"color: rgb(64, 64, 64); font-size: 1=
+6px; line-height: 26px; margin: 0 0 20px 0;"><span>At PostHog, our principl=
+es for what to build tie to </span><a href=3D"https://substack.com/redirect=
+/008bdfe7-7b0f-4ead-956c-7add69dfeeec?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM7=
+15Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-decoration=
+: none;">our core strategy</a><span>:</span></p><ol style=3D"margin-top: 0;=
+ padding: 0;"><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: b=
+order-box; color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; marg=
+in: 0; margin-bottom: 0; padding-left: 4px;">Provide every tool needed for =
+evaluating success.</p></li><li style=3D"margin: 8px 0 0 32px;"><p style=3D=
+"box-sizing: border-box; color: rgb(64, 64, 64); font-size: 16px; line-heig=
+ht: 26px; margin: 0; margin-bottom: 0; padding-left: 4px;">Get in first.</p=
+></li><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: border-bo=
+x; color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0; m=
+argin-bottom: 0; padding-left: 4px;">Be the source of truth for customer an=
+d product data.</p></li></ol><p style=3D"color: rgb(64, 64, 64); font-size:=
+ 16px; line-height: 26px; margin: 0 0 20px 0;"><span>We also put a lot of w=
+eight on user feedback, especially from </span><a href=3D"https://substack.=
+com/redirect/795f937e-c2d5-4267-bc52-f282eb5d10de?j=3DeyJ1IjoiM2R5bDIifQ.wA=
+IlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; tex=
+t-decoration: none;">our ideal customer profile (ICP)</a><span>. We talk to=
+ users regularly and ask them to comment on our public roadmap and vote on =
+what they want.</span></p><p style=3D"color: rgb(64, 64, 64); font-size: 16=
+px; line-height: 26px; margin: 0 0 20px 0;"><span>There are many other prin=
+ciples such as agile, lean, RICE, themes, metrics, top-down planning, weigh=
+ted scoring, or following a </span><a href=3D"https://substack.com/redirect=
+/e4025441-c916-4393-a217-d57504a0f44b?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM7=
+15Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-decoration=
+: none;">benevolent dictator</a><span>. What matters is </span><strong>choo=
+sing something</strong><span>.</span></p><p style=3D"color: rgb(64, 64, 64)=
+; font-size: 16px; line-height: 26px; margin: 0 0 20px 0;">Principles help =
+avoid pitfalls like becoming a feature factory, building for big customers,=
+ caring too much about competitors, focusing on easy features, or building =
+what generates the most MRR. These can become never-ending treadmills that =
+don&#8217;t improve your product.</p><div style=3D"font-size: 16px; line-he=
+ight: 26px;"><hr style=3D"background: #e0e0e0; border: none; height: 1px; m=
+argin: 32px 0; padding: 0;"></div><h2 class=3D"header-with-anchor-widget" s=
+tyle=3D"-moz-appearance: optimizelegibility; -moz-osx-font-smoothing: antia=
+liased; -webkit-appearance: optimizelegibility; -webkit-font-smoothing: ant=
+ialiased; appearance: optimizelegibility; color: rgb(64, 64, 64); font-fami=
+ly: 'SF Compact Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Ro=
+boto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', =
+'Segoe UI Symbol'; font-size: 1.625em; font-weight: bold; line-height: 1.16=
+em; margin: 1em 0 0.625em 0; position: relative;">2. Map everything your us=
+ers want</h2><p style=3D"color: rgb(64, 64, 64); font-size: 16px; line-heig=
+ht: 26px; margin: 0 0 20px 0;">You need a map to go exploring. Mapping ever=
+ything your users want, or could want, ensures you don&#8217;t get tunnel v=
+ision. Start wide and then narrow down or you&#8217;ll miss great ideas jus=
+t beyond the horizon.</p><p style=3D"color: rgb(64, 64, 64); font-size: 16p=
+x; line-height: 26px; margin: 0 0 20px 0;"><span>By talking directly to use=
+rs and making it easy to share ad hoc feedback, we&#8217;ve built a good id=
+ea of </span><a href=3D"https://substack.com/redirect/52edf396-4877-4e00-b0=
+1d-bfd1c7a4914d?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iV=
+LFPtgpY" rel style=3D"color: #f54e00; text-decoration: none;">all the produ=
+cts our users want</a><span>, ranging from product analytics to error handl=
+ing, revenue tracking, and data governance.</span></p><div class=3D"caption=
+ed-image-container-static" style=3D"font-size: 16px; line-height: 26px; mar=
+gin: 32px auto;"><figure style=3D"margin: 0 auto; width: 100%;"><table clas=
+s=3D"image-wrapper" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" data-component-name=3D"Image2ToDOMStatic" style=3D"mso-padding-alt=
+: 1em 0 1.6em;"><tbody><tr><td style=3D"text-align: center;"></td><td align=
+=3D"left" class=3D"content" width=3D"1297" style=3D"text-align: center;"><a=
+ class=3D"image-link" target=3D"_blank" href=3D"https://substack.com/redire=
+ct/7c50bd1d-dfe9-4a40-885d-306c0b5950d0?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrc=
+M715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"align-items: center; border: =
+none; display: block; flex-direction: column; height: auto; margin: 0; padd=
+ing: 0; position: relative; text-decoration: none; width: auto;"><img data-=
+attrs=3D"{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.co=
+m/public/images/435a0c51-8080-4584-b541-6008bd349653_1297x913.webp&quot;,&q=
+uot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&q=
+uot;:null,&quot;height&quot;:913,&quot;width&quot;:1297,&quot;resizeWidth&q=
+uot;:null,&quot;bytes&quot;:46970,&quot;alt&quot;:null,&quot;title&quot;:nu=
+ll,&quot;type&quot;:&quot;image/webp&quot;,&quot;href&quot;:null,&quot;belo=
+wTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;=
+:null}" alt width=3D"550" height=3D"387.1626831148805" class=3D"wide-image"=
+ src=3D"https://substackcdn.com/image/fetch/w_2594,c_limit,f_auto,q_auto:go=
+od,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%=
+2Fpublic%2Fimages%2F435a0c51-8080-4584-b541-6008bd349653_1297x913.webp" sty=
+le=3D"-ms-interpolation-mode: bicubic; border: none !important; display: bl=
+ock; height: auto; margin: 0 auto; margin-bottom: 0; max-width: 100% !impor=
+tant; vertical-align: middle; width: auto !important;"></a></td><td style=
+=3D"text-align: center;"></td></tr></tbody></table></figure></div><p style=
+=3D"color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0=
+ 20px 0;"><span>The axes for this graph relate to our </span><a href=3D"htt=
+ps://substack.com/redirect/795f937e-c2d5-4267-bc52-f282eb5d10de?j=3DeyJ1Ijo=
+iM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color=
+: #f54e00; text-decoration: none;">ICP</a><span>: </span><strong>product en=
+gineers</strong><span> at </span><strong>high-growth startups</strong><span=
+>. Everything we&#8217;ve built already is in green, while things we&#8217;=
+re building at the moment are in blue.</span></p><p style=3D"color: rgb(64,=
+ 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0;">Features=
+ towards the bottom left correlate best to our ICP, but there are outliers.=
+ We&#8217;re building web analytics, for example, because it helps us get i=
+n first and it&#8217;s easy for us to build because we&#8217;ve already bui=
+lt product analytics. </p><p style=3D"color: rgb(64, 64, 64); font-size: 16=
+px; line-height: 26px; margin: 0 0 20px 0;">This brings us to our next poin=
+t&#8230;</p><div style=3D"font-size: 16px; line-height: 26px;"><hr style=3D=
+"background: #e0e0e0; border: none; height: 1px; margin: 32px 0; padding: 0=
+;"></div><h2 class=3D"header-with-anchor-widget" style=3D"-moz-appearance: =
+optimizelegibility; -moz-osx-font-smoothing: antialiased; -webkit-appearanc=
+e: optimizelegibility; -webkit-font-smoothing: antialiased; appearance: opt=
+imizelegibility; color: rgb(64, 64, 64); font-family: 'SF Compact Display',=
+ -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, s=
+ans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-s=
+ize: 1.625em; font-weight: bold; line-height: 1.16em; margin: 1em 0 0.625em=
+ 0; position: relative;">3. Prioritize by effort vs impact</h2><p style=3D"=
+color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20p=
+x 0;"><span>At a lower level, individual teams also have an idea of what al=
+l the potential features they can build are. To discover these, they use </=
+span><a href=3D"https://substack.com/redirect/356f07ca-c4d4-46b8-9477-c7297=
+44caec0?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY"=
+ rel style=3D"color: #f54e00; text-decoration: none;">user feedback</a><spa=
+n>, metrics, experience, product principles, and personal opinions.</span><=
+/p><p style=3D"color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; =
+margin: 0 0 20px 0;"><span>Our small teams use their offsites to map these =
+options. Below is an example of a </span><a href=3D"https://substack.com/re=
+direct/dfd2179e-bdbc-4a8b-94c9-4f11b7ca6cf5?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2=
+dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-deco=
+ration: none;">Team Replay</a><span> 2x2 grid from a recent offsite (notes =
+in the top right are high effort and high impact):</span></p><div class=3D"=
+captioned-image-container-static" style=3D"font-size: 16px; line-height: 26=
+px; margin: 32px auto;"><figure style=3D"margin: 0 auto; width: 100%;"><tab=
+le class=3D"image-wrapper" width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0" data-component-name=3D"Image2ToDOMStatic" style=3D"mso-padd=
+ing-alt: 1em 0 1.6em;"><tbody><tr><td style=3D"text-align: center;"></td><t=
+d align=3D"left" class=3D"content" width=3D"1456" style=3D"text-align: cent=
+er;"><a class=3D"image-link" target=3D"_blank" href=3D"https://substack.com=
+/redirect/8a22a544-55b9-4f33-9012-c92bd1e0efa7?j=3DeyJ1IjoiM2R5bDIifQ.wAIlc=
+HF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"align-items: center; b=
+order: none; display: block; flex-direction: column; height: auto; margin: =
+0; padding: 0; position: relative; text-decoration: none; width: auto;"><im=
+g data-attrs=3D"{&quot;src&quot;:&quot;https://substack-post-media.s3.amazo=
+naws.com/public/images/e15e25fb-ac3c-483d-ab1a-c9805185d097_1600x1448.png&q=
+uot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imag=
+eSize&quot;:null,&quot;height&quot;:1318,&quot;width&quot;:1456,&quot;resiz=
+eWidth&quot;:null,&quot;bytes&quot;:1862422,&quot;alt&quot;:null,&quot;titl=
+e&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&=
+quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedir=
+ect&quot;:null}" alt width=3D"550" height=3D"497.8708791208791" class=3D"wi=
+de-image" src=3D"https://substackcdn.com/image/fetch/w_2912,c_limit,f_auto,=
+q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazo=
+naws.com%2Fpublic%2Fimages%2Fe15e25fb-ac3c-483d-ab1a-c9805185d097_1600x1448=
+=2Epng" style=3D"-ms-interpolation-mode:=
+ bicubic; border: none !important; di=
+splay: block; height: auto; margin: 0 auto; margin-bottom: 0; max-width: 10=
+0% !important; vertical-align: middle; width: auto !important;"></a></td><t=
+d style=3D"text-align: center;"></td></tr></tbody></table></figure></div><p=
+ style=3D"color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margi=
+n: 0 0 20px 0;">After mapping out their ideas, the team voted on the 1-3 fe=
+atures they wanted to work on, &#8220;X&#8221; at the bottom. Depending on =
+the size of the team, once a feature gets 2-3 Xs, it&#8217;s chosen and imp=
+lementation begins. </p><p style=3D"color: rgb(64, 64, 64); font-size: 16px=
+; line-height: 26px; margin: 0 0 20px 0;"><span>For example,</span><strong>=
+ mobile replay</strong><span>,</span><strong> </strong><span>in the top rig=
+ht corner (high impact, high effort), now has an </span><a href=3D"https://=
+substack.com/redirect/b70fb938-c16f-4aab-8346-c2624f356083?j=3DeyJ1IjoiM2R5=
+bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f5=
+4e00; text-decoration: none;">in-progress mega issue</a><span> dedicated to=
+ its implementation. </span><strong>Mobile dashboards</strong><span>, botto=
+m right (high impact, low effort), will be live shortly.</span></p><p style=
+=3D"color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0=
+ 20px 0;"></p><div style=3D"font-size: 16px; line-height: 26px;"><hr style=
+=3D"background: #e0e0e0; border: none; height: 1px; margin: 32px 0; padding=
+: 0;"></div><div class=3D"subscription-widget-wrap" style=3D"font-size: 16p=
+x; line-height: 26px;"><div class=3D"subscription-widget show-subscribe" st=
+yle=3D"align-items: flex-start; color: #404040; direction: ltr !important; =
+display: block; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',=
+ Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji=
+', 'Segoe UI Symbol'; font-size: 16px; font-weight: 400; line-height: 1.5; =
+margin: 24px auto; max-width: 560px; padding: 32px; text-align: center; tex=
+t-decoration: none;"><div class=3D"preamble" style=3D"align-items: center; =
+display: flex; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', =
+Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'=
+, 'Segoe UI Symbol'; font-size: 18px; font-weight: 400; line-height: 22px; =
+margin-left: auto; margin-right: auto; margin-top: 16px; max-width: 384px; =
+text-align: center; width: fit-content;"><p style=3D"color: rgb(64, 64, 64)=
+; font-size: 16px; line-height: 26px; margin: 0 0 20px 0;">Enjoying this po=
+st? We send new ones every two weeks&#8230; and they&#8217;re free.</p></di=
+v><div data-component-name=3D"SubscribeWidget" class=3D"subscribe-widget is=
+-signed-up is-fully-subscribed" style=3D"direction: ltr; font-size: 16px; l=
+ine-height: 26px; margin: 0 0 1em;"><p class=3D"button-wrapper" style=3D"co=
+lor: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20px =
+0; text-align: center;"><a href=3D"https://substack.com/redirect/2/eyJlIjoi=
+aHR0cHM6Ly9uZXdzbGV0dGVyLnBvc3Rob2cuY29tL2FjY291bnQiLCJwIjoxNDA0MDQ4MzgsInM=
+iOjEzMTgyMjUsImYiOnRydWUsInUiOjU2OTAxOTgsImlhdCI6MTcwNDkxMTQ1MSwiZXhwIjoxNz=
+A3NTAzNDUxLCJpc3MiOiJwdWItMCIsInN1YiI6ImxpbmstcmVkaXJlY3QifQ.F4tdeJN2VXbpHJ=
+9Zp3zJ2Yx5FlgtMdpLwhKIiWWCVLQ?" class=3D"button subscribe-btn outline" styl=
+e=3D"background: transparent; background-color: transparent; border: 1px so=
+lid #f54e00; border-radius: 6px; box-sizing: border-box; color: #f54e00; cu=
+rsor: pointer; display: inline-block; font-family: -apple-system, BlinkMacS=
+ystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color E=
+moji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 14px; font-weight: 6=
+00; height: auto; line-height: 20px; margin: 0 auto; opacity: 1; outline: n=
+one; padding: 12px 20px; text-align: center; text-decoration: none !importa=
+nt; white-space: nowrap;"><img src=3D"https://substackcdn.com/image/fetch/w=
+_40,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.c=
+om%2Ficon%2FLucideCheck%3Fv%3D4%26height%3D40%26fill%3Dtransparent%26stroke=
+%3D%2523F54E00%26strokeWidth%3D3.6" width=3D"20" height=3D"20" style=3D"-ms=
+-interpolation-mode: bicubic; border: none !important; display: inline-bloc=
+k; height: auto; margin: -2px 8px 0 0; max-width: 20px; vertical-align: mid=
+dle;" alt class=3D"check-icon static"><span style=3D"text-decoration: none;=
+">Subscribed</span></a></p></div></div></div><div style=3D"font-size: 16px;=
+ line-height: 26px;"><hr style=3D"background: #e0e0e0; border: none; height=
+: 1px; margin: 32px 0; padding: 0;"></div><h2 class=3D"header-with-anchor-w=
+idget" style=3D"-moz-appearance: optimizelegibility; -moz-osx-font-smoothin=
+g: antialiased; -webkit-appearance: optimizelegibility; -webkit-font-smooth=
+ing: antialiased; appearance: optimizelegibility; color: rgb(64, 64, 64); f=
+ont-family: 'SF Compact Display', -apple-system, BlinkMacSystemFont, 'Segoe=
+ UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI =
+Emoji', 'Segoe UI Symbol'; font-size: 1.625em; font-weight: bold; line-heig=
+ht: 1.16em; margin: 1em 0 0.625em 0; position: relative;">4. Make ownership=
+ clear</h2><p style=3D"color: rgb(64, 64, 64); font-size: 16px; line-height=
+: 26px; margin: 0 0 20px 0;">This process creates clear ownership and, in t=
+urn, makes deciding what to build much clearer. The owner becomes responsib=
+le for validating the idea, implementing the feature, making tweaks and bug=
+ fixes, and ensuring ongoing success.</p><p style=3D"color: rgb(64, 64, 64)=
+; font-size: 16px; line-height: 26px; margin: 0 0 20px 0;"><span>The unique=
+ qualities of </span><a href=3D"https://substack.com/redirect/6dc51ca4-d4c9=
+-4216-8e7b-c1275a5c928c?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S=
+_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-decoration: none;">produ=
+ct engineers</a><span> are key here. They have all the skills needed to tak=
+e an idea to a fully-featured, revenue-generating product. This enables the=
+m to work with a high degree of autonomy and speed.</span></p><p style=3D"c=
+olor: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20px=
+ 0;">This is counter to a larger, ownership-avoidant team. Their process fo=
+r choosing what to build might look like:</p><ol style=3D"margin-top: 0; pa=
+dding: 0;"><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: bord=
+er-box; color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin:=
+ 0; margin-bottom: 0; padding-left: 4px;">Plan a decision-making process.</=
+p></li><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: border-b=
+ox; color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0; =
+margin-bottom: 0; padding-left: 4px;">Have a brainstorming meeting.</p></li=
+><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: border-box; co=
+lor: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0; margin=
+-bottom: 0; padding-left: 4px;">Develop promising product specs from the br=
+ainstorm.</p></li><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizin=
+g: border-box; color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; =
+margin: 0; margin-bottom: 0; padding-left: 4px;">Have a meeting to decide w=
+hich one to build.</p></li><li style=3D"margin: 8px 0 0 32px;"><p style=3D"=
+box-sizing: border-box; color: rgb(64, 64, 64); font-size: 16px; line-heigh=
+t: 26px; margin: 0; margin-bottom: 0; padding-left: 4px;">Write up and agre=
+e on implementation details.</p></li><li style=3D"margin: 8px 0 0 32px;"><p=
+ style=3D"box-sizing: border-box; color: rgb(64, 64, 64); font-size: 16px; =
+line-height: 26px; margin: 0; margin-bottom: 0; padding-left: 4px;">Project=
+ manage a multi-role team to get the feature to completion.</p></li></ol><p=
+ style=3D"color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margi=
+n: 0 0 20px 0;">This is slow. Less gets shipped and the team is disconnecte=
+d from the real user experience. Having someone own the decision and be res=
+ponsible for its ongoing implementation speeds up the decision-making proce=
+ss and gets more shipped, faster.</p><div style=3D"font-size: 16px; line-he=
+ight: 26px;"><hr style=3D"background: #e0e0e0; border: none; height: 1px; m=
+argin: 32px 0; padding: 0;"></div><h2 class=3D"header-with-anchor-widget" s=
+tyle=3D"-moz-appearance: optimizelegibility; -moz-osx-font-smoothing: antia=
+liased; -webkit-appearance: optimizelegibility; -webkit-font-smoothing: ant=
+ialiased; appearance: optimizelegibility; color: rgb(64, 64, 64); font-fami=
+ly: 'SF Compact Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Ro=
+boto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', =
+'Segoe UI Symbol'; font-size: 1.625em; font-weight: bold; line-height: 1.16=
+em; margin: 1em 0 0.625em 0; position: relative;">5. Test with minimal effo=
+rt</h2><p style=3D"color: rgb(64, 64, 64); font-size: 16px; line-height: 26=
+px; margin: 0 0 20px 0;">Testing is part of the decision-making process. Bu=
+ilding MVPs of features and products reveals:</p><ol style=3D"margin-top: 0=
+; padding: 0;"><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: =
+border-box; color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; mar=
+gin: 0; margin-bottom: 0; padding-left: 4px;">Does anyone care?</p></li><li=
+ style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: border-box; color:=
+ rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0; margin-bot=
+tom: 0; padding-left: 4px;">How much effort will building it take?</p></li>=
+</ol><p style=3D"color: rgb(64, 64, 64); font-size: 16px; line-height: 26px=
+; margin: 0 0 20px 0;"><span>All of PostHog&#8217;s products (beyond produc=
+t analytics) were initially built in 1 to 3 person teams at our hackathons.=
+ Our newest products like </span><a href=3D"https://substack.com/redirect/8=
+d90ce09-9b33-4482-be17-a16e12cb93e1?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715=
+Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-decoration: =
+none;">web analytics</a><span> and </span><a href=3D"https://substack.com/r=
+edirect/4fcb144f-a1d1-40f8-92a8-dce49656fb14?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF=
+2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-dec=
+oration: none;">the data warehouse</a><span> are being built by single-pers=
+on teams. </span></p><p style=3D"color: rgb(64, 64, 64); font-size: 16px; l=
+ine-height: 26px; margin: 0 0 20px 0;"><span>This enables us to get stronge=
+r validation on demand before investing further. Companies like </span><a h=
+ref=3D"https://substack.com/redirect/0f87e955-696c-4c3f-bf56-4f3a1215ddd7?j=
+=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel styl=
+e=3D"color: #f54e00; text-decoration: none;">Apple</a><span> and </span><a =
+href=3D"https://substack.com/redirect/53c54dbc-7dae-4a46-9f80-647d28587bf7?=
+j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel sty=
+le=3D"color: #f54e00; text-decoration: none;">Spotify</a><span> also rely o=
+n this prototyping-heavy style.</span></p><div class=3D"captioned-image-con=
+tainer-static" style=3D"font-size: 16px; line-height: 26px; margin: 32px au=
+to;"><figure style=3D"margin: 0 auto; width: 100%;"><table class=3D"image-w=
+rapper" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" dat=
+a-component-name=3D"Image2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6e=
+m;"><tbody><tr><td style=3D"text-align: center;"></td><td align=3D"left" cl=
+ass=3D"content" width=3D"725" style=3D"text-align: center;"><a class=3D"ima=
+ge-link" target=3D"_blank" href=3D"https://substack.com/redirect/fe8cea39-3=
+53e-4c0c-a03a-be40f2aca8b7?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4yt=
+Y6S_djQ55iVLFPtgpY" rel style=3D"align-items: center; border: none; display=
+: block; flex-direction: column; height: auto; margin: 0; padding: 0; posit=
+ion: relative; text-decoration: none; width: auto;"><img data-attrs=3D"{&qu=
+ot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/imag=
+es/5a70bdc0-78b2-4d85-97d9-e7cd6d6024ff_725x396.png&quot;,&quot;srcNoWaterm=
+ark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot=
+;height&quot;:396,&quot;width&quot;:725,&quot;resizeWidth&quot;:null,&quot;=
+bytes&quot;:82599,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&qu=
+ot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:tr=
+ue,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null}" alt width=
+=3D"550" height=3D"300.41379310344826" class=3D"wide-image" src=3D"https://=
+substackcdn.com/image/fetch/w_1450,c_limit,f_auto,q_auto:good,fl_progressiv=
+e:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimage=
+s%2F5a70bdc0-78b2-4d85-97d9-e7cd6d6024ff_725x396.png" style=3D"-ms-interpol=
+ation-mode: bicubic; border: none !important; display: block; height: auto;=
+ margin: 0 auto; margin-bottom: 0; max-width: 100% !important; vertical-ali=
+gn: middle; width: auto !important;"></a></td><td style=3D"text-align: cent=
+er;"></td></tr></tbody></table><figcaption class=3D"image-caption" style=3D=
+"box-sizing: content-box; color: #808080; font-size: 14px; font-weight: 400=
+; letter-spacing: -.15px; line-height: 20px; margin-top: 8px; padding-left:=
+ 15%; padding-right: 15%; text-align: center; width: 70%;">Early Spotify&#8=
+217;s product development process</figcaption></figure></div><p style=3D"co=
+lor: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20px =
+0;">Another way we test with minimal effort is by building on what we&#8217=
+;ve already done. For example, surveys use the JavaScript library to displa=
+y forms, event capture for responses, and feature flags for targeting. Havi=
+ng all these things built first made surveys easier to implement, a perfect=
+ example of a high impact, low effort opportunity.</p><div style=3D"font-si=
+ze: 16px; line-height: 26px;"><hr style=3D"background: #e0e0e0; border: non=
+e; height: 1px; margin: 32px 0; padding: 0;"></div><h2 class=3D"header-with=
+-anchor-widget" style=3D"-moz-appearance: optimizelegibility; -moz-osx-font=
+-smoothing: antialiased; -webkit-appearance: optimizelegibility; -webkit-fo=
+nt-smoothing: antialiased; appearance: optimizelegibility; color: rgb(64, 6=
+4, 64); font-family: 'SF Compact Display', -apple-system, BlinkMacSystemFon=
+t, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', '=
+Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 1.625em; font-weight: bold; =
+line-height: 1.16em; margin: 1em 0 0.625em 0; position: relative;">Choosing=
+ to build surveys (a real-world example)</h2><p style=3D"color: rgb(64, 64,=
+ 64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0;"><a href=3D"h=
+ttps://substack.com/redirect/07b305ce-de97-4c2a-8646-a6a51d9f8890?j=3DeyJ1I=
+joiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"col=
+or: #f54e00; text-decoration: none;">Surveys</a><span> were one of our larg=
+est releases of last year. How we inevitably chose to build it is a good ex=
+ample of how our process works:</span></p><ol style=3D"margin-top: 0; paddi=
+ng: 0;"><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: border-=
+box; color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0;=
+ margin-bottom: 0; padding-left: 4px;"><span>The first request for a </span=
+><a href=3D"https://substack.com/redirect/c2d958c6-30cd-4790-ab01-38ad5ced4=
+0af?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel=
+ style=3D"color: #f54e00; text-decoration: none;">user interview tool</a><s=
+pan> happened nearly 3 years before it launched. For the majority of this t=
+ime, we pointed users who requested it to workarounds like capturing feedba=
+ck as an event.</span></p></li><li style=3D"margin: 8px 0 0 32px;"><p style=
+=3D"box-sizing: border-box; color: rgb(64, 64, 64); font-size: 16px; line-h=
+eight: 26px; margin: 0; margin-bottom: 0; padding-left: 4px;">In October 20=
+22, we hired our first product managers. This made the need for a feedback-=
+gathering tool more obvious, as they were doing it more often. The process =
+of finding and contacting users was tedious and had a low response rate.</p=
+></li><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: border-bo=
+x; color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0; m=
+argin-bottom: 0; padding-left: 4px;"><span>Also around this time, Marius sh=
+ipped </span><a href=3D"https://substack.com/redirect/bab66cdb-038d-424e-89=
+a7-db2e0ea8c772?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iV=
+LFPtgpY" rel style=3D"color: #f54e00; text-decoration: none;">site apps</a>=
+<span>. This enabled MVPs of feedback, user interview, and NPS survey apps,=
+ which got solid usage internally and some usage externally.</span></p></li=
+><li style=3D"margin: 8px 0 0 32px;"><p style=3D"box-sizing: border-box; co=
+lor: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0; margin=
+-bottom: 0; padding-left: 4px;"><span>At our </span><a href=3D"https://subs=
+tack.com/redirect/6206f0da-4c53-43a2-9cbc-851622298a32?j=3DeyJ1IjoiM2R5bDIi=
+fQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00=
+; text-decoration: none;">Aruba offsite</a><span>, the </span><a href=3D"ht=
+tps://substack.com/redirect/6c3624ea-36bd-4df8-bfb1-350e0eaee352?j=3DeyJ1Ij=
+oiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"colo=
+r: #f54e00; text-decoration: none;">Feature Success team</a><span> was doin=
+g roadmap planning. They decided they had good ways to measure success quan=
+titatively, but not qualitatively. To ensure PostHog &#8220;provides every =
+tool needed for evaluating success&#8221; (a core strategy point), it made =
+sense to build surveys out further.</span></p></li><li style=3D"margin: 8px=
+ 0 0 32px;"><p style=3D"box-sizing: border-box; color: rgb(64, 64, 64); fon=
+t-size: 16px; line-height: 26px; margin: 0; margin-bottom: 0; padding-left:=
+ 4px;"><a href=3D"https://substack.com/redirect/e1a58255-9303-4404-adda-cec=
+9fc783500?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgp=
+Y" rel style=3D"color: #f54e00; text-decoration: none;">Li</a><span> took o=
+wnership of surveys and built on top of site apps (initially), feature flag=
+s, and product analytics. Throughout the process, she got feedback (sometim=
+es using surveys, very meta), and shipped towards launch.</span></p></li></=
+ol><div class=3D"captioned-image-container-static" style=3D"font-size: 16px=
+; line-height: 26px; margin: 32px auto;"><figure style=3D"margin: 0 auto; w=
+idth: 100%;"><table class=3D"image-wrapper" width=3D"100%" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" data-component-name=3D"Image2ToDOMStatic" =
+style=3D"mso-padding-alt: 1em 0 1.6em;"><tbody><tr><td style=3D"text-align:=
+ center;"></td><td align=3D"left" class=3D"content" width=3D"1350" style=3D=
+"text-align: center;"><a class=3D"image-link" target=3D"_blank" href=3D"htt=
+ps://substack.com/redirect/852df261-6e44-493e-8335-95de808d8d99?j=3DeyJ1Ijo=
+iM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"align=
+-items: center; border: none; display: block; flex-direction: column; heigh=
+t: auto; margin: 0; padding: 0; position: relative; text-decoration: none; =
+width: auto;"><img data-attrs=3D"{&quot;src&quot;:&quot;https://substack-po=
+st-media.s3.amazonaws.com/public/images/a629a9e9-628b-4b0d-af76-b32420667ec=
+8_1350x827.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;=
+:null,&quot;imageSize&quot;:null,&quot;height&quot;:827,&quot;width&quot;:1=
+350,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:131081,&quot;alt&quot;:n=
+ull,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;hre=
+f&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot=
+;internalRedirect&quot;:null}" alt width=3D"550" height=3D"336.925925925925=
+9" class=3D"wide-image" src=3D"https://substackcdn.com/image/fetch/w_2700,c=
+_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-=
+media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa629a9e9-628b-4b0d-af76-b3242066=
+7ec8_1350x827.png" style=3D"-ms-interpolation-mode: bicubic; border: none !=
+important; display: block; height: auto; margin: 0 auto; margin-bottom: 0; =
+max-width: 100% !important; vertical-align: middle; width: auto !important;=
+"></a></td><td style=3D"text-align: center;"></td></tr></tbody></table></fi=
+gure></div><div style=3D"font-size: 16px; line-height: 26px;"><hr style=3D"=
+background: #e0e0e0; border: none; height: 1px; margin: 32px 0; padding: 0;=
+"></div><h2 class=3D"header-with-anchor-widget" style=3D"-moz-appearance: o=
+ptimizelegibility; -moz-osx-font-smoothing: antialiased; -webkit-appearance=
+: optimizelegibility; -webkit-font-smoothing: antialiased; appearance: opti=
+mizelegibility; color: rgb(64, 64, 64); font-family: 'SF Compact Display', =
+-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sa=
+ns-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-si=
+ze: 1.625em; font-weight: bold; line-height: 1.16em; margin: 1em 0 0.625em =
+0; position: relative;"><strong>Good reads for product engineers &#128214;<=
+/strong></h2><p style=3D"color: rgb(64, 64, 64); font-size: 16px; line-heig=
+ht: 26px; margin: 0 0 20px 0;"><strong><a href=3D"https://substack.com/redi=
+rect/e1c91dc0-b354-4c70-bb69-b8c3b54d62fe?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2df=
+rcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-decora=
+tion: none;">11 years of SaaS product strategy</a><span> &#8211; </span></s=
+trong><span data-component-name=3D"MentionStatic" class=3D"frontend-compone=
+nts-mention-module__mention--UisMf" style=3D"background: #eeeeee; border-ra=
+dius: 99px; color: #404040; cursor: pointer; font-weight: 600; padding: 0 8=
+px; text-decoration: none; white-space: nowrap;"><a href=3D"https://open.su=
+bstack.com/users/70115271-alex-ghiculescu?utm_source=3Dmentions" style=3D"c=
+olor: #f54e00; text-decoration: none;">Alex Ghiculescu</a></span><span> </s=
+pan><br><span>Alex, co-founder of Tanda, writes about the phases of product=
+ strategy he&#8217;s experienced over 11 years, and reflects on what he&#82=
+17;d have done differently.</span></p><p style=3D"color: rgb(64, 64, 64); f=
+ont-size: 16px; line-height: 26px; margin: 0 0 20px 0;"><strong><a href=3D"=
+https://substack.com/redirect/fa7e0cb9-6ac4-47bb-89b5-2edc6e9444cf?j=3DeyJ1=
+IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"co=
+lor: #f54e00; text-decoration: none;">Shape Up</a><span> &#8211; Ryan Singe=
+r</span></strong><span> </span><br><span>Basecamp&#8217;s full guide to bui=
+lding products detailing their three-step process: shaping, betting, and bu=
+ilding.</span></p><p style=3D"color: rgb(64, 64, 64); font-size: 16px; line=
+-height: 26px; margin: 0 0 20px 0;"><strong><a href=3D"https://substack.com=
+/redirect/1a4d561c-87fe-4c2e-a4e2-a5a21c7a08c5?j=3DeyJ1IjoiM2R5bDIifQ.wAIlc=
+HF2dfrcM715Wn9QOR4ytY6S_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-d=
+ecoration: none;">The most useful product health metrics</a><span> &#8211; =
+Ian Vanagas</span></strong><br><span>The metrics you need to see if what yo=
+u&#8217;re building is working. I break down metrics for adoption, retentio=
+n, and engagement and how to pick the right ones.</span></p><p style=3D"col=
+or: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0=
+;"><strong><a href=3D"https://substack.com/redirect/b13fde81-d566-4853-8180=
+-c28e5e151a18?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S_djQ55iVLF=
+PtgpY" rel style=3D"color: #f54e00; text-decoration: none;">Prioritising Fe=
+atures: Who&#8217;ll Use It &amp; How Often?</a><span> &#8211; Des Traynor<=
+/span><br></strong><span>The Co-founder and Chief Strategy Officer of Inter=
+com goes over how to avoid your product becoming a collection of useless to=
+ols by prioritizing features used by everyone all the time.</span></p><p st=
+yle=3D"color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: =
+0 0 20px 0;"><strong><a href=3D"https://substack.com/redirect/30d788b3-33e5=
+-404a-a335-7a7af0dc9dbd?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrcM715Wn9QOR4ytY6S=
+_djQ55iVLFPtgpY" rel style=3D"color: #f54e00; text-decoration: none;">How t=
+o prioritize features</a><span> &#8211; Emmett Shear</span><br></strong><sp=
+an>Former CEO of Twitch (and OpenAI &#129488;) breaks down his three featur=
+e prioritization frameworks: built for me, switch to us, and three numbers =
+matter.</span></p><div style=3D"font-size: 16px; line-height: 26px;"><hr st=
+yle=3D"background: #e0e0e0; border: none; height: 1px; margin: 32px 0; padd=
+ing: 0;"></div><div class=3D"subscription-widget-wrap" style=3D"font-size: =
+16px; line-height: 26px;"><div class=3D"subscription-widget show-subscribe"=
+ style=3D"align-items: flex-start; color: #404040; direction: ltr !importan=
+t; display: block; font-family: -apple-system, BlinkMacSystemFont, 'Segoe U=
+I', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Em=
+oji', 'Segoe UI Symbol'; font-size: 16px; font-weight: 400; line-height: 1.=
+5; margin: 24px auto; max-width: 560px; padding: 32px; text-align: center; =
+text-decoration: none;"><div class=3D"preamble" style=3D"align-items: cente=
+r; display: flex; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI=
+', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emo=
+ji', 'Segoe UI Symbol'; font-size: 18px; font-weight: 400; line-height: 22p=
+x; margin-left: auto; margin-right: auto; margin-top: 16px; max-width: 384p=
+x; text-align: center; width: fit-content;"><p style=3D"color: rgb(64, 64, =
+64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0;">Join the 7,00=
+0+ product engineers who already enjoy <em>Product for Engineers.</em></p><=
+/div><div data-component-name=3D"SubscribeWidget" class=3D"subscribe-widget=
+ is-signed-up is-fully-subscribed" style=3D"direction: ltr; font-size: 16px=
+; line-height: 26px; margin: 0 0 1em;"><p class=3D"button-wrapper" style=3D=
+"color: rgb(64, 64, 64); font-size: 16px; line-height: 26px; margin: 0 0 20=
+px 0; text-align: center;"><a href=3D"https://substack.com/redirect/2/eyJlI=
+joiaHR0cHM6Ly9uZXdzbGV0dGVyLnBvc3Rob2cuY29tL2FjY291bnQiLCJwIjoxNDA0MDQ4Mzgs=
+InMiOjEzMTgyMjUsImYiOnRydWUsInUiOjU2OTAxOTgsImlhdCI6MTcwNDkxMTQ1MSwiZXhwIjo=
+xNzA3NTAzNDUxLCJpc3MiOiJwdWItMCIsInN1YiI6ImxpbmstcmVkaXJlY3QifQ.F4tdeJN2VXb=
+pHJ9Zp3zJ2Yx5FlgtMdpLwhKIiWWCVLQ?" class=3D"button subscribe-btn outline" s=
+tyle=3D"background: transparent; background-color: transparent; border: 1px=
+ solid #f54e00; border-radius: 6px; box-sizing: border-box; color: #f54e00;=
+ cursor: pointer; display: inline-block; font-family: -apple-system, BlinkM=
+acSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Colo=
+r Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 14px; font-weight=
+: 600; height: auto; line-height: 20px; margin: 0 auto; opacity: 1; outline=
+: none; padding: 12px 20px; text-align: center; text-decoration: none !impo=
+rtant; white-space: nowrap;"><img src=3D"https://substackcdn.com/image/fetc=
+h/w_40,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstac=
+k.com%2Ficon%2FLucideCheck%3Fv%3D4%26height%3D40%26fill%3Dtransparent%26str=
+oke%3D%2523F54E00%26strokeWidth%3D3.6" width=3D"20" height=3D"20" style=3D"=
+-ms-interpolation-mode: bicubic; border: none !important; display: inline-b=
+lock; height: auto; margin: -2px 8px 0 0; max-width: 20px; vertical-align: =
+middle;" alt class=3D"check-icon static"><span style=3D"text-decoration: no=
+ne;">Subscribed</span></a></p></div></div></div><div style=3D"font-size: 16=
+px; line-height: 26px;"><hr style=3D"background: #e0e0e0; border: none; hei=
+ght: 1px; margin: 32px 0; padding: 0;"></div><p style=3D"color: rgb(64, 64,=
+ 64); font-size: 16px; line-height: 26px; margin: 0 0 20px 0; margin-bottom=
+: 0;"><em>Words by Ian Vanagas, who wonders what happened to all the &#8220=
+;growth hackers.&#8221;</em></p></div></div><table role=3D"presentation" wi=
+dth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"emai=
+l-ufi-2-bottom" style=3D"border-bottom: 1px solid rgba(0, 0, 0, .13); borde=
+r-top: 1px solid rgba(0, 0, 0, .13); min-width: 100%;"><tr height=3D"16"><t=
+d height=3D"16" style=3D"font-size: 0px; line-height: 0;">&#160;</td></tr><=
+tr><td><table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0"><tr><td><table role=3D"presentation" width=3D"auto=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin: 0 auto;=
+"><tr><td style=3D"vertical-align: middle;"><table role=3D"presentation" wi=
+dth=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td align=
+=3D"center"><a href=3D"https://substack.com/app-link/post?publication_id=3D=
+1318225&post_id=3D140404838&utm_source=3Dsubstack&isFreemail=3Dtrue&submitL=
+ike=3Dtrue&token=3DeyJ1c2VyX2lkIjo1NjkwMTk4LCJwb3N0X2lkIjoxNDA0MDQ4MzgsInJl=
+YWN0aW9uIjoi4p2kIiwiaWF0IjoxNzA0OTExNDUxLCJleHAiOjE3MDc1MDM0NTEsImlzcyI6InB=
+1Yi0xMzE4MjI1Iiwic3ViIjoicmVhY3Rpb24ifQ.qpnnNWcYohk7DDNYsiUY61EXssO3dCQYr6q=
+XaHsQ8NE&utm_medium=3Demail&utm_campaign=3Demail-reaction&r=3D3dyl2" class=
+=3D"email-button-outline" style=3D"border: 1px solid rgba(0, 0, 0, .13); bo=
+rder-radius: 100000px; color: rgb(128, 128, 128); display: inline-block; fo=
+nt-family: 'SF Pro Text', -apple-system, ui-sans-serif, BlinkMacSystemFont,=
+ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Se=
+goe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-weight: 500; line-h=
+eight: 12px; padding: 9px 14px; text-decoration: none; text-transform: uppe=
+rcase;"><img src=3D"https://substackcdn.com/image/fetch/w_36,c_scale,f_png,=
+q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucide=
+Heart%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWi=
+dth%3D2" width=3D"18" height=3D"18" style=3D"border: none !important; margi=
+n-right: 8px; max-width: 18px; min-height: 18px; min-width: 18px; vertical-=
+align: middle;" alt class=3D"icon"><span class=3D"email-button-text" style=
+=3D"vertical-align: middle;">Like</span></a></td></tr></table></td><td widt=
+h=3D"8" style=3D"min-width: 8px"></td><td style=3D"vertical-align: middle;"=
+><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0"><tr><td align=3D"center"><a href=3D"https://substack.com=
+/app-link/post?publication_id=3D1318225&post_id=3D140404838&utm_source=3Dsu=
+bstack&utm_medium=3Demail&isFreemail=3Dtrue&comments=3Dtrue&token=3DeyJ1c2V=
+yX2lkIjo1NjkwMTk4LCJwb3N0X2lkIjoxNDA0MDQ4MzgsImlhdCI6MTcwNDkxMTQ1MSwiZXhwIj=
+oxNzA3NTAzNDUxLCJpc3MiOiJwdWItMTMxODIyNSIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.HT=
+Dc-Hx9dU8HrDVTFmuMLuV7rF1MOdVxDsUXrKj7IlM&r=3D3dyl2&utm_campaign=3Demail-ha=
+lf-magic-comments&utm_source=3Dsubstack&utm_medium=3Demail" class=3D"email-=
+button-outline" style=3D"border: 1px solid rgba(0, 0, 0, .13); border-radiu=
+s: 100000px; color: rgb(128, 128, 128); display: inline-block; font-family:=
+ 'SF Pro Text', -apple-system, ui-sans-serif, BlinkMacSystemFont, 'Segoe UI=
+', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emo=
+ji', 'Segoe UI Symbol'; font-size: 12px; font-weight: 500; line-height: 12p=
+x; padding: 9px 14px; text-decoration: none; text-transform: uppercase;"><i=
+mg src=3D"https://substackcdn.com/image/fetch/w_36,c_scale,f_png,q_auto:goo=
+d,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3=
+Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2=
+" width=3D"18" height=3D"18" style=3D"border: none !important; margin-right=
+: 8px; max-width: 18px; min-height: 18px; min-width: 18px; vertical-align: =
+middle;" alt class=3D"icon"><span class=3D"email-button-text" style=3D"vert=
+ical-align: middle;">Comment</span></a></td></tr></table></td><td width=3D"=
+8" style=3D"min-width: 8px"></td><td style=3D"vertical-align: middle;"><tab=
+le role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0"><tr><td align=3D"center"><a href=3D"https://substack.com/redi=
+rect/2/eyJlIjoiaHR0cHM6Ly9uZXdzbGV0dGVyLnBvc3Rob2cuY29tL3AvaG93LXdlLWRlY2lk=
+ZS13aGF0LXRvLWJ1aWxkP3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZhY3R=
+pb249cmVzdGFjay1jb21tZW50JnV0bV9jYW1wYWlnbj1lbWFpbC1yZXN0YWNrLWNvbW1lbnQmcj=
+0zZHlsMiIsInAiOjE0MDQwNDgzOCwicyI6MTMxODIyNSwiZiI6dHJ1ZSwidSI6NTY5MDE5OCwia=
+WF0IjoxNzA0OTExNDUxLCJleHAiOjE3MDc1MDM0NTEsImlzcyI6InB1Yi0wIiwic3ViIjoibGlu=
+ay1yZWRpcmVjdCJ9.wX6SUrlfVvsyOA5zHAf-zMuOjo8ZNgoW9LxNf3v_o20?&utm_source=3D=
+substack&utm_medium=3Demail" class=3D"email-button-outline" style=3D"border=
+: 1px solid rgba(0, 0, 0, .13); border-radius: 100000px; color: rgb(128, 12=
+8, 128); display: inline-block; font-family: 'SF Pro Text', -apple-system, =
+ui-sans-serif, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sa=
+ns-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-si=
+ze: 12px; font-weight: 500; line-height: 12px; padding: 9px 14px; text-deco=
+ration: none; text-transform: uppercase;"><img src=3D"https://substackcdn.c=
+om/image/fetch/w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A=
+%2F%2Fsubstack.com%2Ficon%2FNoteForwardIcon%3Fv%3D4%26height%3D36%26fill%3D=
+none%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" s=
+tyle=3D"border: none !important; margin-right: 8px; max-width: 18px; min-he=
+ight: 18px; min-width: 18px; vertical-align: middle;" alt class=3D"icon"><s=
+pan class=3D"email-button-text" style=3D"vertical-align: middle;">Restack</=
+span></a></td></tr></table></td></tr></table></td><td align=3D"right"><tabl=
+e role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0"><tr></tr></table></td></tr></table></td></tr><tr height=3D"16"=
+><td height=3D"16" style=3D"font-size: 0px; line-height: 0;">&#160;</td></t=
+r></table><div class=3D"footer frontend-email-shared-typed-module__footer--=
+B5jqg" style=3D"color: rgb(128, 128, 128); font-size: 16px; line-height: 26=
+px; padding: 24px 0; text-align: center;"><div style=3D"font-size: 16px; li=
+ne-height: 26px; padding-bottom: 24px;"><p class=3D"pencraft pc-reset front=
+end-pencraft-Text-module__color-secondary--WRADg frontend-pencraft-Text-mod=
+ule__size-12--KorQF frontend-pencraft-Text-module__reset--dW0zZ small front=
+end-email-shared-typed-module__meta--vRZSC" style=3D"color: rgb(128, 128, 1=
+28); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, He=
+lvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe U=
+I Symbol'; font-size: 12px; letter-spacing: 0; line-height: 16px; list-styl=
+e: none; margin: 0; padding-bottom: 0; text-decoration: unset;">&#169; 2024=
+ <span>PostHog</span><br>548 Market Street PMB 72296, San Francisco, CA 941=
+04 <br><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9uZXdzb=
+GV0dGVyLnBvc3Rob2cuY29tL2FjdGlvbi9kaXNhYmxlX2VtYWlsP3Rva2VuPWV5SjFjMlZ5WDJs=
+a0lqbzFOamt3TVRrNExDSndiM04wWDJsa0lqb3hOREEwTURRNE16Z3NJbWxoZENJNk1UY3dORGt=
+4TVRRMU1Td2laWGh3SWpveE56QTNOVEF6TkRVeExDSnBjM01pT2lKd2RXSXRNVE14T0RJeU5TSX=
+NJbk4xWWlJNkltUnBjMkZpYkdWZlpXMWhhV3dpZlEualRTLU9WRnV0V0phT2UxSEFkd2xnemU4W=
+G1DZXc4cFV2aDNwdzlTU2IxTSZleHBpcmVzPTM2NWQiLCJwIjoxNDA0MDQ4MzgsInMiOjEzMTgy=
+MjUsImYiOnRydWUsInUiOjU2OTAxOTgsImlhdCI6MTcwNDkxMTQ1MSwiZXhwIjoxNzA3NTAzNDU=
+xLCJpc3MiOiJwdWItMCIsInN1YiI6ImxpbmstcmVkaXJlY3QifQ.4Aqn3SUguE-hHbSMmdOlKHX=
+6Eh3ueXYgA4gNZfEsbnw?" style=3D"color: #f54e00; text-decoration: none;"><sp=
+an style=3D"color: rgb(128, 128, 128); text-decoration: underline;">Unsubsc=
+ribe</span></a></p></div><p class=3D"frontend-email-shared-typed-module__fo=
+oterSection--dumyu small powered-by-substack" style=3D"color: rgb(128, 128,=
+ 128); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, =
+Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe=
+ UI Symbol'; font-size: 12px; line-height: 20px; margin: 0; margin-top: 0; =
+padding: 0 24px; padding-bottom: 0;"><a href=3D"https://substack.com/redire=
+ct/55d6082a-cc04-444f-81ff-f9599ceb4a90?j=3DeyJ1IjoiM2R5bDIifQ.wAIlcHF2dfrc=
+M715Wn9QOR4ytY6S_djQ55iVLFPtgpY" style=3D"color: #f54e00; display: inline-b=
+lock; margin: 0 4px; text-decoration: none;"><img src=3D"https://substackcd=
+n.com/image/fetch/w_262,c_limit,f_auto,q_auto:good,fl_progressive:steep/htt=
+ps%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app-button%402x.png" srcset=
+=3D"https://substackcdn.com/image/fetch/w_131,c_limit,f_auto,q_auto:good,fl=
+_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app-b=
+utton.png, https://substackcdn.com/image/fetch/w_262,c_limit,f_auto,q_auto:=
+good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneri=
+c-app-button%402x.png 2x, https://substackcdn.com/image/fetch/w_393,c_limit=
+,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2=
+Femail%2Fgeneric-app-button%403x.png 3x" width=3D"131" alt=3D"Get the app" =
+height=3D"40" style=3D"border: none !important; max-width: 550px; vertical-=
+align: middle;"></a><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0=
+cHM6Ly9zdWJzdGFjay5jb20vc2lnbnVwP3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1=
+lbWFpbCZ1dG1fY29udGVudD1mb290ZXImdXRtX2NhbXBhaWduPWF1dG9maWxsZWQtZm9vdGVyJm=
+ZyZWVTaWdudXBFbWFpbD10aW1teWcxM0BnbWFpbC5jb20mcj0zZHlsMiIsInAiOjE0MDQwNDgzO=
+CwicyI6MTMxODIyNSwiZiI6dHJ1ZSwidSI6NTY5MDE5OCwiaWF0IjoxNzA0OTExNDUxLCJleHAi=
+OjE3MDc1MDM0NTEsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.z68wGx2wFm=
+GKHk9_ifc2ehIACj5bSC9bysCjtpJwU3U?" style=3D"color: #f54e00; display: inlin=
+e-block; margin: 0 4px; text-decoration: none;"><img src=3D"https://substac=
+kcdn.com/image/fetch/w_270,c_limit,f_auto,q_auto:good,fl_progressive:steep/=
+https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button%402x.png" srcset=
+=3D"https://substackcdn.com/image/fetch/w_135,c_limit,f_auto,q_auto:good,fl=
+_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-butto=
+n.png, https://substackcdn.com/image/fetch/w_270,c_limit,f_auto,q_auto:good=
+,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-bu=
+tton%402x.png 2x, https://substackcdn.com/image/fetch/w_405,c_limit,f_auto,=
+q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2=
+Fpublish-button%403x.png 3x" width=3D"135" alt=3D"Start writing" height=3D"=
+40" style=3D"border: none !important; max-width: 550px; vertical-align: mid=
+dle;"></a></p></div></div></td><td></td></tr></table><img src=3D"https://eo=
+trx.substackcdn.com/open?token=3DeyJtIjoiPDIwMjQwMTEwMTgzMDQwLjMuZWFkYWFlMm=
+IyY2Y2ZGZkZUBtZzIuc3Vic3RhY2suY29tPiIsInUiOjU2OTAxOTgsInIiOiJ0aW1teWcxM0Bnb=
+WFpbC5jb20iLCJkIjoibWcyLnN1YnN0YWNrLmNvbSIsInAiOjE0MDQwNDgzOCwidCI6Im5ld3Ns=
+ZXR0ZXIiLCJhIjoiZXZlcnlvbmUiLCJzIjoxMzE4MjI1LCJjIjoicG9zdCIsImYiOnRydWUsInB=
+vc2l0aW9uIjoiYm90dG9tIiwiaWF0IjoxNzA0OTExNDUyLCJleHAiOjE3MDc1MDM0NTIsImlzcy=
+I6InB1Yi0wIiwic3ViIjoiZW8ifQ.nHfJKk130J4schDDd8qGp2ZlI6aWKA15FzsHG1Ex2OA" a=
+lt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !importan=
+t;width:1px !important;border-width:0 !important;margin-top:0 !important;ma=
+rgin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important=
+;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !impo=
+rtant;padding-left:0 !important;"/><img width=3D"1px" height=3D"1px" alt=3D=
+"" src=3D"https://email.mg2.substack.com/o/eJw80N2q5SAMhuGrWR4WtWmXHngtJWra=
+kalaNM7Qu9-sH_bpF3h5SECmo7bbXbWziA6iMosR5NRTglUKVisoYzq3gwo1ZIob8u910aBA_HF=
+Pb5eI0iwSyKOl9WnsShp2jXqRMIvktNQglZLKzBLkNE-EEZG012Ff4x7pATIfeurDd8bwdwo1i9=
+S3vdEb4LgNEi_mhiMmKoEc_aN21_KdU3QKJEgws_ksfF_kCv3vJzFTE9fwW6g5j5L43qigPyl-w=
+8OfKSCnWt6hWRmtF9Ecp5zvQ80PkMfL8Xb14WPNmIq7Wo0j8F4blSMVotYFf745OrVXa1mtVNb8=
+BAAA__88jHmE"></body></html>
+--ba03becc3a7d4bee8683d5fa5e249a38fbef35519dba72cf1e8826986020--

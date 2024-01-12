@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import mailparser from "mailparser";
-import EmailReplyParser from "email-reply-parser";
+// import mailparser from "mailparser";
+// import * as EmailReplyParser from "node-email-reply-parser";
+// var EmailReplyParser = require("email-reply-parser");
 
-const simpleParser = mailparser.simpleParser;
+// const simpleParser = mailparser.simpleParser;
 
 export async function POST(req: Request) {
   try {
@@ -31,13 +32,11 @@ export async function POST(req: Request) {
       envelope,
     });
 
-    let parsed1 = await simpleParser(email.toString());
-    console.log({ parsed1 });
+    // let parsed1 = await simpleParser(email.toString());
+    // console.log({ parsed1 });
 
-    const parsed2 = new EmailReplyParser()
-      .read(email.toString())
-      .getVisibleText();
-    console.log({ parsed2 });
+    // const parsed2 = EmailReplyParser(email.toString());
+    // console.log({ parsed2 });
 
     // console.log({ requestBody });
     return NextResponse.json({ message: "excellent!" });
