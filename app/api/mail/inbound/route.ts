@@ -9,8 +9,9 @@ import { cookies } from "next/headers";
 
 export async function POST(req: Request) {
   try {
-    console.time("one");
+    console.log("one");
     let formData = await req.formData();
+    console.log("two");
     let { dkim, SPF, to, email, charsets, sender_ip, from, subject, envelope } =
       Object.fromEntries(formData);
     // let keys = Object.keys(requestBody);
