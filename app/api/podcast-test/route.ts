@@ -3,8 +3,8 @@ import RSS from "rss";
 
 export async function GET() {
   const feed = new RSS({
-    title: "Sample RSS Feed",
-    description: "This is a sample RSS feed",
+    title: "Sample RSS Feed 2",
+    description: "This is a sample RSS feed 2",
     feed_url: "http://example.com/rss",
     site_url: "http://example.com",
     image_url: "http://example.com/icon.png",
@@ -19,14 +19,15 @@ export async function GET() {
 
   // Sample item
   feed.item({
-    title: "Sample Item",
-    description: "This is a sample item",
+    title: "Sample Item 2",
+    description: "This is a sample item 2",
     url: "http://example.com/article1",
     categories: ["Category 1", "Category 2"],
     author: "Author",
     date: "May 27, 2020",
     enclosure: {
-      url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
+      //   url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
+      url: "http://thepodcastexchange.ca/s/Porsche-Macan-July-5-2018-1.mp3",
       type: "audio/mpeg",
       size: 752256, // 734 KB in bytes
     },
