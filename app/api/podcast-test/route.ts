@@ -25,6 +25,11 @@ export async function GET() {
     categories: ["Category 1", "Category 2"],
     author: "Author",
     date: "May 27, 2020",
+    enclosure: {
+      url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
+      type: "audio/mpeg",
+      size: 752256, // 734 KB in bytes
+    },
   });
 
   //   res.set("Content-Type", "text/xml");
