@@ -9,6 +9,7 @@ import { cookies } from "next/headers";
 
 export async function POST(req: Request) {
   try {
+    console.time("one");
     let formData = await req.formData();
     let { dkim, SPF, to, email, charsets, sender_ip, from, subject, envelope } =
       Object.fromEntries(formData);
@@ -19,7 +20,10 @@ export async function POST(req: Request) {
     // 'charsets', 'sender_ip',
     // 'from',     'subject',
     // 'envelope'
+    console.log("createRouteHandlerClient ");
     const supabase = createRouteHandlerClient({ cookies });
+    console.log("inserting ");
+
     await supabase.from("emails").insert({
       dkim,
       spf: SPF,
@@ -31,6 +35,7 @@ export async function POST(req: Request) {
       subject,
       envelope,
     });
+    console.log("inserted ");
 
     // let parsed1 = await simpleParser(email.toString());
     // console.log({ parsed1 });
