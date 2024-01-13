@@ -27,7 +27,8 @@ export async function GET() {
     date: "May 27, 2020",
     enclosure: {
       //   url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
-      url: "http://thepodcastexchange.ca/s/Porsche-Macan-July-5-2018-1.mp3",
+      // url: "http://thepodcastexchange.ca/s/Porsche-Macan-July-5-2018-1.mp3",
+      url: "https://upcdn.io/FW25brC/raw/uploads/2024/01/13/4ktm5Qk17e-my_file.mp3",
       type: "audio/mpeg",
       size: 752256, // 734 KB in bytes
     },
