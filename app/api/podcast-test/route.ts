@@ -9,6 +9,9 @@ export async function GET() {
     .from("emails")
     .select()
     .not("voice_text_url", "eq", null);
+  if (!email.data || email.data.length === 0) {
+    throw new Error("No emails found with a voice_text_url");
+  }
   const feed = new RSS({
     title: "Sample RSS Feed 2",
     description: "This is a sample RSS feed 2",
