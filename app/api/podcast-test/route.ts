@@ -11,7 +11,7 @@ export async function GET() {
   console.log({ result123: result });
   if (!result.data || result.data.length === 0) {
     console.error("No emails found with a voice_text_url");
-    return new Response("No feed items found", { status: 404 });
+    return new Response("No feed items found 2", { status: 200 });
   }
   const feed = new RSS({
     title: "Sample RSS Feed 2",
