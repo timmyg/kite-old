@@ -8,7 +8,6 @@ export async function GET() {
   const email = await supabase
     .from("emails")
     .select()
-    // .('name', null)
     .not("voice_text_url", "eq", null);
   const feed = new RSS({
     title: "Sample RSS Feed 2",
