@@ -3,14 +3,15 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import RSS from "rss";
 import { cookies } from "next/headers";
 
-export async function POST() {
+export async function GET() {
   const supabase = createRouteHandlerClient({ cookies });
   const email = await supabase
     .from("emails")
     .select()
     .not("voice_text_url", "eq", null);
   if (!email.data || email.data.length === 0) {
-    throw new Error("No emails found with a voice_text_url");
+    console.error("No emails found with a voice_text_url");
+    return new Response("No feed items found", { status: 404 });
   }
   const feed = new RSS({
     title: "Sample RSS Feed 2",
