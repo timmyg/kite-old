@@ -1,7 +1,15 @@
 // import { NextResponse } from "next/server";
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import RSS from "rss";
+import { cookies } from "next/headers";
 
 export async function GET() {
+  const supabase = createRouteHandlerClient({ cookies });
+  const email = await supabase
+    .from("emails")
+    .select()
+    // .('name', null)
+    .not("voice_text_url", "eq", null);
   const feed = new RSS({
     title: "Sample RSS Feed 2",
     description: "This is a sample RSS feed 2",
@@ -28,7 +36,8 @@ export async function GET() {
     enclosure: {
       //   url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
       // url: "http://thepodcastexchange.ca/s/Porsche-Macan-July-5-2018-1.mp3",
-      url: "https://upcdn.io/FW25brC/raw/uploads/2024/01/13/4ktm5Qk17e-my_file.mp3",
+      // url: "https://upcdn.io/FW25brC/raw/uploads/2024/01/13/4ktm5Qk17e-my_file.mp3",
+      url: email.data[0].voice_text_url,
       type: "audio/mpeg",
       size: 752256, // 734 KB in bytes
     },

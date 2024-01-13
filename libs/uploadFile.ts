@@ -41,35 +41,34 @@ const uploadManager = new Bytescale.UploadManager({
 });
 
 export async function uploadFile(data: Buffer) {
-  uploadManager
-    .upload({
-      // Supported types:
-      // - String
-      // - Blob
-      // - ArrayBuffer
-      // - Buffer
-      // - ReadableStream (Node.js), e.g. fs.createReadStream("file.txt")
-      data,
+  return uploadManager.upload({
+    // Supported types:
+    // - String
+    // - Blob
+    // - ArrayBuffer
+    // - Buffer
+    // - ReadableStream (Node.js), e.g. fs.createReadStream("file.txt")
+    data,
 
-      // Required if 'data' is a stream, buffer, or string.
-      mime: "audio/mpeg",
+    // Required if 'data' is a stream, buffer, or string.
+    mime: "audio/mpeg",
 
-      // Required if 'data' is a stream, buffer, or string.
-      originalFileName: "my_file.mp3",
+    // Required if 'data' is a stream, buffer, or string.
+    originalFileName: "my_file.mp3",
 
-      // Required if 'data' is a stream.
-      // size: 5098, // e.g. fs.statSync("file.txt").size
-    })
-    .then(
-      ({ fileUrl, filePath }) => {
-        // --------------------------------------------
-        // File successfully uploaded!
-        // --------------------------------------------
-        // The 'filePath' uniquely identifies the file,
-        // and is what you should save to your DB.
-        // --------------------------------------------
-        console.log(`File uploaded to: ${fileUrl}`);
-      },
-      (error) => console.error(`Error: ${error.message}`, error)
-    );
+    // Required if 'data' is a stream.
+    // size: 5098, // e.g. fs.statSync("file.txt").size
+  });
+  // .then(
+  //   ({ fileUrl, filePath }) => {
+  //     // --------------------------------------------
+  //     // File successfully uploaded!
+  //     // --------------------------------------------
+  //     // The 'filePath' uniquely identifies the file,
+  //     // and is what you should save to your DB.
+  //     // --------------------------------------------
+  //     console.log(`File uploaded to: ${fileUrl}`);
+  //   },
+  //   (error) => console.error(`Error: ${error.message}`, error)
+  // );
 }

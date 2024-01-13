@@ -19,21 +19,24 @@ export async function POST(req: NextRequest, { params }: any) {
       const { text } = await simpleParser(data[0].email);
       const voiceText = markdownToTxt(text);
       console.log({ voiceText });
-      await supabase.from("emails").update({
-        body_text: voiceText,
-      });
+      await supabase
+        .from("emails")
+        .update({
+          body_text: voiceText,
+        })
+        .eq("id", emailId);
       console.time("text to audio");
       const audioBuffer = await textToAudio({
         text: voiceText,
       });
       console.timeEnd("text to audio");
       console.time("upload");
-      const uploadedFileUrl = await uploadFile(audioBuffer);
+      const { fileUrl } = await uploadFile(audioBuffer);
       console.timeEnd("upload");
       await supabase
         .from("emails")
         .update({
-          voice_text_url: uploadedFileUrl,
+          voice_text_url: fileUrl,
         })
         .eq("id", emailId);
 
