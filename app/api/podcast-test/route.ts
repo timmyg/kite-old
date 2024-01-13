@@ -3,7 +3,7 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import RSS from "rss";
 import { cookies } from "next/headers";
 
-export async function GET() {
+export async function POST() {
   const supabase = createRouteHandlerClient({ cookies });
   const email = await supabase
     .from("emails")
