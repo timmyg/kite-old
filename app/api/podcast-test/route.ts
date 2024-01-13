@@ -4,6 +4,7 @@ import RSS from "rss";
 import { cookies } from "next/headers";
 
 export async function GET() {
+  console.log("PODCAST TEST");
   const supabase = createRouteHandlerClient({ cookies });
   const result = await supabase.from("emails").select();
   // .not("voice_text_url", "eq", null);
