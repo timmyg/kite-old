@@ -1,10 +1,9 @@
-import fs from "fs";
-import path from "path";
+// import fs from "fs";
+// import path from "path";
 import OpenAI from "openai";
 
-const openai = new OpenAI();
-
 export async function textToAudio({ text }: { text: string }) {
+  const openai = new OpenAI();
   const mp3 = await openai.audio.speech.create({
     model: "tts-1",
     // model: "tts-1-hd",
