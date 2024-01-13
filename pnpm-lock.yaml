@@ -44,6 +44,9 @@ dependencies:
   mailgun.js:
     specifier: ^9.2.1
     version: 9.4.1
+  mailparser:
+    specifier: ^3.6.6
+    version: 3.6.6
   next:
     specifier: ^14.0.0
     version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
