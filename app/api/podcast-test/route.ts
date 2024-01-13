@@ -4,15 +4,13 @@ import RSS from "rss";
 import { cookies } from "next/headers";
 
 export async function GET() {
-  const supabase = createRouteHandlerClient({
-    cookies,
-  });
-  const { data: emails } = await supabase
+  const supabase = createRouteHandlerClient({ cookies });
+  const email = await supabase
     .from("emails")
     .select()
     .not("voice_text_url", "eq", null);
-  console.log({ emails: emails.length });
-  if (!emails || emails.length === 0) {
+  console.log({ email });
+  if (!email.data || email.data.length === 0) {
     console.error("No emails found with a voice_text_url");
     return new Response("No feed items found", { status: 404 });
   }
@@ -43,7 +41,7 @@ export async function GET() {
       //   url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
       // url: "http://thepodcastexchange.ca/s/Porsche-Macan-July-5-2018-1.mp3",
       // url: "https://upcdn.io/FW25brC/raw/uploads/2024/01/13/4ktm5Qk17e-my_file.mp3",
-      url: emails[0].voice_text_url,
+      url: email.data[0].voice_text_url,
       type: "audio/mpeg",
       size: 752256, // 734 KB in bytes
     },
