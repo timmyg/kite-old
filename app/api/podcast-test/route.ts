@@ -5,12 +5,10 @@ import { cookies } from "next/headers";
 
 export async function GET() {
   const supabase = createRouteHandlerClient({ cookies });
-  const email = await supabase
-    .from("emails")
-    .select()
-    .not("voice_text_url", "eq", null);
-  console.log({ email });
-  if (!email.data || email.data.length === 0) {
+  const response = await supabase.from("emails").select();
+  // .not("voice_text_url", "eq", null);
+  console.log({ response });
+  if (!response.data || response.data.length === 0) {
     console.error("No emails found with a voice_text_url");
     return new Response("No feed items found", { status: 404 });
   }
