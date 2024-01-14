@@ -6,7 +6,9 @@ import axios from "axios";
 export async function POST(req: Request) {
   try {
     console.log("📪 INBOUND EMAIL 📪");
+    console.log("getting form data");
     const formData = await req.formData();
+    console.log("form data");
     const {
       dkim,
       SPF,
