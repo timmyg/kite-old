@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import markdownToTxt from "markdown-to-txt";
-import { textToAudio } from "@/libs/textToAudio";
+import { textToAudio as textToAudioOpenai } from "@/libs/openAi";
+import { textToAudio as textToAudioUnreal } from "@/libs/unrealSpeech";
 import { uploadFile } from "@/libs/uploadFile";
 const simpleParser = require("mailparser").simpleParser;
 
@@ -26,17 +27,22 @@ export async function POST(req: NextRequest, { params }: any) {
         })
         .eq("id", emailId);
       console.time("text to audio");
-      const audioBuffer = await textToAudio({
+      // const audioBuffer = await textToAudioOpenai({
+      //   text: voiceText,
+      // });
+      const audio = await textToAudioUnreal({
         text: voiceText,
       });
       console.timeEnd("text to audio");
       console.time("upload");
-      const { fileUrl } = await uploadFile(audioBuffer);
+      // const { fileUrl } = await uploadFile(audioBuffer);
       console.timeEnd("upload");
       await supabase
         .from("emails")
         .update({
-          voice_text_url: fileUrl,
+          voice_text_url: audio.SynthesisTask.OutputUri,
+          voice_text_is_ready: false,
+          voice_task_id: audio.SynthesisTask.TaskId,
         })
         .eq("id", emailId);
 

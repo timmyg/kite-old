@@ -1,5 +1,3 @@
-// import fs from "fs";
-// import path from "path";
 import OpenAI from "openai";
 
 export async function textToAudio({ text }: { text: string }) {

@@ -3,17 +3,51 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import RSS from "rss";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { checkTaskStatusUnreal } from "@/libs/unrealSpeech";
+import { Database } from "@/libs/database.types";
 
 // export const revalidate = 1;
 
-export async function GET() {
+const getEmails = async () => {
   const supabase = createRouteHandlerClient({ cookies });
-  const result = await supabase
+  // add feed filter here in future
+  const emailsResult = await supabase
     .from("emails")
-    .select()
-    .not("voice_text_url", "eq", null);
-  if (!result.data || result.data.length === 0) {
-    return new Response("No feed items found 8", { status: 200 });
+    .select("*")
+    .returns<Database["public"]["Tables"]["emails"]["Row"][]>();
+  const emailResponses = [];
+  for (let email of emailsResult.data) {
+    if (email.voice_text_is_ready) {
+      emailResponses.push(email);
+    } else {
+      // file marked not ready but check
+      if (email.voice_task_id) {
+        const statusResponse = await checkTaskStatusUnreal({
+          taskId: email.voice_task_id,
+        });
+        if (statusResponse.SynthesisTask?.TaskStatus === "completed") {
+          await supabase
+            .from("emails")
+            .update({ voice_text_is_ready: true })
+            .eq("id", email.id);
+          email.voice_text_is_ready = true;
+          emailResponses.push(email);
+        }
+      }
+    }
+  }
+  return emailResponses;
+};
+
+export async function GET() {
+  // const supabase = createRouteHandlerClient({ cookies });
+  // const result = await supabase.from("emails").select();
+  // .not("voice_text_url", "eq", null);
+
+  const emails = await getEmails();
+
+  if (!emails || emails.length === 0) {
+    return new Response("No feed", { status: 200 });
   }
   const feed = new RSS({
     title: "Sample RSS Feed 2",
@@ -31,21 +65,23 @@ export async function GET() {
   });
 
   // Sample item
-  feed.item({
-    title: "Sample Item 2",
-    description: "This is a sample item 2",
-    url: "http://example.com/article1",
-    categories: ["Category 1", "Category 2"],
-    author: "Author",
-    date: "May 27, 2020",
-    enclosure: {
-      //   url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
-      url: result.data[0].voice_text_url,
-      type: "audio/mpeg",
-      size: 752256,
-    },
-  });
-  console.log("log1", result.data[0].voice_text_url);
+  for (let email of emails) {
+    feed.item({
+      title: "Sample Item 2",
+      description: "This is a sample item 2",
+      url: "http://example.com/article1",
+      categories: ["Category 1", "Category 2"],
+      author: "Author",
+      date: "May 27, 2020",
+      enclosure: {
+        //   url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
+        url: email.voice_text_url,
+        type: "audio/mpeg",
+        size: 752256,
+      },
+    });
+  }
+  // console.log("log1", result.data[0].voice_text_url);
   return new Response(feed.xml(), { headers: { "Content-Type": "text/xml" } });
 }
 

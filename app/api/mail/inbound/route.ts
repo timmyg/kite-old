@@ -1,20 +1,14 @@
 import { NextResponse } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import axios from "axios";
 
 export async function POST(req: Request) {
   try {
-    console.log("one1");
-    let formData = await req.formData();
-    console.log("two2");
-    let { dkim, SPF, to, email, charsets, sender_ip, from, subject, envelope } =
-      Object.fromEntries(formData);
-    const supabase = createRouteHandlerClient({ cookies });
-    console.log("inserting ");
-
-    await supabase.from("emails").insert({
+    const formData = await req.formData();
+    const {
       dkim,
-      spf: SPF,
+      SPF,
       to,
       email,
       charsets,
@@ -22,16 +16,31 @@ export async function POST(req: Request) {
       from,
       subject,
       envelope,
-    });
+    } = Object.fromEntries(formData);
+    const supabase = createRouteHandlerClient({ cookies });
+    const emailDb = await supabase
+      .from("emails")
+      .insert({
+        dkim,
+        spf: SPF,
+        to,
+        email,
+        charsets,
+        sender_ip,
+        from,
+        subject,
+        envelope,
+      })
+      .select();
     console.log("inserted ");
 
     // let parsed1 = await simpleParser(email.toString());
     // console.log({ parsed1 });
-
     // const parsed2 = EmailReplyParser(email.toString());
     // console.log({ parsed2 });
 
-    // console.log({ requestBody });
+    // process it, email to body, body to audio mp3
+    await axios.post(`/api/mail/process/${emailDb.data[0].id}`);
     return NextResponse.json({ message: "excellent!" });
   } catch (error) {
     console.error({ error });
