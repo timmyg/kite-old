@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { checkTaskStatusUnreal } from "@/libs/unrealSpeech";
 import { Database } from "@/libs/database.types";
+import dayjs from "dayjs";
 
 // export const revalidate = 1;
 
@@ -50,34 +51,35 @@ export async function GET() {
     return new Response("No feed", { status: 200 });
   }
   const feed = new RSS({
-    title: "Sample RSS Feed 2",
-    description: "This is a sample RSS feed 2",
-    feed_url: "http://example.com/rss",
-    site_url: "http://example.com",
-    image_url: "http://example.com/icon.png",
-    managingEditor: "Editor",
-    webMaster: "Webmaster",
-    copyright: "2020 Your Company",
-    language: "en",
-    categories: ["Category 1", "Category 2", "Category 3"],
-    pubDate: "May 20, 2020 04:00:00 GMT",
+    title: "Podletter Hello World Feed",
+    description: "Testing feed",
+    feed_url: "http://podletter.xyz/api/podcast",
+    site_url: "https://podletter.xyz",
+    image_url: "https://podletter.xyz/icon.png",
+    // managingEditor: "Editor",
+    // webMaster: "Webmaster",
+    // copyright: "2020 Your Company",
+    // language: "en",
+    // categories: ["Category 1", "Category 2", "Category 3"],
+    // pubDate: "May 20, 2020 04:00:00 GMT",
     ttl: 60,
   });
 
   // Sample item
   for (let email of emails) {
     feed.item({
-      title: "Sample Item 2",
-      description: "This is a sample item 2",
-      url: "http://example.com/article1",
-      categories: ["Category 1", "Category 2"],
-      author: "Author",
-      date: "May 27, 2020",
+      title: email.subject,
+      description: email.subject,
+      url: "",
+      // categories: ["Category 1", "Category 2"],
+      author: email.from,
+      // date: "May 27, 2020",
+      date: dayjs(email.created_at).format("MMMM D, YYYY"),
       enclosure: {
         //   url: "https://file-examples.com/wp-content/storage/2017/11/file_example_MP3_700KB.mp3",
         url: email.voice_text_url,
         type: "audio/mpeg",
-        size: 752256,
+        // size: 752256,
       },
     });
   }
