@@ -5,6 +5,7 @@ import axios from "axios";
 
 export async function POST(req: Request) {
   try {
+    console.log("📪 INBOUND EMAIL 📪");
     const formData = await req.formData();
     const {
       dkim,
@@ -17,7 +18,12 @@ export async function POST(req: Request) {
       subject,
       envelope,
     } = Object.fromEntries(formData);
+    console.log("create supabase");
+    console.time("create supabase");
     const supabase = createRouteHandlerClient({ cookies });
+    console.timeEnd("create supabase");
+    console.log("insert");
+    console.time("insert");
     const emailDb = await supabase
       .from("emails")
       .insert({
@@ -40,7 +46,10 @@ export async function POST(req: Request) {
     // console.log({ parsed2 });
 
     // process it, email to body, body to audio mp3
+    console.log("process");
+    console.time("process");
     await axios.post(`/api/mail/process/${emailDb.data[0].id}`);
+    console.timeEnd("process");
     return NextResponse.json({ message: "excellent!" });
   } catch (error) {
     console.error({ error });
