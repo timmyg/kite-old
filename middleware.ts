@@ -10,7 +10,7 @@ import type { Database } from "@/libs/database.types";
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
-
+  console.log(". . .. . . middleware");
   // Create a Supabase client configured to use cookies
   const supabase = createMiddlewareClient<Database>({ req, res });
 
