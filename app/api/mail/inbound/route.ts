@@ -4,9 +4,9 @@ import { cookies } from "next/headers";
 
 export async function POST(req: Request) {
   try {
-    console.log("one");
+    console.log("one1");
     let formData = await req.formData();
-    console.log("two");
+    console.log("two2");
     let { dkim, SPF, to, email, charsets, sender_ip, from, subject, envelope } =
       Object.fromEntries(formData);
     const supabase = createRouteHandlerClient({ cookies });
