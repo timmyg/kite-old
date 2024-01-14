@@ -7,7 +7,6 @@ export async function GET() {
   console.log("PODCAST TEST");
   const supabase = createRouteHandlerClient({ cookies });
   const result = await supabase.from("emails").select();
-  // .not("voice_text_url", "eq", null);
   if (!result.data || result.data.length === 0) {
     console.error("No emails found with a voice_text_url");
     console.log("log7");
