@@ -3,6 +3,8 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import RSS from "rss";
 import { cookies } from "next/headers";
 
+export const revalidate = 1;
+
 export async function GET() {
   console.log("PODCAST TEST");
   const supabase = createRouteHandlerClient({ cookies });
