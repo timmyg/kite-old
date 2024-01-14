@@ -11,7 +11,7 @@ export async function POST(req: Request) {
       requestFormDataSize: JSON.stringify(req?.formData)?.length,
     });
     console.log("getting form data");
-    const formData = await req.formData();
+    const formData = await req.formData(); // need node 20 for this, 18 hung on vercel
     console.log("got form data");
     const {
       dkim,
@@ -54,7 +54,9 @@ export async function POST(req: Request) {
     // process it, email to body, body to audio mp3
     console.log("process");
     console.time("process");
-    await axios.post(`/api/mail/process/${emailDb.data[0].id}`);
+    await axios.post(
+      `${process.env.VERCEL_URL}/api/mail/process/${emailDb.data[0].id}`
+    );
     console.timeEnd("process");
     return NextResponse.json({ message: "excellent!" });
   } catch (error) {
