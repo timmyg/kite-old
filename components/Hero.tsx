@@ -7,11 +7,14 @@ const Hero = () => {
     <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
       <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start">
         <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
-          Newsletters in your podcast feed
+          Unleashing the power of{" "}
+          <span className="bg-neutral text-neutral-content px-2 md:px-4 ml-1 md:ml-1.5 leading-relaxed whitespace-nowrap">
+            wisdom
+          </span>
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          {config.appName} puts any email newsletter into your podcast feed,
-          automatically
+          No more unread newsletters. With Podletter, they're automatically in
+          your podcast feed
         </p>
         <button className="btn btn-primary btn-wide">
           Get {config.appName}
