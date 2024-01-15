@@ -13,7 +13,7 @@ const Hero = () => {
           </span>
         </h1>
         <p className="text-lg opacity-80 leading-relaxed">
-          No more unread newsletters. With Podletter, they're automatically in
+          No more unread newsletters. With Podletter, they&aposre automatically in
           your podcast feed
         </p>
         <button className="btn btn-primary btn-wide">
