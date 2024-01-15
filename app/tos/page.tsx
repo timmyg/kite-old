@@ -57,39 +57,47 @@ const TOS = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: September 26, 2023
+          {`**Terms of Service for Podletter**
 
-Welcome to ShipFast!
+**Effective Date: January 15, 2024**
 
-These Terms of Service ("Terms") govern your use of the ShipFast website at https://shipfa.st ("Website") and the services provided by ShipFast. By using our Website and services, you agree to these Terms.
+**1. Introduction**
 
-1. Description of ShipFast
+Welcome to Podletter (https://podletter.xyz). These Terms of Service ("Terms") govern your use of our service that converts newsletters into a podcast feed. By accessing or using our service, you agree to be bound by these Terms.
 
-ShipFast is a platform that offers a JavaScript code boilerplate to assist entrepreneurs in launching their startups more efficiently.
+**2. Service Description**
 
-2. Ownership and Usage Rights
+Podletter offers a service that converts newsletters into a podcast feed. We offer a free trial, followed by a monthly subscription plan which can be cancelled at any time. Access continues until the end of the billing period.
 
-When you purchase a package from ShipFast, you gain the right to download and use the code provided for creating applications. You own the code you create but do not have the right to resell it. We offer a full refund within 7 days of purchase, as specified in our refund policy.
+**3. User Account**
 
-3. User Data and Privacy
+To use Podletter, you must register and provide certain information including your name, email, and payment information. You are responsible for maintaining the confidentiality of your account and password.
 
-We collect and store user data, including name, email, and payment information, as necessary to provide our services. For details on how we handle your data, please refer to our Privacy Policy at https://shipfa.st/privacy-policy.
+**4. User Data**
 
-4. Non-Personal Data Collection
+We collect personal data such as your name, email, and payment information. For details on how we handle this data, please refer to our Privacy Policy at https://podletter.com/privacy-policy.
 
-We use web cookies to collect non-personal data for the purpose of improving our services and user experience.
+**5. Non-Personal Data Collection**
 
-5. Governing Law
+We use cookies to collect non-personal data to enhance user experience. By using our service, you consent to the use of cookies.
 
-These Terms are governed by the laws of France.
+**6. Subscription and Cancellation**
 
-6. Updates to the Terms
+You may subscribe to our service on a monthly basis. Subscriptions can be cancelled at any time, and access will continue until the end of the current billing period.
 
-We may update these Terms from time to time. Users will be notified of any changes via email.
+**7. Governing Law**
 
-For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
+These Terms shall be governed by and construed in accordance with the laws of the United States.
 
-Thank you for using ShipFast!`}
+**8. Changes to Terms**
+
+We reserve the right to modify these Terms at any time. Users will be notified of any changes via email. Continued use of the service after changes constitutes acceptance of the new Terms.
+
+**9. Contact Us**
+
+For any questions or concerns regarding these Terms, please contact us at t@podletter.xyz.
+
+`}
         </pre>
       </div>
     </main>

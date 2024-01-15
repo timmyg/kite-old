@@ -6,6 +6,13 @@ import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import "./globals.css";
+import { PHProvider } from "./providers";
+
+import dynamic from "next/dynamic";
+
+const PostHogPageview = dynamic(() => import("./PostHogPageView"), {
+  ssr: false,
+});
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -28,10 +35,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <PlausibleProvider domain={config.domainName} />
         </head>
       )}
-      <body>
-        {/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}
-        <ClientLayout>{children}</ClientLayout>
-      </body>
+      <PHProvider>
+        <body>
+          <PostHogPageview />
+          {/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}
+          <ClientLayout>{children}</ClientLayout>
+        </body>
+      </PHProvider>
     </html>
   );
 }

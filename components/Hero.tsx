@@ -1,6 +1,7 @@
 import Image from "next/image";
 // import TestimonialsAvatars from "./TestimonialsAvatars";
 import config from "@/config";
+import ButtonLead from "./ButtonLead";
 
 const Hero = () => {
   return (
@@ -16,9 +17,10 @@ const Hero = () => {
           No more unread newsletters. With Podletter, they&apos;re automatically
           in your podcast feed
         </p>
-        <button className="btn btn-primary btn-wide">
+        {/* <button className="btn btn-primary btn-wide">
           Get {config.appName}
-        </button>
+        </button> */}
+        <ButtonLead />
 
         {/* <TestimonialsAvatars priority={true} /> */}
       </div>

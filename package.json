@@ -35,6 +35,7 @@
     "nextjs-toploader": "^1.4.2",
     "node-fetch": "^3.3.2",
     "openai": "^4.24.6",
+    "posthog-js": "^1.98.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",

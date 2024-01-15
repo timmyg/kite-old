@@ -7,7 +7,7 @@ const config = {
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription: "Get any newsletter in your podcast feed instantly.",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "podlerr.xyz",
+  domainName: "podletter.xyz",
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (mailgun.supportEmail) otherwise customer support won't work.
     id: "c9d8e5d3-c31e-4664-9d58-e0d036af2c90",
@@ -26,18 +26,16 @@ const config = {
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "Starter",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
-        description: "Perfect for small projects",
+        description: "Follow a few newsletters",
         // The price you want to display, the one user will be charged on Stripe.
-        price: 99,
+        price: 5,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-        priceAnchor: 149,
+        priceAnchor: 15,
         features: [
           {
-            name: "NextJS boilerplate",
+            name: "Follow 2 newsletters",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
+          { name: "Instant newsletter-to-podcast conversions" },
         ],
       },
       {
@@ -47,19 +45,15 @@ const config = {
             : "price_456",
         // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
         isFeatured: true,
-        name: "Advanced",
-        description: "You need more power",
-        price: 149,
-        priceAnchor: 299,
+        name: "Pro",
+        description: "Newsletter connaisseur",
+        price: 14,
+        priceAnchor: 29,
         features: [
           {
-            name: "NextJS boilerplate",
+            name: "Follow unlimited newsletters",
           },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
-          { name: "1 year of updates" },
-          { name: "24/7 support" },
+          { name: "Instant newsletter-to-podcast conversions" },
         ],
       },
     ],
