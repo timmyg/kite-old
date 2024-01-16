@@ -1,5 +1,6 @@
 import Image from "next/image";
 import config from "@/config";
+import Link from "next/link";
 
 const CTA = () => {
   return (
@@ -20,9 +21,9 @@ const CTA = () => {
             Listen to your newsletters as part of your regular podcast routine
           </p>
 
-          <button className="btn btn-primary btn-wide">
+          <Link className="btn btn-primary btn-wide" href="/#hero">
             Get {config.appName}
-          </button>
+          </Link>
         </div>
       </div>
     </section>
