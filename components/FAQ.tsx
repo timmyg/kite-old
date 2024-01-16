@@ -48,7 +48,7 @@ const faqList: FAQItemProps[] = [
         constantly improving it. You can see a sample feed{" "}
         <Link
           className="underline"
-          href="https://rss.app/feed/d7JJMt8IA4TPf8jI"
+          href="https://rss.app/feed/nsxBadk9idiftngQ"
           target="_blank"
         >
           here

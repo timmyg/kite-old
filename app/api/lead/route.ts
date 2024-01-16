@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 // The API call is initiated by <ButtonLead /> component
 export async function POST(req: NextRequest) {
   const body = await req.json();
+  console.log("BUTTON LEAD");
 
   if (!body.email) {
     return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -13,7 +14,11 @@ export async function POST(req: NextRequest) {
 
   try {
     const supabase = createRouteHandlerClient({ cookies });
-    await supabase.from("leads").insert({ email: body.email });
+    const lead = await supabase
+      .from("leads")
+      .insert({ email: body.email })
+      .select();
+    console.log({ email: body.email, lead });
 
     return NextResponse.json({});
   } catch (e) {
