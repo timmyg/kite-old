@@ -10,8 +10,8 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 // import FeaturesListicle from "@/components/FeaturesListicle";
 import Testimonials3 from "@/components/Testimonials3";
-import ButtonSignin from "@/components/ButtonSignin";
-import Link from "next/link";
+// import ButtonSignin from "@/components/ButtonSignin";
+// import Link from "next/link";
 
 export default function Home() {
   return (
