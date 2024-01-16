@@ -45,7 +45,7 @@ export default function Login() {
           },
         });
 
-        toast.success("Check your emails!");
+        toast.success("Check your email for a login link 👍");
 
         setIsDisabled(true);
       }
@@ -76,11 +76,11 @@ export default function Login() {
         </Link>
       </div>
       <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-12">
-        Sign in to {config.appName}{" "}
+        Login to {config.appName}{" "}
       </h1>
 
       <div className="space-y-8 max-w-xl mx-auto">
-        <button
+        {/* <button
           className="btn btn-block"
           onClick={(e) =>
             handleSignup(e, { type: "oauth", provider: "google" })
@@ -118,7 +118,7 @@ export default function Login() {
 
         <div className="divider text-xs text-base-content/50 font-medium">
           OR
-        </div>
+        </div> */}
 
         <form
           className="form-control w-full space-y-4"
