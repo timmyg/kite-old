@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import apiClient from "@/libs/api";
 
@@ -13,6 +13,114 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
+
+  const [placeholder, setPlaceholder] = useState<string>("");
+  useEffect(() => {
+    const placeholders = [
+      "lebron@james.com",
+      "lionel@messi.com",
+      "serena@williams.com",
+      "roger@federer.com",
+      "usain@bolt.com",
+      "michael@jordan.com",
+      "cristiano@ronaldo.com",
+      "tom@brady.com",
+      "michael@phelps.com",
+      "tiger@woods.com",
+      "mohamed@salah.com",
+      "virat@kohli.com",
+      "sachin@tendulkar.com",
+      "neymar@jr.com",
+      "manny@pacquiao.com",
+      "mike@tyson.com",
+      "venus@williams.com",
+      "steph@curry.com",
+      "kobe@bryant.com",
+      "pele@brazil.com",
+      "maradona@argentina.com",
+      "beyonce@knowles.com",
+      "taylor@swift.com",
+      "justin@bieber.com",
+      "rihanna@fenty.com",
+      "lady@gaga.com",
+      "bruno@mars.com",
+      "katy@perry.com",
+      "ed@sheeran.com",
+      "drake@canada.com",
+      "ariana@grande.com",
+      "kanye@west.com",
+      "eminem@usa.com",
+      "madonna@usa.com",
+      "elton@john.com",
+      "michael@jackson.com",
+      "freddie@mercury.com",
+      "bob@dylan.com",
+      "john@lennon.com",
+      "paul@mccartney.com",
+      "mick@jagger.com",
+      "bruce@springsteen.com",
+      "david@bowie.com",
+      "prince@usa.com",
+      "jimmy@page.com",
+      "jimi@hendrix.com",
+      "bob@marley.com",
+      "tom@cruise.com",
+      "robert@downeyjr.com",
+      "johnny@depp.com",
+      "leonardo@dicaprio.com",
+      "brad@pitt.com",
+      "angelina@jolie.com",
+      "scarlett@johansson.com",
+      "jennifer@aniston.com",
+      "julia@roberts.com",
+      "meryl@streep.com",
+      "nicole@kidman.com",
+      "charlize@theron.com",
+      "natalie@portman.com",
+      "kate@winslet.com",
+      "hugh@jackman.com",
+      "george@clooney.com",
+      "morgan@freeman.com",
+      "denzel@washington.com",
+      "samuel@jackson.com",
+      "will@smith.com",
+      "tom@hanks.com",
+      "jack@nicholson.com",
+      "al@pacino.com",
+      "robert@deniro.com",
+      "clint@eastwood.com",
+      "harrison@ford.com",
+      "sean@connery.com",
+      "arnold@schwarzenegger.com",
+      "sylvester@stallone.com",
+      "bruce@willis.com",
+      "keanu@reeves.com",
+      "daniel@craig.com",
+      "barack@obama.com",
+      "nelson@mandela.com",
+      "martin@lutherking.com",
+      "winston@churchill.com",
+      "mahatma@gandhi.com",
+      "mother@teresa.com",
+      "dalai@lama.com",
+      "mikhail@gorbachev.com",
+      "bill@gates.com",
+      "steve@jobs.com",
+      "mark@zuckerberg.com",
+      "elon@musk.com",
+      "jeff@bezos.com",
+      "warren@buffett.com",
+      "larry@page.com",
+      "sergey@brin.com",
+      "jack@dorsey.com",
+      "sundar@pichai.com",
+      "tim@cook.com",
+      "satya@nadella.com",
+    ]; // Add more placeholders here
+    const randomPlaceholder =
+      placeholders[Math.floor(Math.random() * placeholders.length)];
+    setPlaceholder(randomPlaceholder);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
@@ -44,7 +152,7 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
         value={email}
         ref={inputRef}
         autoComplete="email"
-        placeholder="tom@cruise.com"
+        placeholder={placeholder}
         className="input input-bordered w-full placeholder:opacity-60"
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -72,6 +180,9 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
           </svg>
         )}
       </button>
+      <p className="text-sm md:text-base flex justify-center items-center gap-2 md:text-sm">
+        🚀 Launching in Feburary
+      </p>
     </form>
   );
 };

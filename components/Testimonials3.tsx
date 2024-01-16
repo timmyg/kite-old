@@ -11,23 +11,25 @@ const list: {
 }[] = [
   {
     // Optional, use for social media like Twitter. Does not link anywhere but cool to display
-    username: "marclou",
+    // username: "marclou",
     // REQUIRED
-    name: "Marc Lou",
+    name: "Charles Palmer",
     // REQUIRED
-    text: "Really easy to use. The tutorials are really useful and explains how everything works. Hope to ship my next project really fast!",
+    text: "Podletter has transformed my daily commute! I can now catch up on all my newsletters without having to read them. It's like having my own personal news radio!",
     // Optional, a statically imported image (usually from your public folder—recommended) or a link to the person's avatar. Shows a fallback letter if not provided
-    img: "https://pbs.twimg.com/profile_images/1514863683574599681/9k7PqDTA_400x400.jpg",
+    img: "/testimonials/charles.jpg",
   },
   {
-    username: "the_mcnaveen",
-    name: "Naveen",
-    text: "Setting up everything from the ground up is a really hard, and time consuming process. What you pay for will save your time for sure.",
+    // username: "the_mcnaveen",
+    name: "Matthew Green",
+    text: "I found it hard to keep up with all the newsletters I subscribe to. Podletter has been a game-changer, turning my unread newsletters into podcasts that I can listen to while I workout.",
+    img: "/testimonials/matthew.jpg",
   },
   {
-    username: "wahab",
-    name: "Wahab Shaikh",
-    text: "Easily saves 15+ hrs for me setting up trivial stuff. Now, I can directly focus on shipping features rather than hours of setting up the same technologies from scratch. Feels like a super power! :D",
+    // username: "wahab",
+    name: "Jessica Jones",
+    text: "Podletter is a fantastic tool for lifelong learners! It's helped me stay updated with my favorite newsletters in a convenient and enjoyable way. Highly recommended!",
+    img: "/testimonials/jessica.jpg",
   },
 ];
 
@@ -87,12 +89,12 @@ const Testimonials3 = () => {
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
             <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
-              212 makers are already shipping faster!
+              Podcast enthusiasts are addicted to {config.appName}
             </h2>
           </div>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
             Don&apos;t take our word for it. Here&apos;s what they have to say
-            about ShipFast.
+            about it.
           </p>
         </div>
 

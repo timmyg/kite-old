@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 // import FeaturesListicle from "@/components/FeaturesListicle";
+import Testimonials3 from "@/components/Testimonials3";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         {/* <FeaturesAccordion /> */}
         {/* <FeaturesListicle /> */}
         <Pricing />
+        <Testimonials3 />
         <FAQ />
         <CTA />
       </main>

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import { Viewport } from "next";
 import PlausibleProvider from "next-plausible";
 import { getSEOTags } from "@/libs/seo";
@@ -14,7 +14,7 @@ const PostHogPageview = dynamic(() => import("./PostHogPageView"), {
   ssr: false,
 });
 
-const font = Inter({ subsets: ["latin"] });
+const font = Bricolage_Grotesque({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
   // Will use the primary color of your theme to show a nice theme color in the URL bar of supported browsers

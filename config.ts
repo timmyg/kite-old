@@ -26,7 +26,7 @@ const config = {
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "Starter",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
-        description: "Follow a few newsletters",
+        description: "🧠 Follow a few newsletters",
         // The price you want to display, the one user will be charged on Stripe.
         price: 5,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
@@ -36,6 +36,7 @@ const config = {
             name: "Follow 2 newsletters",
           },
           { name: "Instant newsletter-to-podcast conversions" },
+          { name: "7-day free trial" },
         ],
       },
       {
@@ -46,14 +47,15 @@ const config = {
         // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
         isFeatured: true,
         name: "Pro",
-        description: "Newsletter connaisseur",
-        price: 14,
+        description: "🧘 Newsletter connaisseur",
+        price: 9,
         priceAnchor: 29,
         features: [
           {
             name: "Follow unlimited newsletters",
           },
           { name: "Instant newsletter-to-podcast conversions" },
+          { name: "7-day free trial" },
         ],
       },
     ],

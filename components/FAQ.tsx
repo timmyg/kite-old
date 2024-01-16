@@ -46,7 +46,11 @@ const faqList: FAQItemProps[] = [
       <p>
         We use a text-to-speech engine to read the newsletters and are
         constantly improving it. You can see a sample feed{" "}
-        <Link href="https://rss.app/feed/d7JJMt8IA4TPf8jI" target="_blank">
+        <Link
+          className="underline"
+          href="https://rss.app/feed/d7JJMt8IA4TPf8jI"
+          target="_blank"
+        >
           here
         </Link>
         .

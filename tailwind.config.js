@@ -64,5 +64,21 @@ module.exports = {
     // Add "data-theme='theme_name" to any HTML tag to enable the 'theme_name' theme.
     // https://daisyui.com/
     themes: ["light", "dark"],
+    // themes: [
+    // {
+    // light: {
+    // ...require("daisyui/src/theming/themes")["light"],
+    // primary: "red",
+    // "primary-focus": "mediumblue",
+    // },
+    // },
+    // {
+    // dark: {
+    // ...require("daisyui/src/theming/themes")["dark"],
+    // primary: "#c4fbb7",
+    // "primary-content": "#fff",
+    // },
+    // },
+    // ],
   },
 };

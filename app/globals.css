@@ -21,6 +21,6 @@ progress::-webkit-progress-value {
   }
 }
 
-a {
+a.underline {
   text-decoration: underline;
 }
