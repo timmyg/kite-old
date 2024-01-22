@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import axios from "axios";
-import { convert as htmlToTextConcert } from "html-to-text";
 
 export async function POST(req: Request) {
   try {
@@ -44,7 +43,6 @@ export async function POST(req: Request) {
         from,
         subject,
         envelope,
-        body_text_2: htmlToTextConcert(String(email), {}),
       })
       .select();
     console.log("inserted ");
