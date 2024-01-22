@@ -7,7 +7,7 @@ import { checkTaskStatusUnreal } from "@/libs/unrealSpeech";
 import { Database } from "@/libs/database.types";
 import dayjs from "dayjs";
 
-// export const revalidate = 1;
+export const revalidate = 1;
 
 const getEmails = async () => {
   const supabase = createRouteHandlerClient({ cookies });
