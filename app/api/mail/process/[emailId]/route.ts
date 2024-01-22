@@ -5,6 +5,7 @@ import markdownToTxt from "markdown-to-txt";
 import { textToAudio as textToAudioOpenai } from "@/libs/openAi";
 import { textToAudio as textToAudioUnreal } from "@/libs/unrealSpeech";
 import { uploadFile } from "@/libs/uploadFile";
+import { convert as htmlToTextConvert } from "html-to-text";
 const simpleParser = require("mailparser").simpleParser;
 
 export async function POST(req: NextRequest, { params }: any) {
@@ -24,6 +25,7 @@ export async function POST(req: NextRequest, { params }: any) {
         .from("emails")
         .update({
           body_text: voiceText,
+          body_text_2: htmlToTextConvert(String(data[0].email), {}),
         })
         .eq("id", emailId);
       console.time("text to audio");
