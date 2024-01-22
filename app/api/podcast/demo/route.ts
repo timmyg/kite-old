@@ -26,6 +26,7 @@ const getEmails = async () => {
         const statusResponse = await checkTaskStatusUnreal({
           taskId: email.voice_task_id,
         });
+        console.log({ statusResponse });
         if (statusResponse.SynthesisTask?.TaskStatus === "completed") {
           await supabase
             .from("emails")
