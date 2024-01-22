@@ -44,6 +44,7 @@ export async function GET() {
   // const supabase = createRouteHandlerClient({ cookies });
   // const result = await supabase.from("emails").select();
   // .not("voice_text_url", "eq", null);
+  console.log("getting demo podcast feed...");
 
   const emails = await getEmails();
 

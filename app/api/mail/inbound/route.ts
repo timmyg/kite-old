@@ -54,9 +54,9 @@ export async function POST(req: Request) {
     // process it, email to body, body to audio mp3
     console.log("process");
     console.time("process");
-    await axios.post(
-      `${process.env.VERCEL_URL}/api/mail/process/${emailDb.data[0].id}`
-    );
+    const processEmailUrl = `${process.env.VERCEL_URL}/api/mail/process/${emailDb.data[0].id}`;
+    console.log("calling");
+    await axios.post(processEmailUrl);
     console.timeEnd("process");
     return NextResponse.json({ message: "excellent!" });
   } catch (error) {
