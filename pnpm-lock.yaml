@@ -50,6 +50,9 @@ dependencies:
   form-data:
     specifier: ^4.0.0
     version: 4.0.0
+  html-to-text:
+    specifier: ^9.0.5
+    version: 9.0.5
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -112,6 +115,9 @@ dependencies:
     version: 3.22.4
 
 devDependencies:
+  '@types/html-to-text':
+    specifier: ^9.0.4
+    version: 9.0.4
   '@types/jest':
     specifier: ^29.5.4
     version: 29.5.11
@@ -719,6 +725,10 @@ packages:
     dependencies:
       '@types/unist': 2.0.10
     dev: false
+
+  /@types/html-to-text@9.0.4:
+    resolution: {integrity: sha512-pUY3cKH/Nm2yYrEmDlPR1mR7yszjGx4DrwPjQ702C4/D5CwHuZTgZdIdwPkRbcuhs7BAh2L5rg3CL5cbRiGTCQ==}
+    dev: true
 
   /@types/istanbul-lib-coverage@2.0.6:
     resolution: {integrity: sha512-2QF/t/auWm0lsy8XtKVPG19v3sSOQlJe/YHZgfjb/KBBHOGSV+J2q/S671rcq9uTBrLAXmZpqJiaQbMT+zNU1w==}
