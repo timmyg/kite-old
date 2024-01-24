@@ -12,11 +12,14 @@ const checkEmailTranscriptionsReady = async () => {
     .eq("voice_text_is_ready", false)
     .returns<Database["public"]["Tables"]["emails"]["Row"][]>();
 
+  console.log({ notReadyEmailsResults });
+
   // pick a random one, so it doesnt get stuck on one
   const randomIndex = Math.floor(
     Math.random() * notReadyEmailsResults.data.length
   );
   const email = notReadyEmailsResults.data[randomIndex];
+  console.log({ randomIndex, email });
 
   if (email.voice_task_id) {
     const statusResponse = await checkTaskStatusUnreal({
@@ -29,6 +32,7 @@ const checkEmailTranscriptionsReady = async () => {
         .update({ voice_text_is_ready: true })
         .eq("id", email.id);
       email.voice_text_is_ready = true;
+      console.log("updated to true");
     }
   }
 };
