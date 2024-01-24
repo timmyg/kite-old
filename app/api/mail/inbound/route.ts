@@ -53,9 +53,10 @@ export async function POST(req: Request) {
     // console.log({ parsed2 });
 
     // process it, email to body, body to audio mp3
-    console.log("process");
     console.time("process");
+    console.log({ emailDb });
     const processEmailUrl = `${process.env.VERCEL_URL}/api/mail/process/${emailDb.data[0].id}`;
+    console.log("call process", emailDb.data[0].id, processEmailUrl);
     console.log("calling");
     await axios.post(processEmailUrl);
     console.timeEnd("process");
