@@ -5,7 +5,7 @@ import axios from "axios";
 
 export async function POST(req: Request) {
   try {
-    console.log("📪 INBOUND EMAIL 📪");
+    console.log("📪📪📪 INBOUND EMAIL 📪📪📪");
     console.log({
       requestSize: JSON.stringify(req)?.length,
       requestFormDataSize: JSON.stringify(req?.formData)?.length,

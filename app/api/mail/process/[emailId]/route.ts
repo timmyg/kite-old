@@ -10,7 +10,7 @@ const simpleParser = require("mailparser").simpleParser;
 
 export async function POST(req: NextRequest, { params }: any) {
   try {
-    console.time("process email");
+    console.time("👾👾👾 process email 👾👾👾");
     const { emailId } = params;
     const supabase = createRouteHandlerClient({ cookies });
     if (emailId) {
