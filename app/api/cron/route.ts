@@ -10,9 +10,13 @@ const checkEmailTranscriptionsReady = async () => {
     .from("emails")
     .select("*")
     .eq("voice_text_is_ready", false)
+    .neq("voice_task_id", null)
     .returns<Database["public"]["Tables"]["emails"]["Row"][]>();
 
-  console.log({ notReadyEmailsResults });
+  console.log({
+    notReadyEmailsResults,
+    length: notReadyEmailsResults.data.length,
+  });
 
   // pick a random one, so it doesnt get stuck on one
   const randomIndex = Math.floor(
