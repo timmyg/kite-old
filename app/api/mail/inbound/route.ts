@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import axios from "axios";
+const host = "podletter.xyz";
 
 export async function POST(req: Request) {
   try {
@@ -55,7 +56,7 @@ export async function POST(req: Request) {
     // process it, email to body, body to audio mp3
     console.time("process");
     console.log({ emailDb });
-    const processEmailUrl = `https://${process.env.VERCEL_URL}/api/mail/process/${emailDb.data[0].id}`;
+    const processEmailUrl = `https://${host}/api/mail/process/${emailDb.data[0].id}`;
     console.log("call process", emailDb.data[0].id, processEmailUrl);
     console.log("calling");
     await axios.post(processEmailUrl);
