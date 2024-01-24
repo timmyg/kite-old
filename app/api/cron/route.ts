@@ -18,26 +18,30 @@ const checkEmailTranscriptionsReady = async () => {
     length: notReadyEmailsResults.data.length,
   });
 
-  // pick a random one, so it doesnt get stuck on one
-  const randomIndex = Math.floor(
-    Math.random() * notReadyEmailsResults.data.length
-  );
-  const email = notReadyEmailsResults.data[randomIndex];
-  console.log({ randomIndex, email });
+  if (notReadyEmailsResults.data.length > 0) {
+    // pick a random one, so it doesnt get stuck on one
+    const randomIndex = Math.floor(
+      Math.random() * notReadyEmailsResults.data.length
+    );
+    const email = notReadyEmailsResults.data[randomIndex];
+    console.log({ randomIndex, email });
 
-  if (email.voice_task_id) {
-    const statusResponse = await checkTaskStatusUnreal({
-      taskId: email.voice_task_id,
-    });
-    console.log({ statusResponse });
-    if (statusResponse.SynthesisTask?.TaskStatus === "completed") {
-      await supabase
-        .from("emails")
-        .update({ voice_text_is_ready: true })
-        .eq("id", email.id);
-      email.voice_text_is_ready = true;
-      console.log("updated to true");
+    if (email.voice_task_id) {
+      const statusResponse = await checkTaskStatusUnreal({
+        taskId: email.voice_task_id,
+      });
+      console.log({ statusResponse });
+      if (statusResponse.SynthesisTask?.TaskStatus === "completed") {
+        await supabase
+          .from("emails")
+          .update({ voice_text_is_ready: true })
+          .eq("id", email.id);
+        email.voice_text_is_ready = true;
+        console.log("updated to true");
+      }
     }
+  } else {
+    console.log("no emails to check");
   }
 };
 
