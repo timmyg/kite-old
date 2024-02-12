@@ -5,15 +5,15 @@ import Footer from "@/components/Footer";
 export default async function LayoutBlog({ children }: { children: any }) {
   return (
     <div>
-      <Suspense>
-        <HeaderBlog />
+      {/* <Suspense> */}
+      <HeaderBlog />
 
-        <main className="min-h-screen max-w-6xl mx-auto p-8">{children}</main>
+      <main className="min-h-screen max-w-6xl mx-auto p-8">{children}</main>
 
-        <div className="h-24" />
+      <div className="h-24" />
 
-        <Footer />
-      </Suspense>
+      <Footer />
+      {/* </Suspense> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import { Bricolage_Grotesque } from "next/font/google";
 import { Viewport } from "next";
 import PlausibleProvider from "next-plausible";
@@ -35,13 +35,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <PlausibleProvider domain={config.domainName} />
         </head>
       )}
-      <PHProvider>
-        <body>
-          <PostHogPageview />
-          {/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}
-          <ClientLayout>{children}</ClientLayout>
-        </body>
-      </PHProvider>
+      <Suspense>
+        <PHProvider>
+          <body>
+            <PostHogPageview />
+            {/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}
+            <ClientLayout>{children}</ClientLayout>
+          </body>
+        </PHProvider>
+      </Suspense>
     </html>
   );
 }
