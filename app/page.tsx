@@ -58,7 +58,6 @@ export default function Home() {
         <Testimonials3 />
         <FAQ />
         <CTA />
-        {/* >>>>>>> ad7ff14 (hello world) */}
       </main>
       <Footer />
     </>
