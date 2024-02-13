@@ -12,6 +12,7 @@ export interface SiteConfig {
 export const getSiteConfig = (): SiteConfig => {
   const headersList = headers();
   const host = headersList.get("host");
+  console.log({ host });
   const domainName: string | null = host?.split(":")?.[0]?.split(".")?.[0];
   const site = sites.find((site) => site.domainName === domainName);
   if (!site) {
