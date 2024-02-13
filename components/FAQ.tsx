@@ -1,6 +1,6 @@
 "use client";
 
-import { AppConfig } from "@/libs/util/server/url";
+import { AppConfig } from "@/config/config.apps";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import type { JSX } from "react";

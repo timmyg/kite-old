@@ -1,4 +1,4 @@
-import { AppConfig } from "@/libs/util/server/url";
+import { AppConfig } from "@/config/config.apps";
 
 const Arrow = ({ extraStyle }: { extraStyle: string }) => {
   return (

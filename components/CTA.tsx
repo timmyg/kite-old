@@ -1,7 +1,6 @@
+import { AppConfig } from "@/config/config.apps";
 import Image from "next/image";
-import config from "@/config/config.platform";
 import Link from "next/link";
-import { AppConfig } from "@/libs/util/server/url";
 
 const CTA = ({ config }: { config: AppConfig }) => {
   return (
@@ -23,7 +22,7 @@ const CTA = ({ config }: { config: AppConfig }) => {
           </p>
 
           <Link className="btn btn-primary btn-wide" href="/#hero">
-            Get {config.appName}
+            Get {config.name}
           </Link>
         </div>
       </div>

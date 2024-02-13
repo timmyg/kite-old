@@ -1,4 +1,6 @@
-import config from "@/config/config.platform";
+import { platformConfig } from "@/config/config.platform";
+
+// import config from "@/config/config.platform";
 const formData = require("form-data");
 const Mailgun = require("mailgun.js");
 const mailgun = new Mailgun(formData);
@@ -40,7 +42,7 @@ export const sendEmail = async ({
   replyTo?: string;
 }): Promise<any> => {
   const data = {
-    from: config.mailgun.fromAdmin,
+    from: (platformConfig as any).mailgun.fromAdmin,
     to: [to],
     subject,
     text,
@@ -49,8 +51,9 @@ export const sendEmail = async ({
   };
 
   await mg.messages.create(
-    (config.mailgun.subdomain ? `${config.mailgun.subdomain}.` : "") +
-      config.domainName,
+    ((platformConfig as any).mailgun.subdomain
+      ? `${(platformConfig as any).mailgun.subdomain}.`
+      : "") + (platformConfig as any).domainName,
     data
   );
 };

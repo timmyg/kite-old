@@ -1,6 +1,5 @@
-import config from "@/config/config.platform";
 import ButtonCheckout from "./ButtonCheckout";
-import { AppConfig } from "@/libs/util/server/url";
+import { AppConfig } from "@/config/config.apps";
 
 // <Pricing/> displays the pricing plans for your app
 // It's your Stripe config in config.js.stripe.plans[] that will be used to display the plans
@@ -22,7 +21,7 @@ const Pricing = ({ config }: { config: AppConfig }) => {
         </div>
 
         <div className="relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8">
-          {config?.stripe?.plans.map((plan) => (
+          {(config as any)?.stripe?.plans.map((plan: any) => (
             <div key={plan.priceId} className="relative w-full max-w-lg">
               {plan.isFeatured && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
@@ -73,7 +72,7 @@ const Pricing = ({ config }: { config: AppConfig }) => {
                 </div>
                 {plan.features && (
                   <ul className="space-y-2.5 leading-relaxed text-base flex-1">
-                    {plan.features.map((feature, i) => (
+                    {(plan as any).features.map((feature: any, i: number) => (
                       <li key={i} className="flex items-center gap-2">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

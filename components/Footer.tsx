@@ -1,7 +1,7 @@
+import { AppConfig } from "@/config/config.apps";
 import Link from "next/link";
 // import Image from "next/image";
 // import config from "@/config";
-import { AppConfig } from "@/libs/util/server/url";
 // import logo from "@/app/icon.png";
 
 // Add the Footer to the bottom of your landing page and more.
@@ -27,12 +27,12 @@ const Footer = ({ config }: { config: AppConfig }) => {
                 height={24}
               /> */}
               <strong className="font-extrabold tracking-tight text-base md:text-lg">
-                {config.appName}
+                {config.name}
               </strong>
             </Link>
 
             <p className="mt-3 text-sm text-base-content/80">
-              {config.appDescription}
+              {config.description}
             </p>
             <p className="mt-3 text-sm text-base-content/60">
               Copyright © {new Date().getFullYear()} - All rights reserved

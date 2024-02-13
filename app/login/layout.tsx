@@ -3,7 +3,7 @@ import { getSEOTags } from "@/libs/seo";
 import { getAppConfig } from "@/libs/util/server/url";
 
 export const metadata = getSEOTags({
-  title: `Login to ${getAppConfig().appName}`,
+  title: `Login to ${getAppConfig().name}`,
   canonicalUrlRelative: "/auth/login",
 });
 

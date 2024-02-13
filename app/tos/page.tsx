@@ -27,7 +27,7 @@ import { getAppConfig } from "@/libs/util/server/url";
 // Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Terms and Conditions | ${getAppConfig().appName}`,
+  title: `Terms and Conditions | ${getAppConfig().name}`,
   canonicalUrlRelative: "/tos",
 });
 
@@ -52,7 +52,7 @@ const TOS = () => {
           Back
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Terms and Conditions for {config.appName}
+          Terms and Conditions for {getAppConfig().name}
         </h1>
 
         <pre

@@ -2,7 +2,7 @@ import Image from "next/image";
 // import TestimonialsAvatars from "./TestimonialsAvatars";
 // import config from "@/config";
 import ButtonLead from "./ButtonLead";
-import { AppConfig } from "@/libs/util/server/url";
+import { AppConfig } from "@/config/config.apps";
 
 const Hero = ({ config }: { config: AppConfig }) => {
   return (

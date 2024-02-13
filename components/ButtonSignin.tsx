@@ -4,7 +4,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import config from "@/config/config.platform";
+import { platformConfig } from "@/config/config.platform";
+// import config from "@/config/config.platform";
 
 // A simple button to sign in with our providers (Google & Magic Links).
 // It automatically redirects user to callbackUrl (config.auth.callbackUrl) after login, which is normally a private page for users to manage their accounts.
@@ -32,7 +33,7 @@ const ButtonSignin = ({
   if (user) {
     return (
       <Link
-        href={config.auth.callbackUrl}
+        href={platformConfig.auth.callbackUrl}
         className={`btn ${extraStyle ? extraStyle : ""}`}
       >
         {user?.user_metadata?.avatar_url ? (
@@ -57,7 +58,7 @@ const ButtonSignin = ({
   return (
     <Link
       className={`btn ${extraStyle ? extraStyle : ""}`}
-      href={config.auth.loginUrl}
+      href={platformConfig.auth.loginUrl}
     >
       {text}
     </Link>

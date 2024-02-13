@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getSEOTags } from "@/libs/seo";
-import config from "@/config/config.platform";
+import { getAppConfig } from "@/libs/util/server/url";
+// import config from "@/config/config.platform";
 
 // CHATGPT PROMPT TO GENERATE YOUR PRIVACY POLICY — replace with your own data 👇
 
@@ -26,7 +27,7 @@ import config from "@/config/config.platform";
 // Please write a simple privacy policy for my site. Add the current date.  Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Privacy Policy | ${config.appName}`,
+  title: `Privacy Policy | ${getAppConfig().name}`,
   canonicalUrlRelative: "/privacy-policy",
 });
 
@@ -50,7 +51,7 @@ const PrivacyPolicy = () => {
           Back
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Privacy Policy for {config.appName}
+          Privacy Policy for {getAppConfig().name}
         </h1>
 
         <pre

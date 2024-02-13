@@ -3,7 +3,7 @@
 import { JSX, useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
-import config from "@/config/config.platform";
+// import config from "@/config/config";
 
 // Use this object to add an icon to the testimonial (optional) like the Product Hunt logo for instance.
 // Only change the values if you add more referrings sites (currently Twitter & Product Hunt)
@@ -184,7 +184,7 @@ const Testimonial = ({ i }: { i: number }) => {
               <Image
                 className="w-10 h-10 rounded-full object-cover"
                 src={list[i].img}
-                alt={`${list[i].name}'s testimonial for ${config.appName}`}
+                alt={`${list[i].name}'s testimonial`}
                 width={48}
                 height={48}
               />
@@ -371,7 +371,7 @@ const Testimonials11 = () => {
           </div>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
             Don&apos;t take our word for it. Here&apos;s what they have to say
-            about {config.appName}.
+            {/* about {config.appName}. */}
           </p>
         </div>
 
@@ -403,9 +403,7 @@ const Testimonials11 = () => {
                         <Image
                           className="w-12 h-12 rounded-full object-cover"
                           src={list[list.length - 1].img}
-                          alt={`${
-                            list[list.length - 1].name
-                          }'s testimonial for ${config.appName}`}
+                          alt={`${list[list.length - 1].name}'s testimonial`}
                           width={48}
                           height={48}
                         />
