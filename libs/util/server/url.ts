@@ -1,3 +1,5 @@
+"use server";
+
 import { AppConfig, sites } from "@/config/config.apps";
 import { platformConfig } from "@/config/config.platform";
 import { headers } from "next/headers";
