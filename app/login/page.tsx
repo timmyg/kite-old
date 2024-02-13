@@ -5,12 +5,12 @@ import { useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Provider } from "@supabase/supabase-js";
 import toast from "react-hot-toast";
-import { getAppConfig } from "@/libs/util/server/url";
+// import { getAppConfig } from "@/libs/util/server/url";
 
 // This a login/singup page for Supabase Auth.
 // Successfull login redirects to /api/auth/callback where the Code Exchange is processed (see app/api/auth/callback/route.js).
 export default function Login() {
-  const config = getAppConfig();
+  // const config = getAppConfig();
   const supabase = createClientComponentClient();
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -58,7 +58,10 @@ export default function Login() {
   };
 
   return (
-    <main className="p-8 md:p-24" data-theme={config.colors.theme}>
+    <main
+      className="p-8 md:p-24"
+      // data-theme={config.colors.theme}
+    >
       <div className="text-center mb-4">
         <Link href="/" className="btn btn-ghost btn-sm">
           <svg
@@ -77,7 +80,8 @@ export default function Login() {
         </Link>
       </div>
       <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-center mb-12">
-        Login to {config.appName}{" "}
+        {/* Login to {config.name}{" "} */}
+        Login
       </h1>
 
       <div className="space-y-8 max-w-xl mx-auto">

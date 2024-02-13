@@ -56,7 +56,7 @@ export const sites: AppConfig[] = [
         </h1>
       ),
       description:
-        "Answer a few questions and we`&apos;ll strategically validate if your startup idea is worth pursuing",
+        "Answer a few questions and we'll strategically validate whether your startup idea is worth pursuing",
     },
   },
 ];

@@ -2,8 +2,9 @@ import { NextResponse, NextRequest } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
 import { SupabaseClient } from "@supabase/supabase-js";
-import config from "@/config/config";
+// import config from "@/config/config";
 import { findCheckoutSession } from "@/libs/stripe";
+// import { getAppConfig } from "@/libs/util/server/url";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2023-08-16",
@@ -17,6 +18,7 @@ const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 // See more: https://shipfa.st/docs/features/payments
 export async function POST(req: NextRequest) {
   const body = await req.text();
+  // const config = getAppConfig();
 
   const signature = headers().get("stripe-signature");
 
@@ -52,8 +54,11 @@ export async function POST(req: NextRequest) {
         const customerId = session?.customer;
         const priceId = session?.line_items?.data[0]?.price.id;
         const userId = stripeObject.client_reference_id;
-        const plan = config.stripe.plans.find((p) => p.priceId === priceId);
+        const plan = (config as any).stripe.plans.find(
+          (p) => p.priceId === priceId
+        );
 
+        // const plan = null;
         if (!plan) break;
 
         // Update the profile where id equals the userId (in table called 'profiles') and update the customer_id, price_id, and has_access (provisioning)
