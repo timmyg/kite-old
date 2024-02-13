@@ -5,9 +5,10 @@ import type { JSX } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import ButtonSignin from "./ButtonSignin";
+// import ButtonSignin from "./ButtonSignin";
 import logo from "@/app/icon.png";
-import config from "@/config";
+// import config from "@/config";
+import { SiteConfig } from "@/libs/util/server/url";
 
 const links: {
   href: string;
@@ -31,7 +32,7 @@ const links: {
 
 // A header with a logo on the left, links in the center (like Pricing, etc...), and a CTA (like Get Started or Login) on the right.
 // The header is responsive, and on mobile, the links are hidden behind a burger button.
-const Header = () => {
+const Header = ({ config }: { config: SiteConfig }) => {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
