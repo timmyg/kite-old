@@ -1,5 +1,6 @@
 "use client";
 
+import { AppConfig } from "@/libs/util/server/url";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import type { JSX } from "react";
@@ -136,7 +137,7 @@ const FaqItem = ({ item }: { item: FAQItemProps }) => {
   );
 };
 
-const FAQ = () => {
+const FAQ = ({ config }: { config: AppConfig }) => {
   return (
     <section className="bg-base-200" id="faq">
       <div className="py-24 px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12">

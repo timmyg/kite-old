@@ -1,17 +1,17 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { AppConfig } from "@/config/config.apps";
 import { useEffect, useState, ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { Crisp } from "crisp-sdk-web";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
-import config from "@/config";
 
 // Crisp customer chat support:
 // This component is separated from ClientLayout because it needs to be wrapped with <SessionProvider> to use useSession() hook
-const CrispChat = (): null => {
+const CrispChat = ({ config }: { config: AppConfig }): null => {
   const pathname = usePathname();
 
   const supabase = createClientComponentClient();
@@ -65,7 +65,13 @@ const CrispChat = (): null => {
 // 2. Toaster: Show Success/Error messages anywhere from the app with toast()
 // 3. Tooltip: Show tooltips if any JSX elements has these 2 attributes: data-tooltip-id="tooltip" data-tooltip-content=""
 // 4. CrispChat: Set Crisp customer chat support (see above)
-const ClientLayout = ({ children }: { children: ReactNode }) => {
+const ClientLayout = ({
+  config,
+  children,
+}: {
+  config: AppConfig;
+  children: ReactNode;
+}) => {
   return (
     <>
       {/* Show a progress bar at the top when navigating between pages */}
@@ -88,7 +94,7 @@ const ClientLayout = ({ children }: { children: ReactNode }) => {
       />
 
       {/* Set Crisp customer chat support */}
-      <CrispChat />
+      <CrispChat config={config} />
     </>
   );
 };

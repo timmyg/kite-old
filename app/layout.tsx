@@ -4,17 +4,19 @@ import { Viewport } from "next";
 import PlausibleProvider from "next-plausible";
 import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
-import config from "@/config";
 import "./globals.css";
 import { PHProvider } from "./providers";
 
 import dynamic from "next/dynamic";
+import { getAppConfig } from "@/libs/util/server/url";
 
 const PostHogPageview = dynamic(() => import("./PostHogPageView"), {
   ssr: false,
 });
 
 const font = Bricolage_Grotesque({ subsets: ["latin"] });
+
+const config = getAppConfig();
 
 export const viewport: Viewport = {
   // Will use the primary color of your theme to show a nice theme color in the URL bar of supported browsers
@@ -28,6 +30,7 @@ export const viewport: Viewport = {
 export const metadata = getSEOTags();
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const config = getAppConfig();
   return (
     <html lang="en" data-theme={config.colors.theme} className={font.className}>
       {config.domainName && (
@@ -40,7 +43,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <body>
             <PostHogPageview />
             {/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}
-            <ClientLayout>{children}</ClientLayout>
+            <ClientLayout config={config}>{children}</ClientLayout>
           </body>
         </PHProvider>
       </Suspense>

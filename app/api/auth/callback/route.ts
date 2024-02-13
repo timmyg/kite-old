@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import config from "@/config";
+import { platformConfig } from "@/config/config.platform";
 
 export const dynamic = "force-dynamic";
 
@@ -16,5 +16,7 @@ export async function GET(req: NextRequest) {
   }
 
   // URL to redirect to after sign in process completes
-  return NextResponse.redirect(requestUrl.origin + config.auth.callbackUrl);
+  return NextResponse.redirect(
+    requestUrl.origin + platformConfig.auth.callbackUrl
+  );
 }

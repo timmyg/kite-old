@@ -1,3 +1,5 @@
+import { AppConfig } from "@/libs/util/server/url";
+
 const Arrow = ({ extraStyle }: { extraStyle: string }) => {
   return (
     <svg
@@ -39,7 +41,7 @@ const Step = ({ emoji, text }: { emoji: string; text: string }) => {
 // - Hero: "ShipFast helps developers launch startups fast"
 // - Problem Agitation: "Developers spend too much time adding features, get overwhelmed, and quit." (not about ShipFast at all)
 // - Features: "ShipFast has user auth, Stripe, emails all set up for you"
-const Problem = () => {
+const Problem = ({ config }: { config: AppConfig }) => {
   return (
     <section className="bg-neutral text-neutral-content">
       <div className="max-w-7xl mx-auto px-8 py-16 md:py-32 text-center">

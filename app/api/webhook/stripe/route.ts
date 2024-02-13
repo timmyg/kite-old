@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
 import { SupabaseClient } from "@supabase/supabase-js";
-import configFile from "@/config";
+import config from "@/config/config";
 import { findCheckoutSession } from "@/libs/stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
         const customerId = session?.customer;
         const priceId = session?.line_items?.data[0]?.price.id;
         const userId = stripeObject.client_reference_id;
-        const plan = configFile.stripe.plans.find((p) => p.priceId === priceId);
+        const plan = config.stripe.plans.find((p) => p.priceId === priceId);
 
         if (!plan) break;
 

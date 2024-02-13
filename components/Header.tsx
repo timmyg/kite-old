@@ -5,10 +5,10 @@ import type { JSX } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { AppConfig } from "@/config/config.apps";
 // import ButtonSignin from "./ButtonSignin";
-import logo from "@/app/icon.png";
+// import logo from "@/app/logo.png";
 // import config from "@/config";
-import { SiteConfig } from "@/libs/util/server/url";
 
 const links: {
   href: string;
@@ -32,7 +32,7 @@ const links: {
 
 // A header with a logo on the left, links in the center (like Pricing, etc...), and a CTA (like Get Started or Login) on the right.
 // The header is responsive, and on mobile, the links are hidden behind a burger button.
-const Header = ({ config }: { config: SiteConfig }) => {
+const Header = ({ config }: { config: AppConfig }) => {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -53,18 +53,19 @@ const Header = ({ config }: { config: SiteConfig }) => {
           <Link
             className="flex items-center gap-2 shrink-0 "
             href="/"
-            title={`${config.appName} homepage`}
+            title={`${config.name} homepage`}
           >
             <Image
-              src={logo}
-              alt={`${config.appName} logo`}
+              src={`/sites/${config.id}/logo.png`}
+              alt={`${config.name} logo`}
               className="w-8"
-              placeholder="blur"
+              // placeholder="blur"
               priority={true}
               width={32}
               height={32}
             />
-            <span className="font-extrabold text-lg">{config.appName}</span>
+            {/* <div style={{ height: "40px", width: "40px" }}>{config.logo}</div> */}
+            <span className="font-extrabold text-lg">{config.name}</span>
           </Link>
         </div>
         {/* Burger button to open menu on mobile */}
@@ -119,19 +120,19 @@ const Header = ({ config }: { config: SiteConfig }) => {
           <div className="flex items-center justify-between">
             <Link
               className="flex items-center gap-2 shrink-0 "
-              title={`${config.appName} homepage`}
+              title={`${config.name} homepage`}
               href="/"
             >
               <Image
-                src={logo}
-                alt={`${config.appName} logo`}
+                src={`/sites/${config.id}/logo.png`}
+                alt={`${config.name} logo`}
                 className="w-8"
-                placeholder="blur"
+                // placeholder="blur"
                 priority={true}
                 width={32}
                 height={32}
               />
-              <span className="font-extrabold text-lg">{config.appName}</span>
+              <span className="font-extrabold text-lg">{config.name}</span>
             </Link>
             <button
               type="button"

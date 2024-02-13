@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import config from "@/config";
+import { platformConfig } from "@/config/config.platform";
 
 // This is a server-side component to ensure the user is logged in.
 // If not, it will redirect to the login page.
@@ -21,7 +21,7 @@ export default async function LayoutPrivate({
   } = await supabase.auth.getSession();
 
   if (!session) {
-    redirect(config.auth.loginUrl);
+    redirect(platformConfig.auth.loginUrl);
   }
 
   return <>{children}</>;

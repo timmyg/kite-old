@@ -1,18 +1,10 @@
-import { sites } from "@/types/config.sites";
+import { AppConfig, sites } from "@/config/config.apps";
+import { platformConfig } from "@/config/config.platform";
 import { headers } from "next/headers";
 
-export interface SiteConfig {
-  domainName: string;
-  appName: string;
-  hero: {
-    description: string;
-  };
-}
-
-export const getSiteConfig = (): SiteConfig => {
+export const getAppConfig = (): AppConfig => {
   const headersList = headers();
   const host = headersList.get("host");
-  console.log({ host });
   // http://kite.localhost:3334 or https://www.kite.wtf => kite
   const domainName: string | null = host
     ?.replace(/^(?:https?:\/\/)?(?:www\.)?/, "")
@@ -22,5 +14,5 @@ export const getSiteConfig = (): SiteConfig => {
   if (!site) {
     throw new Error(`Site not found: ${{ domainName, host }}`);
   }
-  return site;
+  return { ...platformConfig, ...site };
 };

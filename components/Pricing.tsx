@@ -1,11 +1,12 @@
-import config from "@/config";
+import config from "@/config/config.platform";
 import ButtonCheckout from "./ButtonCheckout";
+import { AppConfig } from "@/libs/util/server/url";
 
 // <Pricing/> displays the pricing plans for your app
 // It's your Stripe config in config.js.stripe.plans[] that will be used to display the plans
 // <ButtonCheckout /> renders a button that will redirect the user to Stripe checkout called the /api/stripe/create-checkout API endpoint with the correct priceId
 
-const Pricing = () => {
+const Pricing = ({ config }: { config: AppConfig }) => {
   return (
     <section className="bg-base-200 overflow-hidden" id="pricing">
       <div className="py-24 px-8 max-w-5xl mx-auto">
@@ -21,7 +22,7 @@ const Pricing = () => {
         </div>
 
         <div className="relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8">
-          {config.stripe.plans.map((plan) => (
+          {config?.stripe?.plans.map((plan) => (
             <div key={plan.priceId} className="relative w-full max-w-lg">
               {plan.isFeatured && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">

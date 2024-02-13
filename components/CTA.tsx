@@ -1,8 +1,9 @@
 import Image from "next/image";
-import config from "@/config";
+import config from "@/config/config.platform";
 import Link from "next/link";
+import { AppConfig } from "@/libs/util/server/url";
 
-const CTA = () => {
+const CTA = ({ config }: { config: AppConfig }) => {
   return (
     <section className="relative hero overflow-hidden min-h-screen">
       <Image

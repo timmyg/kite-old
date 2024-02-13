@@ -1,6 +1,6 @@
+import { AppConfig } from "@/config/config.apps";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
-import config from "@/config";
 
 // The list of your testimonials. It needs 3 items to fill the row.
 const list: {
@@ -65,7 +65,7 @@ const Testimonial = ({ i }: { i: number }) => {
                 <Image
                   className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
                   src={list[i].img}
-                  alt={`${list[i].name}'s testimonial for ${config.appName}`}
+                  alt={`hi`}
                   width={48}
                   height={48}
                 />
@@ -82,14 +82,14 @@ const Testimonial = ({ i }: { i: number }) => {
   );
 };
 
-const Testimonials3 = () => {
+const Testimonials3 = ({ config }: { config: AppConfig }) => {
   return (
     <section id="testimonials">
       <div className="py-24 px-8 max-w-7xl mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
             <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
-              Podcast enthusiasts are addicted to {config.appName}
+              Podcast enthusiasts are addicted to {config.name}
             </h2>
           </div>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">

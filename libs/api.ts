@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { redirect } from "next/navigation";
-import config from "@/config";
+import { platformConfig } from "@/config/config.platform";
 
 // use this to interact with our own API (/app/api folder) from the front-end side
 // See https://shipfa.st/docs/tutorials/api-call
@@ -20,7 +20,7 @@ apiClient.interceptors.response.use(
       // User not auth, ask to re login
       toast.error("Please login");
       // Sends the user to the login page
-      redirect(config.auth.loginUrl);
+      redirect(platformConfig.auth.loginUrl);
     } else if (error.response?.status === 403) {
       // User not authorized, must subscribe/purchase/pick a plan
       message = "Pick a plan to use this feature";

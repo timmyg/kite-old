@@ -10,26 +10,24 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 // import FeaturesListicle from "@/components/FeaturesListicle";
 import Testimonials3 from "@/components/Testimonials3";
-import { getSiteConfig } from "@/libs/util/server/url";
+import { getAppConfig } from "@/libs/util/server/url";
 // import ButtonSignin from "@/components/ButtonSignin";
 // import Link from "next/link";
 
 export default function Home() {
-  const siteConfig = getSiteConfig();
+  const appConfig = getAppConfig();
   return (
     <>
-      <Header config={siteConfig} />
+      <Header config={appConfig} />
       <main>
-        <Hero />
-        <Problem />
-        {/* <FeaturesAccordion /> */}
-        {/* <FeaturesListicle /> */}
-        <Pricing />
-        <Testimonials3 />
-        <FAQ />
-        <CTA />
+        <Hero config={appConfig} />
+        <Problem config={appConfig} />
+        <Pricing config={appConfig} />
+        <Testimonials3 config={appConfig} />
+        <FAQ config={appConfig} />
+        <CTA config={appConfig} />
       </main>
-      <Footer />
+      <Footer config={appConfig} />
     </>
   );
 }

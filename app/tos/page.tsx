@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getSEOTags } from "@/libs/seo";
-import config from "@/config";
+import { getAppConfig } from "@/libs/util/server/url";
+// import config from "@/config/config.platform";
 
 // CHATGPT PROMPT TO GENERATE YOUR TERMS & SERVICES — replace with your own data 👇
 
@@ -26,11 +27,12 @@ import config from "@/config";
 // Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Terms and Conditions | ${config.appName}`,
+  title: `Terms and Conditions | ${getAppConfig().appName}`,
   canonicalUrlRelative: "/tos",
 });
 
 const TOS = () => {
+  const config = getAppConfig();
   return (
     <main className="max-w-xl mx-auto">
       <div className="p-5">

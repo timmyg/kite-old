@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import config from "@/config";
+import { getAppConfig } from "./util/server/url";
 
 // These are all the SEO tags you can add to your pages.
 // It prefills data with default title/description/OG, etc.. and you can cusotmize it for each page.
@@ -17,14 +17,15 @@ export const getSEOTags = ({
   canonicalUrlRelative?: string;
   extraTags?: Record<string, any>;
 } = {}) => {
+  const config = getAppConfig();
   return {
     // up to 50 characters (what does your app do for the user?) > your main should be here
-    title: title || config.appName,
+    title: title || config.name,
     // up to 160 characters (how does your app help the user?)
-    description: description || config.appDescription,
+    description: description || config.description,
     // some keywords separated by commas. by default it will be your app name
-    keywords: keywords || [config.appName],
-    applicationName: config.appName,
+    keywords: keywords || [config.name],
+    applicationName: config.name,
     // set a base URL prefix for other fields that require a fully qualified URL (.e.g og:image: og:image: 'https://yourdomain.com/share.png' => '/share.png')
     metadataBase: new URL(
       process.env.NODE_ENV === "development"
@@ -33,10 +34,10 @@ export const getSEOTags = ({
     ),
 
     openGraph: {
-      title: openGraph?.title || config.appName,
-      description: openGraph?.description || config.appDescription,
+      title: openGraph?.title || config.name,
+      description: openGraph?.description || config.description,
       url: openGraph?.url || `https://${config.domainName}/`,
-      siteName: openGraph?.title || config.appName,
+      siteName: openGraph?.title || config.name,
       // If you add an opengraph-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [
       //   {
@@ -50,8 +51,8 @@ export const getSEOTags = ({
     },
 
     twitter: {
-      title: openGraph?.title || config.appName,
-      description: openGraph?.description || config.appDescription,
+      title: openGraph?.title || config.name,
+      description: openGraph?.description || config.description,
       // If you add an twitter-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [openGraph?.image || defaults.og.image],
       card: "summary_large_image",
@@ -76,6 +77,7 @@ export const getSEOTags = ({
 // Fill the fields with your own data
 // See https://shipfa.st/docs/features/seo
 export const renderSchemaTags = () => {
+  const config = getAppConfig();
   return (
     <script
       type="application/ld+json"
@@ -83,8 +85,8 @@ export const renderSchemaTags = () => {
         __html: JSON.stringify({
           "@context": "http://schema.org",
           "@type": "SoftwareApplication",
-          name: config.appName,
-          description: config.appDescription,
+          name: config.name,
+          description: config.description,
           image: `https://${config.domainName}/icon.png`,
           url: `https://${config.domainName}/`,
           author: {
