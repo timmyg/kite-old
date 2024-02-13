@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import { getSEOTags } from "@/libs/seo";
-import { getAppConfig } from "@/libs/util/server/url";
+// import { getAppConfig } from "@/libs/util/server/url";
 
 export const metadata = getSEOTags({
-  title: `Login to ${getAppConfig().name}`,
+  // title: `Login to ${getAppConfig().name}`,
   canonicalUrlRelative: "/auth/login",
 });
 
