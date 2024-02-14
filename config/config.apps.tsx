@@ -51,7 +51,7 @@ export const sites: AppConfig[] = [
     name: "Podletter",
     description: "Listen to your email newsletters in your podcast feed",
     id: "podletter",
-    domainName: "podletter",
+    domainName: "podletter.xyz",
     hero: {
       header: (
         <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
@@ -73,7 +73,7 @@ export const sites: AppConfig[] = [
     name: "Kite",
     description: "Let us validate your startup idea in one week",
     id: "kite",
-    domainName: "kite",
+    domainName: "kite.wtf",
     hero: {
       header: (
         <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
