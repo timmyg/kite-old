@@ -12,7 +12,10 @@ export const getAppConfig = (): AppConfig => {
     ?.replace(/^(?:https?:\/\/)?(?:www\.)?/, "")
     ?.split(":")?.[0]
     ?.split(".")?.[0];
-  const site = sites.find((site) => site.domainName === domainName);
+  // console.log({ host, domainName });
+  const site = sites.find(
+    (site) => site.domainName.split(".")?.[0] === domainName
+  );
   if (!site) {
     throw new Error(`Site not found: ${{ domainName, host }}`);
   }
