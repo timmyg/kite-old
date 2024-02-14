@@ -29,7 +29,7 @@ export const viewport: Viewport = {
 export async function generateMetadata() {
   const config = getAppConfig();
   const seo = getSEOTags({ config });
-  // console.log("SEO", seo);
+  console.log("SEO", JSON.stringify(seo, null, 2));
   return seo;
 }
 
