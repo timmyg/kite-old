@@ -28,6 +28,9 @@ export const getSEOTags = ({
     // some keywords separated by commas. by default it will be your app name
     keywords: keywords || [config?.name],
     applicationName: config?.name,
+    icons: {
+      icon: `/sites/${config.id}/logo.png`,
+    },
     // set a base URL prefix for other fields that require a fully qualified URL (.e.g og:image: og:image: 'https://yourdomain.com/share.png' => '/share.png')
     metadataBase: new URL(
       process.env.NODE_ENV === "development"
