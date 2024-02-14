@@ -5,6 +5,8 @@ import { platformConfig } from "@/config/config.platform";
 import { headers } from "next/headers";
 
 export const getAppConfig = (): AppConfig => {
+  console.log("getAppConfig");
+  // console.trace();
   const headersList = headers();
   const host = headersList.get("host");
   console.log({ host });

@@ -16,11 +16,9 @@ const PostHogPageview = dynamic(() => import("./PostHogPageView"), {
 
 const font = Bricolage_Grotesque({ subsets: ["latin"] });
 
-const config = getAppConfig();
-
 export const viewport: Viewport = {
   // Will use the primary color of your theme to show a nice theme color in the URL bar of supported browsers
-  themeColor: config.colors.main,
+  // themeColor: config.colors.main,
   width: "device-width",
   initialScale: 1,
 };
