@@ -27,8 +27,8 @@ import { getSEOTags } from "@/libs/seo";
 // Please write a simple privacy policy for my site. Add the current date.  Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  // title: `Privacy Policy | ${getAppConfig().name}`,
-  // canonicalUrlRelative: "/privacy-policy",
+  title: `Privacy Policy`,
+  canonicalUrlRelative: "/privacy-policy",
 });
 
 const PrivacyPolicy = () => {

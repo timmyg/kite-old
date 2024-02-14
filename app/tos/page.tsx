@@ -1,3 +1,4 @@
+import { getSEOTags } from "@/libs/seo";
 import Link from "next/link";
 // import { getSEOTags } from "@/libs/seo";
 // import { getAppConfig } from "@/libs/util/server/url";
@@ -26,10 +27,10 @@ import Link from "next/link";
 
 // Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
 
-// export const metadata = getSEOTags({
-//   title: `Terms and Conditions | ${getAppConfig().name}`,
-//   canonicalUrlRelative: "/tos",
-// });
+export const metadata = getSEOTags({
+  title: `Terms and Conditions`,
+  canonicalUrlRelative: "/tos",
+});
 
 const TOS = () => {
   // const config = getAppConfig();
