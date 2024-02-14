@@ -25,7 +25,7 @@ const Hero = ({ config }: { config: AppConfig }) => {
       <div className="lg:w-full rounded-lg overflow-hidden">
         <Image
           // src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
-          src="/landing/dude-with-computer.png"
+          src={`/sites/${config.id}/hero.png`}
           alt="Product Demo"
           className="w-full"
           priority={true}

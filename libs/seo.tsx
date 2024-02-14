@@ -19,7 +19,8 @@ export const getSEOTags = ({
   canonicalUrlRelative?: string;
   extraTags?: Record<string, any>;
   config?: AppConfig;
-} = {}) => {
+} = {}): Metadata => {
+  // console.log("SEO");
   return {
     // up to 50 characters (what does your app do for the user?) > your main should be here
     title: title || config?.name,
@@ -28,8 +29,22 @@ export const getSEOTags = ({
     // some keywords separated by commas. by default it will be your app name
     keywords: keywords || [config?.name],
     applicationName: config?.name,
+    // icons: {
+    //   icon: `/sites/${config?.id}/logo.png`,
+    // },
     icons: {
-      icon: `/sites/${config?.id}/logo.png`,
+      icon: [
+        {
+          // media: "(prefers-color-scheme: dark)",
+          url: `/sites/${config?.id}/logo.png`,
+          href: `/sites/${config?.id}/logo.png`,
+        },
+        // {
+        //   media: '(prefers-color-scheme: dark)',
+        //   url: '/images/icon.png',
+        //   href: '/images/icon-dark.png',
+        // },
+      ],
     },
     // set a base URL prefix for other fields that require a fully qualified URL (.e.g og:image: og:image: 'https://yourdomain.com/share.png' => '/share.png')
     metadataBase: new URL(
@@ -42,7 +57,7 @@ export const getSEOTags = ({
       title: openGraph?.title || config?.name,
       description: openGraph?.description || config?.description,
       url: openGraph?.url || `https://${config?.domainName}/`,
-      siteName: openGraph?.title || config?.name,
+      siteName: (openGraph?.title || config?.name) as string,
       // If you add an opengraph-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [
       //   {

@@ -37,7 +37,7 @@ export interface AppConfig {
     onlyShowOnRoutes: string[];
   };
   colors?: {
-    main: any;
+    main?: any;
     theme?: Theme;
   };
   auth?: {
@@ -63,6 +63,10 @@ export const sites: AppConfig[] = [
         </h1>
       ),
       description: "Listen to your email newsletters in your podcast feed",
+    },
+    colors: {
+      // main: any;
+      theme: "cupcake",
     },
   },
   {
