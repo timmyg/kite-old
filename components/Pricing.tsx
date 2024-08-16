@@ -12,12 +12,11 @@ const Pricing = ({ config }: { config: AppConfig }) => {
         <div className="flex flex-col text-center w-full mb-20">
           <p className="font-medium text-primary mb-8">Pricing</p>
           <h2 className="font-bold text-3xl lg:text-5xl tracking-tight">
-            Sharpen your craft by{" "}
-            <span className="bg-neutral text-neutral-content px-2 md:px-4 ml-1 md:ml-1.5 leading-relaxed whitespace-nowrap">
-              finally
-            </span>{" "}
-            listening to your newsletters
+            {config.stripe.header}
           </h2>
+          <p className="max-w-xl mx-auto text-lg opacity-90 leading-relaxed my-12 md:mb-20">
+            {config.stripe.description}
+          </p>
         </div>
 
         <div className="relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8">

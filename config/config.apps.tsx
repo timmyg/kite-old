@@ -36,6 +36,7 @@ export interface AppConfig {
   id: string;
   domainName: string;
   name: string;
+  title?: string;
   description: string;
   hero: {
     header: ReactElement;
@@ -63,7 +64,8 @@ export interface AppConfig {
     callbackUrl: string;
   };
   stripe?: {
-    // Added stripe property
+    header: string;
+    description: string;
     plans: {
       priceId: string;
       name: string;
@@ -108,7 +110,8 @@ export const sites: AppConfig[] = [
   },
   {
     name: "Kite",
-    description: "Let us validate your startup idea in one week",
+    title: "Validate your startup idea in a week",
+    description: "Validate your startup idea in a week | Kite",
     id: "kite",
     domainName: "kite.wtf",
     hero: {
@@ -121,10 +124,10 @@ export const sites: AppConfig[] = [
         </h1>
       ),
       description:
-        "Answer a few questions and we'll strategically validate whether your startup idea is worth pursuing",
+        "Share your vision, and we'll test it by posting on Reddit and running ad campaigns to gather real feedback",
     },
     oldWay: {
-      header: "99% of innovative ideas fail due to unknown unknowns",
+      header: "99% of innovative ideas fail due to inaction",
       description: "Navigating the uncertainty of new markets is daunting",
       steps: [
         {
@@ -133,7 +136,7 @@ export const sites: AppConfig[] = [
         },
         {
           icon: "🤔",
-          text: "Struggle to identify potential challenges or validate assumptions",
+          text: "Struggle to validate assumptions",
         },
         {
           icon: "🤷‍♂️",
@@ -143,6 +146,9 @@ export const sites: AppConfig[] = [
     },
     stripe: {
       // Added pricing configuration
+      header: "Validate Your Idea with a Single Payment",
+      description:
+        "Get all the insights, research, and validation you need to move forward with confidence. One straightforward payment, no ongoing fees.",
       plans: [
         {
           priceId: "price_1Hh1XYZ123456789", // Example price ID

@@ -28,9 +28,7 @@ export const viewport: Viewport = {
 // export const metadata = getSEOTags({ config: getAppConfig() });
 export async function generateMetadata() {
   const config = getAppConfig();
-  const seo = getSEOTags({ config });
-  // console.log("SEO", JSON.stringify(seo, null, 2));
-  return seo;
+  return getSEOTags({ config });
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

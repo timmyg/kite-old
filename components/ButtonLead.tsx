@@ -181,7 +181,7 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
         )}
       </button>
       <p className="text-sm md:text-base flex justify-center items-center gap-2 md:text-sm">
-        🚀 Launching in Feburary
+        🚀 Public Launch in November
       </p>
     </form>
   );

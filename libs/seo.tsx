@@ -20,10 +20,10 @@ export const getSEOTags = ({
   extraTags?: Record<string, any>;
   config?: AppConfig;
 } = {}): Metadata => {
-  // console.log("SEO");
+  console.log("SEO", description);
   return {
     // up to 50 characters (what does your app do for the user?) > your main should be here
-    title: title || config?.name,
+    title: title || config?.title || config?.name,
     // up to 160 characters (how does your app help the user?)
     description: description || config?.description,
     // some keywords separated by commas. by default it will be your app name
