@@ -1,7 +1,6 @@
-import CTA from "@/components/CTA";
+import { CTA } from "@/components/CTA";
 import { FAQItemProps } from "@/components/FAQ";
 import { StaticImageData } from "next/image";
-import Link from "next/link";
 import { ReactElement } from "react";
 export type Theme =
   | "light"
