@@ -17,7 +17,7 @@ export const getAppConfig = (): AppConfig => {
     (site) => site.domainName.split(".")?.[0] === domainName
   );
   if (!site) {
-    throw new Error(`Site not found: ${{ domainName, host }}`);
+    throw new Error(`Site not found: ${domainName}, ${host}`);
   }
   return { ...platformConfig, ...site };
 };

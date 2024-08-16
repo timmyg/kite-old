@@ -2,7 +2,13 @@ import { AppConfig } from "@/config/config.apps";
 import Image from "next/image";
 import Link from "next/link";
 
-const CTA = ({ config }: { config: AppConfig }) => {
+export interface CTA {
+  header: string;
+  description: string;
+  buttonText: string;
+}
+
+const CallToAction = ({ config }: { config: AppConfig }) => {
   return (
     <section className="relative hero overflow-hidden min-h-screen">
       <Image
@@ -15,14 +21,14 @@ const CTA = ({ config }: { config: AppConfig }) => {
       <div className="relative hero-content text-center text-neutral-content p-8">
         <div className="flex flex-col items-center max-w-xl p-8 md:p-0">
           <h2 className="font-bold text-3xl md:text-5xl tracking-tight mb-8 md:mb-12">
-            Supercharge your curiosity
+            {config.cta.header}
           </h2>
           <p className="text-lg opacity-80 mb-12 md:mb-16">
-            Listen to your newsletters as part of your regular podcast routine
+            {config.cta.description}
           </p>
 
           <Link className="btn btn-primary btn-wide" href="/#hero">
-            Get {config.name}
+            {config.cta.buttonText}
           </Link>
         </div>
       </div>
@@ -30,4 +36,4 @@ const CTA = ({ config }: { config: AppConfig }) => {
   );
 };
 
-export default CTA;
+export default CallToAction;

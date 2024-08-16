@@ -1,46 +1,17 @@
-import { AppConfig } from "@/config/config.apps";
+import { AppConfig, Testimonial } from "@/config/config.apps";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 
-// The list of your testimonials. It needs 3 items to fill the row.
-const list: {
-  username?: string;
-  name: string;
-  text: string;
-  img?: string | StaticImageData;
-}[] = [
-  {
-    // Optional, use for social media like Twitter. Does not link anywhere but cool to display
-    // username: "marclou",
-    // REQUIRED
-    name: "Charles Palmer",
-    // REQUIRED
-    text: "Podletter has transformed my daily commute! I can now catch up on all my newsletters without having to read them. It's like having my own personal news radio!",
-    // Optional, a statically imported image (usually from your public folder—recommended) or a link to the person's avatar. Shows a fallback letter if not provided
-    img: "/testimonials/charles.jpg",
-  },
-  {
-    // username: "the_mcnaveen",
-    name: "Matthew Green",
-    text: "I found it hard to keep up with all the newsletters I subscribe to. Podletter has been a game-changer, turning my unread newsletters into podcasts that I can listen to while I workout.",
-    img: "/testimonials/matthew.jpg",
-  },
-  {
-    // username: "wahab",
-    name: "Jessica Jones",
-    text: "Podletter is a fantastic tool for lifelong learners! It's helped me stay updated with my favorite newsletters in a convenient and enjoyable way. Highly recommended!",
-    img: "/testimonials/jessica.jpg",
-  },
-];
-
 // A single testimonial, to be rendered in  a list
-const Testimonial = ({ i }: { i: number }) => {
-  const testimonial = list[i];
-
-  if (!testimonial) return null;
-
+const TestimonialItem = ({
+  testimonial,
+  index,
+}: {
+  testimonial: Testimonial;
+  index: number;
+}) => {
   return (
-    <li key={i}>
+    <li key={index}>
       <figure className="relative max-w-lg h-full p-6 md:p-10 bg-base-200 rounded-2xl max-md:text-sm flex flex-col">
         <blockquote className="relative flex-1">
           <p className="text-base-content/80 leading-relaxed">
@@ -64,7 +35,7 @@ const Testimonial = ({ i }: { i: number }) => {
               {testimonial.img ? (
                 <Image
                   className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
-                  src={list[i].img}
+                  src={testimonial.img}
                   alt={`hi`}
                   width={48}
                   height={48}
@@ -89,12 +60,11 @@ const Testimonials3 = ({ config }: { config: AppConfig }) => {
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
             <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
-              Podcast enthusiasts are addicted to {config.name}
+              {config.testimonials.header}
             </h2>
           </div>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
-            Don&apos;t take our word for it. Here&apos;s what they have to say
-            about it.
+            {config.testimonials.description}
           </p>
         </div>
 
@@ -102,8 +72,8 @@ const Testimonials3 = ({ config }: { config: AppConfig }) => {
           role="list"
           className="flex flex-col items-center lg:flex-row lg:items-stretch gap-6 lg:gap-8"
         >
-          {[...Array(3)].map((e, i) => (
-            <Testimonial key={i} i={i} />
+          {config.testimonials.items.map((t, i) => (
+            <TestimonialItem key={i} testimonial={t} index={i} />
           ))}
         </ul>
       </div>

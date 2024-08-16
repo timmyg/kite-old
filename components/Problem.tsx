@@ -46,22 +46,29 @@ const Problem = ({ config }: { config: AppConfig }) => {
     <section className="bg-neutral text-neutral-content">
       <div className="max-w-7xl mx-auto px-8 py-16 md:py-32 text-center">
         <h2 className="max-w-3xl mx-auto font-extrabold text-4xl md:text-5xl tracking-tight mb-6 md:mb-8">
-          92% of newsletters go unread
+          {config.oldWay.header}
         </h2>
         <p className="max-w-xl mx-auto text-lg opacity-90 leading-relaxed mb-12 md:mb-20">
-          Finding the time and focus to read newsletters is hard
+          {config.oldWay.description}
         </p>
 
         <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6">
-          <Step emoji="🤩" text="Subscribe to a new newsletter" />
-
-          <Arrow extraStyle="max-md:-scale-x-100 md:-rotate-90" />
-
-          <Step emoji="🤓" text="Read the first one, the rest get buried" />
-
-          <Arrow extraStyle="md:-scale-x-100 md:-rotate-90" />
-
-          <Step emoji="😵" text="Stop reading altogether" />
+          {config.oldWay.steps.map((step, index) => {
+            return (
+              <>
+                <Step emoji={step.icon} text={step.text} />
+                {index < config.oldWay.steps.length - 1 && (
+                  <Arrow
+                    extraStyle={
+                      index % 2 === 0
+                        ? "max-md:-scale-x-100 md:-rotate-90"
+                        : "md:-scale-x-100 md:-rotate-90"
+                    }
+                  />
+                )}
+              </>
+            );
+          })}
         </div>
       </div>
     </section>
